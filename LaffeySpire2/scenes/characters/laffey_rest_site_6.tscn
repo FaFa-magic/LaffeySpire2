@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://LaffeySpire2/scenes/characters/laffey_rest_site.tscn" id="1_base"]
+[ext_resource type="SpineSkeletonDataResource" path="res://LaffeySpire2/animations/characters/Laffey/lafei_6_spine.tres" id="2_spine"]
+
+[node name="LaffeyRestSiteSix" instance=ExtResource("1_base")]
+
+[node name="SpineSprite" parent="." index="0"]
+skeleton_data_res = ExtResource("2_spine")
+
+[editable path="SpineSprite"]

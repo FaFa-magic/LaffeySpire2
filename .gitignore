@@ -1,0 +1,16 @@
+bin/
+/temp/
+obj/
+/*cache/
+.godot/editor/
+.godot/imported/
+.godot/mono/
+.godot/shader_cache/
+.idea/
+.vscode/
+.vs/
+*.suo
+*.user
+/packages/
+riderModule.iml
+/_ReSharper.Caches/

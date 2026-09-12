@@ -1,0 +1,7 @@
+{
+  "LAFFEY_SPIRE2_CARD_STRIKE.title": "打击",
+  "LAFFEY_SPIRE2_CARD_STRIKE.description": "造成{Damage:diff()}点伤害。",
+  "LAFFEY_SPIRE2_CARD_DEFEND.title": "防御",
+  "LAFFEY_SPIRE2_CARD_DEFEND.description": "获得{Block:diff()}点[gold]格挡[/gold]。"
+}
+

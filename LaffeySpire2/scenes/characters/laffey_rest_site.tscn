@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="SpineSkeletonDataResource" path="res://LaffeySpire2/animations/characters/Laffey/lafei_spine.tres" id="1_spine"]
+[ext_resource type="Script" path="res://LaffeySpire2Code/Nodes/LaffeyRestSiteCharacter.cs" id="2_script"]
+
+[node name="LaffeyRestSite" type="Node2D"]
+script = ExtResource("2_script")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_spine")
+preview_skin = "default"
+preview_animation = "sleep"
+preview_frame = false
+preview_time = 0.0
+scale = Vector2(1, 1)
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SelectionReticle" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -210.0
+offset_top = -390.0
+offset_right = 210.0
+offset_bottom = 25.0
+
+[node name="Hitbox" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -210.0
+offset_top = -410.0
+offset_right = 210.0
+offset_bottom = 25.0
+
+[node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -180.0
+offset_top = -300.0
+offset_right = -180.0
+offset_bottom = -300.0
+
+[node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 180.0
+offset_top = -300.0
+offset_right = 180.0
+offset_bottom = -300.0

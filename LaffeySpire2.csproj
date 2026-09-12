@@ -1,0 +1,118 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1" InitialTargets="CheckDependencyPaths">
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DefaultItemExcludes>packages/**</DefaultItemExcludes>
+        <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
+        <PathMap>$(AppOutputBase)=.\</PathMap>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsWindows>false</IsWindows>
+        <IsLinux>false</IsLinux>
+        <IsOSX>false</IsOSX>
+        <IsWindows Condition="$([MSBuild]::IsOSPlatform('Windows'))">true</IsWindows>
+        <IsLinux Condition="$([MSBuild]::IsOSPlatform('Linux'))">true</IsLinux>
+        <IsOSX Condition="$([MSBuild]::IsOSPlatform('OSX'))">true</IsOSX>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(IsWindows)' == 'true'">
+        <AutoSteamPath>$(registry:HKEY_CURRENT_USER\Software\Valve\Steam@SteamPath)\steamapps</AutoSteamPath>
+        <SteamLibraryPath Condition="Exists('$(AutoSteamPath)/common/Slay the Spire 2')">$(AutoSteamPath)</SteamLibraryPath>
+        <SteamLibraryPath Condition="'$(SteamLibraryPath)' == ''">D:/STEAM/steamapps</SteamLibraryPath>
+        <Sts2Path>$(SteamLibraryPath)/common/Slay the Spire 2</Sts2Path>
+        <ModsPath>$(Sts2Path)/mods/</ModsPath>
+        <Sts2DataDir>$(Sts2Path)/data_sts2_windows_x86_64</Sts2DataDir>
+        <GodotPath>D:/Godot/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe</GodotPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(IsLinux)' == 'true'">
+        <SteamLibraryPath>$(HOME)/.local/share/Steam/steamapps</SteamLibraryPath>
+        <GodotPath>$(SteamLibraryPath)/common/Godot Engine/godot.x11.opt.tools.64</GodotPath>
+        <Sts2Path>$(SteamLibraryPath)/common/Slay the Spire 2</Sts2Path>
+        <ModsPath>$(Sts2Path)/mods/</ModsPath>
+        <Sts2DataDir>$(Sts2Path)/data_sts2_linuxbsd_x86_64</Sts2DataDir>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(IsOSX)' == 'true'">
+        <SteamLibraryPath>$(HOME)/Library/Application Support/Steam/steamapps</SteamLibraryPath>
+        <GodotPath>$(HOME)/Applications/Godot_mono.app/Contents/MacOS/Godot</GodotPath>
+        <Sts2Path>$(SteamLibraryPath)/common/Slay the Spire 2</Sts2Path>
+        <ModsPath>$(Sts2Path)/SlayTheSpire2.app/Contents/MacOS/mods/</ModsPath>
+        <Sts2DataDir>$(Sts2Path)/SlayTheSpire2.app/Contents/Resources/data_sts2_macos_x86_64</Sts2DataDir>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RitsuLibDeployDir>$(ModsPath)STS2-RitsuLib/</RitsuLibDeployDir>
+        <NoWarn>$(NoWarn);MSB3270</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup Condition="Exists('$(Sts2DataDir)')">
+        <Reference Include="0Harmony">
+            <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="sts2">
+            <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="STS2.RitsuLib" Version="0.5.20" PrivateAssets="All" GeneratePathProperty="true" />
+        <AdditionalFiles Include="LaffeySpire2/localization/**/*.json"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="materials/**" />
+        <Compile Remove="shaders/**" />
+        <Compile Remove="images/**" />
+        <Compile Remove="LaffeySpire2/images/**" />
+        <Compile Remove="LaffeySpire2/scenes/**" />
+        <Compile Remove="LaffeySpire2/materials/**" />
+        <Compile Remove="LaffeySpire2/shaders/**" />
+        <EmbeddedResource Remove="LaffeySpire2/**" />
+        <EmbeddedResource Remove="materials/**" />
+        <EmbeddedResource Remove="shaders/**" />
+        <EmbeddedResource Remove="images/**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include=".gitignore"/>
+        <None Include="LaffeySpire2.json" />
+        <None Include="project.godot"/>
+        <None Include="LaffeySpire2/**"/>
+    </ItemGroup>
+
+    <Target Name="CheckDependencyPaths">
+        <Error Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')"/>
+        <Error Text=" Godot not found at path '$(GodotPath)'" Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')"/>
+    </Target>
+
+    <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
+        <Message Text="Copying .dll and manifest to mods folder." Importance="high"/>
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy SourceFiles="LaffeySpire2.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+    </Target>
+
+    <Target Name="DeployRitsuLibToMods" AfterTargets="PostBuildEvent" Condition="'$(RitsuLibDeployDir)' != ''">
+        <ItemGroup>
+            <RitsuLibDll Include="$(PkgSTS2_RitsuLib)\lib\net9.0\STS2-RitsuLib.dll" Condition="Exists('$(PkgSTS2_RitsuLib)\lib\net9.0\STS2-RitsuLib.dll')" />
+            <RitsuLibManifest Include="$(PkgSTS2_RitsuLib)\content\mod_manifest.json" Condition="Exists('$(PkgSTS2_RitsuLib)\content\mod_manifest.json')" />
+        </ItemGroup>
+        <Copy SourceFiles="@(RitsuLibDll)" DestinationFolder="$(RitsuLibDeployDir)" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(RitsuLibManifest)" DestinationFolder="$(RitsuLibDeployDir)" SkipUnchangedFiles="true" />
+    </Target>
+
+    <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
+        <Message Text="Exporting Godot .pck to mods folder" Importance="high"/>
+        <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;Windows Desktop&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue"/>
+    </Target>
+
+    <Target Name="GodotPublishSkipped" AfterTargets="Publish" Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')">
+        <Message Text="Skipping Godot .pck export because GodotPath is not configured." Importance="high"/>
+    </Target>
+</Project>
+
