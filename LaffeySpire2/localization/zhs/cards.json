@@ -1,7 +1,20 @@
 {
+  "LAFFEY_SPIRE2_CARD_BARRAGE.title": "弹幕",
+  "LAFFEY_SPIRE2_CARD_BARRAGE.description": "随机对敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。",
+  "LAFFEY_SPIRE2_CARD_DEFEND.title": "防御",
+  "LAFFEY_SPIRE2_CARD_DEFEND.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
   "LAFFEY_SPIRE2_CARD_STRIKE.title": "打击",
   "LAFFEY_SPIRE2_CARD_STRIKE.description": "造成{Damage:diff()}点伤害。",
-  "LAFFEY_SPIRE2_CARD_DEFEND.title": "防御",
-  "LAFFEY_SPIRE2_CARD_DEFEND.description": "获得{Block:diff()}点[gold]格挡[/gold]。"
+  "LAFFEY_SPIRE2_CARD_DEEP_SLEEP.title": "深度睡眠",
+  "LAFFEY_SPIRE2_CARD_DEEP_SLEEP.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n下个回合少抽{Cards:diff()}张牌。",
+  "LAFFEY_SPIRE2_CARD_GROW_UP.title": "成长",
+  "LAFFEY_SPIRE2_CARD_GROW_UP.description": "每当你完全失去一种负面状态时，获得{GrowUp:diff()}层[gold]力量[/gold]。",
+  "LAFFEY_SPIRE2_CARD_TRAPPED_IN_THE_ENEMY.title": "深陷敌围",
+  "LAFFEY_SPIRE2_CARD_TRAPPED_IN_THE_ENEMY.description": "给予自己与所有敌人{VulnerablePower:diff()}层[gold]易伤[/gold]。\n你身上的[gold]易伤[/gold]也会等量增加造成的攻击伤害。",
+  "LAFFEY_SPIRE2_CARD_SOLOMON.title": "所罗门",
+  "LAFFEY_SPIRE2_CARD_SOLOMON.description": "获得{SolomonsWarGodPower:diff()}层[gold]所罗门的战神[/gold]。",
+  "LAFFEY_SPIRE2_CARD_SWEET_DREAM.title": "美梦",
+  "LAFFEY_SPIRE2_CARD_SWEET_DREAM.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n你所有负面能力的层数降至最多[blue]1[/blue]层。",
+  "LAFFEY_SPIRE2_CARD_WAR_GOD_FORM.title": "战神形态",
+  "LAFFEY_SPIRE2_CARD_WAR_GOD_FORM.description": "你的所有牌都获得[gold]开幕[/gold]。"
 }
-

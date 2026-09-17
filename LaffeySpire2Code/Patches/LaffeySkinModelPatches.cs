@@ -1,6 +1,7 @@
-using System.Reflection.Emit;
 using HarmonyLib;
 using LaffeySpire2.LaffeySpire2Code.Characters;
+using MegaCrit.Sts2.Core.Entities.Ancients;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.GameOverScreen;
 using MegaCrit.Sts2.Core.Saves;
@@ -74,6 +75,24 @@ public sealed class LaffeySharedProgressionLookupPatch : IPatchMethod
 	}
 }
 
+public sealed class LaffeySkinAncientDialogueLookupPatch : IPatchMethod
+{
+	public static string PatchId => "laffey_skin_ancient_dialogue_lookup";
+	public static string Description => "Use base Laffey dialogue for every Laffey skin variant";
+	public static bool IsCritical => true;
+	public static ModPatchTarget[] GetTargets() =>
+	[
+		new(typeof(AncientDialogueSet), nameof(AncientDialogueSet.GetValidDialogues),
+			[typeof(ModelId), typeof(int), typeof(int), typeof(bool)])
+	];
+
+	[HarmonyPrefix]
+	public static void Prefix(ref ModelId characterId)
+	{
+		characterId = LaffeySharedProgression.GetProgressionId(characterId);
+	}
+}
+
 public sealed class LaffeySharedGameOverProgressionPatch : IPatchMethod
 {
 	public static string PatchId => "laffey_skin_shared_game_over_progression";
@@ -84,27 +103,52 @@ public sealed class LaffeySharedGameOverProgressionPatch : IPatchMethod
 		new(typeof(NGameOverScreen), "SaveBadgesToProgress", null)
 	];
 
-	[HarmonyTranspiler]
-	public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+	[HarmonyPrefix]
+	[HarmonyPriority(Priority.First)]
+	public static void Prefix(Player ____localPlayer, out IDisposable? __state)
 	{
-		var characterIdGetter = AccessTools.PropertyGetter(typeof(AbstractModel), nameof(AbstractModel.Id));
-		var progressionMapper = AccessTools.DeclaredMethod(
-			typeof(LaffeySharedProgression),
-			nameof(LaffeySharedProgression.GetProgressionId));
-		var mapped = false;
-
-		foreach (var instruction in instructions)
+		__state = null;
+		ModelId skinId = ____localPlayer.Character.Id;
+		ModelId progressionId = LaffeySharedProgression.GetProgressionId(skinId);
+		if (skinId == progressionId)
 		{
-			yield return instruction;
-
-			if (instruction.Calls(characterIdGetter))
-			{
-				mapped = true;
-				yield return new CodeInstruction(OpCodes.Call, progressionMapper);
-			}
+			return;
 		}
 
-		if (!mapped)
-			MainFile.Logger.Error("Unable to patch the game-over Laffey skin progression lookup.");
+		ProgressState progress = SaveManager.Instance.Progress;
+		if (progress.CharacterStats is not IDictionary<ModelId, CharacterStats> characterStats)
+		{
+			throw new InvalidOperationException(
+				"The game-over progression dictionary is not mutable; Laffey cannot install its scoped skin alias.");
+		}
+
+		CharacterStats sharedStats = progress.GetOrCreateCharacterStats(progressionId);
+		bool hadPrevious = characterStats.TryGetValue(skinId, out CharacterStats? previous);
+		characterStats[skinId] = sharedStats;
+		__state = new CharacterStatsAliasLease(characterStats, skinId, hadPrevious, previous);
+	}
+
+	public static void Finalizer(IDisposable? __state)
+	{
+		__state?.Dispose();
+	}
+
+	private sealed class CharacterStatsAliasLease(
+		IDictionary<ModelId, CharacterStats> characterStats,
+		ModelId skinId,
+		bool hadPrevious,
+		CharacterStats? previous) : IDisposable
+	{
+		public void Dispose()
+		{
+			if (hadPrevious)
+			{
+				characterStats[skinId] = previous!;
+			}
+			else
+			{
+				characterStats.Remove(skinId);
+			}
+		}
 	}
 }

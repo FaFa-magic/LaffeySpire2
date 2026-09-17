@@ -1,4 +1,15 @@
 {
+  "LAFFEY_SPIRE2_POWER_DEEP_SLEEP_POWER.title": "深度睡眠",
+  "LAFFEY_SPIRE2_POWER_DEEP_SLEEP_POWER.description": "在你的下回合开始时，少抽[blue]1[/blue]张牌。",
+  "LAFFEY_SPIRE2_POWER_DEEP_SLEEP_POWER.smartDescription": "在你的下回合开始时，少抽[blue]{Amount}[/blue]张牌。",
+  "LAFFEY_SPIRE2_POWER_GROW_UP_POWER.title": "成长",
+  "LAFFEY_SPIRE2_POWER_GROW_UP_POWER.description": "每当你完全失去一种负面状态时，获得[blue]1[/blue]点[gold]力量[/gold]。",
+  "LAFFEY_SPIRE2_POWER_GROW_UP_POWER.smartDescription": "每当你完全失去一种负面状态时，获得[blue]{Amount}[/blue]点[gold]力量[/gold]。",
+  "LAFFEY_SPIRE2_POWER_TRAPPED_IN_THE_ENEMY_POWER.title": "深陷敌围",
+  "LAFFEY_SPIRE2_POWER_TRAPPED_IN_THE_ENEMY_POWER.description": "你身上的[gold]易伤[/gold]也会等量增加你造成的攻击伤害。",
+  "LAFFEY_SPIRE2_POWER_TRAPPED_IN_THE_ENEMY_POWER.vulnerableSmartDescription": "[blue]{Amount}[/blue]回合内，受到和造成的攻击伤害均增加[blue]{DamageIncrease:percentMore()}%[/blue]。",
+  "LAFFEY_SPIRE2_POWER_WAR_GOD_FORM_POWER.title": "战神形态",
+  "LAFFEY_SPIRE2_POWER_WAR_GOD_FORM_POWER.description": "你的所有牌都获得[gold]开幕[/gold]。",
   "LAFFEY_SPIRE2_POWER_SOLOMONS_WAR_GOD_POWER.title": "所罗门的战神",
   "LAFFEY_SPIRE2_POWER_SOLOMONS_WAR_GOD_POWER.description": "本回合结束后，保留你的格挡与手牌，获得一个不重置能量且不抽牌的额外回合。",
   "LAFFEY_SPIRE2_POWER_SOLOMONS_WAR_GOD_POWER.smartDescription": "接下来的[blue]{Amount}[/blue]个回合结束后，保留你的格挡与手牌，获得一个不重置能量且不抽牌的额外回合。"

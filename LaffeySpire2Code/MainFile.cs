@@ -28,6 +28,7 @@ public static class MainFile
 		ModPatcher patcher = RitsuLibFramework.CreatePatcher(ModId, "laffey_patches");
 		patcher.RegisterPatch<LaffeySkinEnumerationPatch>();
 		patcher.RegisterPatch<LaffeySharedProgressionLookupPatch>();
+		patcher.RegisterPatch<LaffeySkinAncientDialogueLookupPatch>();
 		patcher.RegisterPatch<LaffeySharedGameOverProgressionPatch>();
 		patcher.RegisterPatch<LaffeySkinSelectPatch>();
 		patcher.RegisterPatch<LaffeySkinSelectEmbarkPatch>();
