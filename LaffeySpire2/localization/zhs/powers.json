@@ -12,5 +12,8 @@
   "LAFFEY_SPIRE2_POWER_WAR_GOD_FORM_POWER.description": "你的所有牌都获得[gold]开幕[/gold]。",
   "LAFFEY_SPIRE2_POWER_SOLOMONS_WAR_GOD_POWER.title": "所罗门的战神",
   "LAFFEY_SPIRE2_POWER_SOLOMONS_WAR_GOD_POWER.description": "本回合结束后，保留你的格挡与手牌，获得一个不重置能量且不抽牌的额外回合。",
-  "LAFFEY_SPIRE2_POWER_SOLOMONS_WAR_GOD_POWER.smartDescription": "接下来的[blue]{Amount}[/blue]个回合结束后，保留你的格挡与手牌，获得一个不重置能量且不抽牌的额外回合。"
+  "LAFFEY_SPIRE2_POWER_SOLOMONS_WAR_GOD_POWER.smartDescription": "接下来的[blue]{Amount}[/blue]个回合结束后，保留你的格挡与手牌，获得一个不重置能量且不抽牌的额外回合。",
+  "LAFFEY_SPIRE2_POWER_SLEEPWALKING_TACTICS_POWER.title": "梦游战术",
+  "LAFFEY_SPIRE2_POWER_SLEEPWALKING_TACTICS_POWER.description": "每回合开始时，失去[blue]1[/blue]点能量。每回合第一张牌可以免费打出。",
+  "LAFFEY_SPIRE2_POWER_SLEEPWALKING_TACTICS_POWER.smartDescription": "每回合开始时，失去[blue]{Amount}[/blue]点能量。每回合前[blue]{Amount}[/blue]张牌可以免费打出。"
 }

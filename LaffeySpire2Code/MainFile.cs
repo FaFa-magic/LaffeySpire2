@@ -1,5 +1,6 @@
 using System.Reflection;
 using LaffeySpire2.LaffeySpire2Code.Patches;
+using LaffeySpire2.LaffeySpire2Code.Patchwork;
 using LaffeySpire2.LaffeySpire2Code.Relics;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
@@ -24,6 +25,12 @@ public static class MainFile
 		ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
 		RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
 		RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<LaffeyPillow, HuggyPillowOfBravery>();
+		RitsuLibFramework.RegisterArchaicToothTranscendenceMapping<
+			Cards.Basic.Strike,
+			MegaCrit.Sts2.Core.Models.Cards.Break>(ModId);
+		PatchworkBoard.Register();
+		PatchworkPieceReward.Register();
+		PatchworkActions.Register();
 
 		ModPatcher patcher = RitsuLibFramework.CreatePatcher(ModId, "laffey_patches");
 		patcher.RegisterPatch<LaffeySkinEnumerationPatch>();
@@ -34,6 +41,12 @@ public static class MainFile
 		patcher.RegisterPatch<LaffeySkinSelectEmbarkPatch>();
 		patcher.RegisterPatch<LaffeySkinSelectUnreadyPatch>();
 		patcher.RegisterPatch<LaffeyCombatSpineIdleBootstrapPatch>();
+		patcher.RegisterPatch<PatchworkCombatStartPatch>();
+		patcher.RegisterPatch<PatchworkRewardPatch>();
+		patcher.RegisterPatch<PatchworkDrawPatch>();
+		patcher.RegisterPatch<PatchworkEnergyPatch>();
+		patcher.RegisterPatch<PatchworkShopPatch>();
+		patcher.RegisterPatch<PatchworkAncientFallbackPatch>();
 
 		if (!patcher.PatchAll())
 			throw new InvalidOperationException("Critical patches failed.");

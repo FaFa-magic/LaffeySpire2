@@ -16,5 +16,9 @@
   "LAFFEY_SPIRE2_CARD_SWEET_DREAM.title": "美梦",
   "LAFFEY_SPIRE2_CARD_SWEET_DREAM.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n你所有负面能力的层数降至最多[blue]1[/blue]层。",
   "LAFFEY_SPIRE2_CARD_WAR_GOD_FORM.title": "战神形态",
-  "LAFFEY_SPIRE2_CARD_WAR_GOD_FORM.description": "你的所有牌都获得[gold]开幕[/gold]。"
+  "LAFFEY_SPIRE2_CARD_WAR_GOD_FORM.description": "你的所有牌都获得[gold]开幕[/gold]。",
+  "LAFFEY_SPIRE2_CARD_EMERGENCY_REVEILLE.title": "紧急起床号",
+  "LAFFEY_SPIRE2_CARD_EMERGENCY_REVEILLE.description": "打出你手牌中的所有牌。\n结束你的回合。",
+  "LAFFEY_SPIRE2_CARD_SLEEPWALKING_TACTICS.title": "梦游战术",
+  "LAFFEY_SPIRE2_CARD_SLEEPWALKING_TACTICS.description": "每回合开始时，失去[blue]1[/blue]点能量。\n每回合第一张牌可以免费打出。"
 }

@@ -1,0 +1,5 @@
+{
+  "LAFFEY_SPIRE2_POWER_SLEEPWALKING_TACTICS_POWER.title": "Sleepwalking Tactics",
+  "LAFFEY_SPIRE2_POWER_SLEEPWALKING_TACTICS_POWER.description": "At the start of each turn, lose [blue]1[/blue] Energy. The first card you play each turn is free.",
+  "LAFFEY_SPIRE2_POWER_SLEEPWALKING_TACTICS_POWER.smartDescription": "At the start of each turn, lose [blue]{Amount}[/blue] Energy. The first [blue]{Amount}[/blue] cards you play each turn are free."
+}
