@@ -8,7 +8,7 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace LaffeySpire2.LaffeySpire2Code.Cards.Basic;
 
-[RegisterCharacterStarterCard(typeof(LaffeyCharacter), 5, Order = 1)]
+[RegisterCharacterStarterCard(typeof(LaffeyCharacter), 4, Order = 1)]
 public sealed class Defend() : LaffeyCardModel(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
 	public override bool GainsBlock => true;
@@ -23,4 +23,3 @@ public sealed class Defend() : LaffeyCardModel(1, CardType.Skill, CardRarity.Bas
 
 	protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(3M);
 }
-

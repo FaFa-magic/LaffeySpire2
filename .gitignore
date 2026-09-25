@@ -2,10 +2,8 @@ bin/
 /temp/
 obj/
 /*cache/
-.godot/editor/
-.godot/imported/
-.godot/mono/
-.godot/shader_cache/
+.godot/
+
 .idea/
 .vscode/
 .vs/
