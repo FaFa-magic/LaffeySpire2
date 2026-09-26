@@ -1,5 +1,7 @@
 using System.Text.Json;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
+using MegaCrit.Sts2.Core.GameActions;
 using MegaCrit.Sts2.Core.Entities.Gold;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -7,13 +9,15 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Multiplayer.Game;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using STS2RitsuLib.Networking.ManagedActions;
 
 namespace LaffeySpire2.LaffeySpire2Code.Patchwork;
 
-public sealed record PatchworkActionPayload(int Kind, int PieceId, int X, int Y, int Rotation, bool Flipped, int AncientChoice);
+public sealed record PatchworkActionPayload(int Kind, int PieceId, int X, int Y, int Rotation, bool Flipped, int AncientChoice,
+	int PlacementIndex = -1, PatchworkPlacement? OriginalPlacement = null, string? ShopId = null);
 
 public static class PatchworkActions
 {
@@ -32,9 +36,14 @@ public static class PatchworkActions
 			new PatchworkActionPayload(0, placement.PieceId, placement.X, placement.Y,
 				placement.Rotation, placement.Flipped, ancientChoice), player.NetId);
 
-	public static bool RequestShopPurchase(Player player) =>
+	public static bool RequestShopPurchase(Player player, string shopKey) =>
 		RitsuLibManagedNetActions.Request(RunManager.Instance, Descriptor,
-			new PatchworkActionPayload(1, 0, 0, 0, 0, false, 0), player.NetId);
+			new PatchworkActionPayload(1, 0, 0, 0, 0, false, 0, ShopId: shopKey), player.NetId);
+
+	public static bool RequestMove(Player player, PatchworkPlacement placement, int index, PatchworkPlacement original, int ancientChoice) =>
+		RitsuLibManagedNetActions.Request(RunManager.Instance, Descriptor,
+			new PatchworkActionPayload(2, placement.PieceId, placement.X, placement.Y, placement.Rotation,
+				placement.Flipped, ancientChoice, index, PatchworkBoard.Copy(original)), player.NetId);
 
 	public static string ShopKey(Player player) =>
 		$"{player.RunState.CurrentActIndex}:{player.RunState.ActFloor}";
@@ -46,10 +55,10 @@ public static class PatchworkActions
 			return;
 		if (context.Message.Kind == 1)
 		{
-			await Purchase(player);
+			await Purchase(player, context.Message.ShopId);
 			return;
 		}
-		if (context.Message.Kind != 0 || player.RunState.CurrentRoom is CombatRoom)
+		if (context.Message.Kind is not (0 or 2) || !PatchworkAccess.CanUse)
 			return;
 		PatchworkPlacement placement = new()
 		{
@@ -60,17 +69,18 @@ public static class PatchworkActions
 			Flipped = context.Message.Flipped
 		};
 		PatchworkSaveData state = PatchworkBoard.Get(player);
-		List<int> squares = PatchworkBoard.NewSquares(state, placement);
-		if (!PatchworkBoard.CanPlace(state, placement))
+		int movingIndex = context.Message.Kind == 2 ? context.Message.PlacementIndex : -1;
+		if (context.Message.Kind == 2 && !PatchworkBoard.MatchesOriginal(state, movingIndex, context.Message.OriginalPlacement))
+			return;
+		List<int> squares = PatchworkBoard.NewSquares(state, placement, movingIndex);
+		if (!PatchworkBoard.CanPlace(state, placement, movingIndex))
 			return;
 		if (squares.Contains(8) && !ValidAncientChoice(player, context.Message.AncientChoice))
 			return;
-		PatchworkBoard.Modify(player, save =>
-		{
-			save.AvailablePieces.Remove(placement.PieceId);
-			save.Placements.Add(placement);
-			save.ClaimedSquares.AddRange(squares);
-		});
+		bool applied = false;
+		PatchworkBoard.Modify(player, save => applied = PatchworkBoard.TryApply(save, placement, out squares,
+			movingIndex, context.Message.OriginalPlacement));
+		if (!applied) return;
 		foreach (int size in squares)
 		{
 			if (size == 7)
@@ -106,19 +116,22 @@ public static class PatchworkActions
 		}
 	}
 
-	private static async Task Purchase(Player player)
+	private static async Task Purchase(Player player, string? shopId)
 	{
-		if (player.RunState.CurrentRoom is not MerchantRoom || player.Gold < 50)
+		if (player.RunState.CurrentRoom is not MerchantRoom room || shopId != ShopKey(player))
 			return;
-		string key = ShopKey(player);
-		PatchworkSaveData state = PatchworkBoard.Get(player);
-		if (state.PurchasedShops.Contains(key) || !PatchworkBoard.HasSpecialStock(state))
+		var inventory = room.Inventories.FirstOrDefault(i => i.Player == player);
+		if (inventory == null || PatchworkShop.GetEntry(inventory) is not { IsStocked: true } entry)
 			return;
-		await PlayerCmd.LoseGold(50, player, GoldLossType.Spent);
-		PatchworkBoard.Modify(player, state =>
+		var synchronizer = RunManager.Instance.PlayerChoiceSynchronizer;
+		uint choiceId = synchronizer.ReserveChoiceId(player);
+		int price;
+		if (LocalContext.IsMe(player) && RunManager.Instance.NetService.Type != NetGameType.Replay)
 		{
-			state.PurchasedShops.Add(key);
-			state.AvailablePieces.Add(0);
-		});
+			price = Math.Max(0, entry.Cost);
+			synchronizer.SyncLocalChoice(player, choiceId, PlayerChoiceResult.FromIndex(price));
+		}
+		else price = (await synchronizer.WaitForRemoteChoice(player, choiceId)).AsIndex();
+		await entry.PurchaseSynchronized(inventory, price);
 	}
 }

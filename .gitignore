@@ -14,3 +14,5 @@ riderModule.iml
 /_ReSharper.Caches/
 /AGENTS.md
 /.verification/
+# Local Patchwork logic and Godot UI verification tools.
+/tests/

@@ -41,19 +41,8 @@ public sealed class PatchworkPieceReward(Player player, int pieceId) : ModCustom
 	{
 		if (TestMode.IsOn || PieceId < 1 || PieceId > 33)
 			return null;
-		IReadOnlyList<(int X, int Y)> cells = PatchworkBoard.Cells(PieceId, 0, false);
-		HashSet<(int, int)> filled = cells.ToHashSet();
-		int width = cells.Max(cell => cell.X) + 1;
-		int height = cells.Max(cell => cell.Y) + 1;
-		Label icon = new()
-		{
-			Text = string.Join("\n", Enumerable.Range(0, height).Select(y =>
-				string.Concat(Enumerable.Range(0, width).Select(x => filled.Contains((x, y)) ? "■" : " ")))),
-			HorizontalAlignment = HorizontalAlignment.Center,
-			VerticalAlignment = VerticalAlignment.Center,
-			MouseFilter = Control.MouseFilterEnum.Ignore
-		};
-		icon.AddThemeFontSizeOverride("font_size", 13);
+		PatchworkPieceView icon = new() { CustomMinimumSize = new Vector2(64, 64), MouseFilter = Control.MouseFilterEnum.Ignore };
+		icon.ShowPiece(PieceId);
 		return icon;
 	}
 

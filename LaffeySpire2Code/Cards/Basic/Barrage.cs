@@ -19,6 +19,8 @@ public sealed class Barrage() : LaffeyCardModel(1, CardType.Attack, CardRarity.B
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
+		ArgumentNullException.ThrowIfNull(CombatState);
+		
 		await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
 			.WithHitCount(DynamicVars.Repeat.IntValue)
 			.FromCard(this, cardPlay)

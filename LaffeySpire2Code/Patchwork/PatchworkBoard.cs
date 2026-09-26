@@ -22,6 +22,8 @@ public sealed class PatchworkSaveData
 
 public static class PatchworkBoard
 {
+	public const int BoardSize = 10;
+	public const int FirstRewardSize = 3;
 	private static readonly string[][] Shapes =
 	[
 		["X"],
@@ -77,65 +79,79 @@ public static class PatchworkBoard
 		return cells.Select(cell => (cell.X - minX, cell.Y - minY)).ToArray();
 	}
 
-	public static bool[,] Occupied(PatchworkSaveData state)
+	public static bool[,] Occupied(PatchworkSaveData state, int movingIndex = -1)
 	{
-		bool[,] occupied = new bool[10, 10];
-		foreach (PatchworkPlacement placement in state.Placements)
+		bool[,] occupied = new bool[BoardSize, BoardSize];
+		foreach (PatchworkPlacement placement in state.Placements.Where((_, index) => index != movingIndex))
 		foreach ((int x, int y) in Cells(placement.PieceId, placement.Rotation, placement.Flipped))
 		{
 			int bx = placement.X + x;
 			int by = placement.Y + y;
-			if (bx is >= 0 and < 10 && by is >= 0 and < 10)
+			if (bx is >= 0 and < BoardSize && by is >= 0 and < BoardSize)
 				occupied[bx, by] = true;
 		}
 		return occupied;
 	}
 
-	public static bool CanPlace(PatchworkSaveData state, PatchworkPlacement placement)
+	public static bool CanPlace(PatchworkSaveData state, PatchworkPlacement placement, int movingIndex = -1)
 	{
-		if (!state.AvailablePieces.Contains(placement.PieceId) || placement.PieceId < 0 || placement.PieceId >= Shapes.Length ||
-			placement.X is < 0 or >= 10 || placement.Y is < 0 or >= 10 || placement.Rotation is < 0 or > 3)
+		if (movingIndex < -1 || movingIndex >= state.Placements.Count ||
+			(movingIndex < 0 ? !state.AvailablePieces.Contains(placement.PieceId) : state.Placements[movingIndex].PieceId != placement.PieceId) ||
+			placement.PieceId < 0 || placement.PieceId >= Shapes.Length ||
+			placement.X is < 0 or >= BoardSize || placement.Y is < 0 or >= BoardSize || placement.Rotation is < 0 or > 3)
 			return false;
-		bool[,] occupied = Occupied(state);
+		bool[,] occupied = Occupied(state, movingIndex);
 		foreach ((int x, int y) in Cells(placement.PieceId, placement.Rotation, placement.Flipped))
 		{
 			int bx = placement.X + x;
 			int by = placement.Y + y;
-			if (bx is < 0 or >= 10 || by is < 0 or >= 10 || occupied[bx, by])
+			if (bx is < 0 or >= BoardSize || by is < 0 or >= BoardSize || occupied[bx, by])
 				return false;
 		}
 		return true;
 	}
 
-	public static List<int> NewSquares(PatchworkSaveData state, PatchworkPlacement placement)
+	public static List<int> NewSquares(PatchworkSaveData state, PatchworkPlacement placement, int movingIndex = -1)
 	{
-		if (!CanPlace(state, placement))
+		if (!CanPlace(state, placement, movingIndex))
 			return [];
-		bool[,] occupied = Occupied(state);
+		bool[,] occupied = Occupied(state, movingIndex);
 		foreach ((int x, int y) in Cells(placement.PieceId, placement.Rotation, placement.Flipped))
 			occupied[placement.X + x, placement.Y + y] = true;
-		List<int> completed = [];
-		for (int size = 3; size <= 10; size++)
+		int largest = PatchworkGeometry.LargestSquare(occupied, FirstRewardSize)?.Size ?? 0;
+		return Enumerable.Range(FirstRewardSize, Math.Max(0, largest - FirstRewardSize + 1))
+			.Where(size => !state.ClaimedSquares.Contains(size)).ToList();
+	}
+
+	public static PatchworkSquare? LargestCompletedSquare(PatchworkSaveData state) =>
+		PatchworkGeometry.LargestSquare(Occupied(state), FirstRewardSize);
+
+	public static PatchworkPlacement Copy(PatchworkPlacement placement) => new()
+	{
+		PieceId = placement.PieceId, X = placement.X, Y = placement.Y,
+		Rotation = placement.Rotation, Flipped = placement.Flipped
+	};
+	public static bool Matches(PatchworkPlacement a, PatchworkPlacement b) =>
+		a.PieceId == b.PieceId && a.X == b.X && a.Y == b.Y && a.Rotation == b.Rotation && a.Flipped == b.Flipped;
+	public static bool MatchesOriginal(PatchworkSaveData state, int index, PatchworkPlacement? original) =>
+		index >= 0 && index < state.Placements.Count && original != null && Matches(state.Placements[index], original);
+
+	/// <summary>Deterministic commit shared by the network executor and the standalone preview.</summary>
+	public static bool TryApply(PatchworkSaveData state, PatchworkPlacement placement, out List<int> rewards,
+		int movingIndex = -1, PatchworkPlacement? original = null)
+	{
+		rewards = [];
+		if (!CanPlace(state, placement, movingIndex) ||
+			(movingIndex >= 0 && (!MatchesOriginal(state, movingIndex, original) || Matches(placement, original!)))) return false;
+		rewards = NewSquares(state, placement, movingIndex);
+		if (movingIndex < 0)
 		{
-			if (state.ClaimedSquares.Contains(size))
-				continue;
-			bool found = false;
-			for (int y = 0; y <= 10 - size && !found; y++)
-			for (int x = 0; x <= 10 - size && !found; x++)
-			{
-				found = true;
-				for (int dy = 0; dy < size && found; dy++)
-				for (int dx = 0; dx < size; dx++)
-					if (!occupied[x + dx, y + dy])
-					{
-						found = false;
-						break;
-					}
-			}
-			if (found)
-				completed.Add(size);
+			state.AvailablePieces.Remove(placement.PieceId);
+			state.Placements.Add(Copy(placement));
 		}
-		return completed;
+		else state.Placements[movingIndex] = Copy(placement);
+		state.ClaimedSquares.AddRange(rewards);
+		return true;
 	}
 
 	public static int RandomUnclaimedPiece(Player player)

@@ -1,0 +1,253 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkScreen.cs" id="1_screen"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/workbench-v2.png" id="2_bg"]
+[ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkBoardView.cs" id="3_board"]
+[ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkPieceView.cs" id="4_piece"]
+[ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkWiringView.cs" id="5_wiring"]
+
+[node name="PatchworkScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_screen")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.015, 0.03, 0.055, 0.23)
+
+[node name="Workspace" type="Control" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1680.0
+offset_bottom = 1000.0
+
+
+[node name="Title" type="Label" parent="Workspace"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 140.0
+offset_right = 1630.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 26
+metadata/loc = "TITLE"
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+horizontal_alignment = 1
+
+[node name="BoardHeading" type="Label" parent="Workspace"]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 180.0
+offset_right = 1190.0
+offset_bottom = 208.0
+theme_override_font_sizes/font_size = 20
+metadata/loc = "BOARD"
+horizontal_alignment = 1
+
+[node name="Board" type="Control" parent="Workspace"]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 210.0
+offset_right = 1190.0
+offset_bottom = 910.0
+script = ExtResource("3_board")
+
+[node name="ReadoutPanel" type="Panel" parent="Workspace"]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 922.0
+offset_right = 1190.0
+offset_bottom = 978.0
+mouse_filter = 2
+
+[node name="BoardSummary" type="Label" parent="Workspace"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 934.0
+offset_right = 1176.0
+offset_bottom = 966.0
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+
+[node name="RewardsPanel" type="Panel" parent="Workspace"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 198.0
+offset_right = 430.0
+offset_bottom = 978.0
+
+
+[node name="RulesHeading" type="Label" parent="Workspace/RewardsPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 362.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 22
+metadata/loc = "RULES_TITLE"
+
+
+[node name="RulesText" type="Label" parent="Workspace/RewardsPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 52.0
+offset_right = 362.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 15
+metadata/loc = "RULES_TEXT"
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.72, 0.8, 0.84, 1)
+
+[node name="Heading" type="Label" parent="Workspace/RewardsPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 196.0
+offset_right = 362.0
+offset_bottom = 226.0
+theme_override_font_sizes/font_size = 20
+metadata/loc = "REWARDS"
+
+
+[node name="Legend" type="Label" parent="Workspace/RewardsPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 230.0
+offset_right = 362.0
+offset_bottom = 262.0
+theme_override_font_sizes/font_size = 13
+metadata/loc = "LEGEND"
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.58, 0.76, 0.8, 1)
+
+[node name="Rows" type="VBoxContainer" parent="Workspace/RewardsPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 272.0
+offset_right = 362.0
+offset_bottom = 762.0
+theme_override_constants/separation = 4
+
+[node name="InventoryPanel" type="Panel" parent="Workspace"]
+layout_mode = 0
+offset_left = 1230.0
+offset_top = 198.0
+offset_right = 1630.0
+offset_bottom = 978.0
+
+
+[node name="Heading" type="Label" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 382.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 22
+
+
+[node name="Scroll" type="ScrollContainer" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 54.0
+offset_right = 384.0
+offset_bottom = 334.0
+horizontal_scroll_mode = 0
+
+[node name="Pieces" type="VBoxContainer" parent="Workspace/InventoryPanel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Selected" type="Label" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 344.0
+offset_right = 382.0
+offset_bottom = 380.0
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 3
+
+[node name="Shape" type="Control" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 384.0
+offset_right = 380.0
+offset_bottom = 484.0
+mouse_filter = 2
+script = ExtResource("4_piece")
+
+[node name="Status" type="Label" parent="Workspace"]
+layout_mode = 0
+offset_left = 1248.0
+offset_top = 690.0
+offset_right = 1612.0
+offset_bottom = 738.0
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="Rotate" type="Button" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 542.0
+offset_right = 232.0
+offset_bottom = 586.0
+metadata/loc = "ROTATE"
+
+[node name="Flip" type="Button" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 542.0
+offset_right = 382.0
+offset_bottom = 586.0
+metadata/loc = "FLIP"
+
+[node name="AncientChoice" type="OptionButton" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 596.0
+offset_right = 382.0
+offset_bottom = 638.0
+visible = false
+
+[node name="Confirm" type="Button" parent="Workspace"]
+layout_mode = 0
+offset_left = 1248.0
+offset_top = 848.0
+offset_right = 1612.0
+offset_bottom = 900.0
+metadata/loc = "CONFIRM"
+
+[node name="Close" type="Button" parent="Workspace"]
+layout_mode = 0
+offset_left = 1248.0
+offset_top = 912.0
+offset_right = 1612.0
+offset_bottom = 958.0
+metadata/loc = "CLOSE"
+
+[node name="Wiring" type="Control" parent="Workspace"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1680.0
+offset_bottom = 1000.0
+mouse_filter = 2
+script = ExtResource("5_wiring")
+

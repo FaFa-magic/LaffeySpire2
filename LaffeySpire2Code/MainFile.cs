@@ -46,6 +46,9 @@ public static class MainFile
 		patcher.RegisterPatch<PatchworkDrawPatch>();
 		patcher.RegisterPatch<PatchworkEnergyPatch>();
 		patcher.RegisterPatch<PatchworkShopPatch>();
+		patcher.RegisterPatch<PatchworkShopEntriesPatch>();
+		patcher.RegisterPatch<PatchworkShopSlotsPatch>();
+		patcher.RegisterPatch<PatchworkShopNavigationPatch>();
 		patcher.RegisterPatch<PatchworkAncientFallbackPatch>();
 
 		if (!patcher.PatchAll())

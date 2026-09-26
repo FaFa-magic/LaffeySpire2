@@ -1,0 +1,14 @@
+已成功生成。
+    0 个警告
+    0 个错误
+PASS_RUNTIME: real RitsuLib per-player storage, two serialized replicas, stale move rejection, independent inventory/rewards/shop progress, JSON save/rejoin roundtrip
+CAPTURE_RESULT 0 (1920, 1080) patchwork_zhs_preview.png
+PASS_UI: inventory drag, board drag, outside cancellation, overlap, rotation, flip, center grid
+PASS_RUNTIME: real RitsuLib per-player storage, two serialized replicas, stale move rejection, independent inventory/rewards/shop progress, JSON save/rejoin roundtrip
+CAPTURE_RESULT 0 (1920, 1080) patchwork_eng_preview.png
+PASS_UI: inventory drag, board drag, outside cancellation, overlap, rotation, flip, center grid
+PASS_RUNTIME: real RitsuLib per-player storage, two serialized replicas, stale move rejection, independent inventory/rewards/shop progress, JSON save/rejoin roundtrip
+CAPTURE_RESULT 0 (1920, 1080) patchwork_zhs_installed.png
+PASS_UI: inventory drag, board drag, outside cancellation, overlap, rotation, flip, center grid and installed-chip relocation with retained reward
+CAPTURE_RESULT 0
+PASS_UI: all 34 whole-chip models loaded and rendered

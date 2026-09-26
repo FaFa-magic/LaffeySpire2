@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkMerchantSlot.cs" id="1_slot"]
+[ext_resource type="Texture2D" path="res://images/atlases/ui_atlas.sprites/top_bar/top_bar_gold.tres" id="2_gold"]
+
+[node name="PatchworkChip" type="Control"]
+custom_minimum_size = Vector2(122, 122)
+offset_right = 122.0
+offset_bottom = 122.0
+scale = Vector2(0.65, 0.65)
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1_slot")
+
+[node name="ChipHolder" type="Control" parent="."]
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="ChipHolder"]
+offset_left = -88.0
+offset_top = -106.0
+offset_right = 88.0
+offset_bottom = 70.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+texture_filter = 2
+
+[node name="Dimensions" type="Label" parent="ChipHolder"]
+offset_left = -80.0
+offset_top = 42.0
+offset_right = 80.0
+offset_bottom = 70.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_colors/font_outline_color = Color(0.03, 0.05, 0.09, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+text = "1×1"
+horizontal_alignment = 1
+
+[node name="Cost" type="HBoxContainer" parent="."]
+offset_left = -148.0
+offset_top = 76.0
+offset_right = 148.0
+offset_bottom = 130.0
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Gold" type="TextureRect" parent="Cost"]
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_gold")
+expand_mode = 1
+stretch_mode = 5

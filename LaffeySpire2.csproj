@@ -61,6 +61,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Compile Remove="tests/**" />
         <PackageReference Include="STS2.RitsuLib" Version="0.5.20" PrivateAssets="All" GeneratePathProperty="true" />
         <AdditionalFiles Include="LaffeySpire2/localization/**/*.json"/>
     </ItemGroup>

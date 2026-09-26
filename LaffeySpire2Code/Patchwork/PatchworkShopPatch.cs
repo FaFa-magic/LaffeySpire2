@@ -1,8 +1,6 @@
 using Godot;
 using HarmonyLib;
-using LaffeySpire2.LaffeySpire2Code.Characters;
 using MegaCrit.Sts2.Core.Entities.Merchant;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Nodes.Screens.Shops;
 using STS2RitsuLib.Patching.Models;
 
@@ -11,7 +9,7 @@ namespace LaffeySpire2.LaffeySpire2Code.Patchwork;
 public sealed class PatchworkShopPatch : IPatchMethod
 {
 	public static string PatchId => "laffey_patchwork_shop_slot";
-	public static string Description => "Add a 50 gold one-cell patch to Laffey merchant inventory";
+	public static string Description => "Add a native merchant slot for the one-cell Laffey chip";
 	public static bool IsCritical => true;
 
 	public static ModPatchTarget[] GetTargets() =>
@@ -20,46 +18,84 @@ public sealed class PatchworkShopPatch : IPatchMethod
 			[typeof(MerchantInventory), typeof(MerchantDialogueSet)])
 	];
 
-	[HarmonyPostfix]
-	public static void Postfix(NMerchantInventory __instance, MerchantInventory inventory)
+	// Add before vanilla enumerates slots and connects controller focus tracking.
+	[HarmonyPrefix]
+	public static void Prefix(NMerchantInventory __instance, MerchantInventory inventory)
 	{
-		if (inventory.Player.Character is not LaffeyCharacter ||
-			inventory.Player.RunState.CurrentRoom is not MegaCrit.Sts2.Core.Rooms.MerchantRoom)
-			return;
+		PatchworkMerchantEntry? entry = PatchworkShop.GetEntry(inventory);
+		if (entry == null || PatchworkShop.FindSlot(__instance) != null) return;
 		Control slots = __instance.GetNode<Control>("%SlotsContainer");
-		PatchworkShopButton button = new()
-		{
-			Position = new Vector2(1410, 900),
-			CustomMinimumSize = new Vector2(235, 64),
-			Size = new Vector2(235, 64)
-		};
-		button.Initialize(inventory.Player);
-		slots.AddChild(button);
+		PatchworkMerchantSlot slot = ResourceLoader.Load<PackedScene>(PatchworkMerchantSlot.ScenePath)
+			.Instantiate<PatchworkMerchantSlot>();
+		slot.SetEntry(entry);
+		// Fourth item in the relic row, above card removal; moves with the official rug.
+		Control relics = __instance.GetNode<Control>("%Relics");
+		slot.Position = relics.Position + new Vector2(450, -25);
+		slots.AddChild(slot);
+	}
+	[HarmonyPostfix]
+	public static void Postfix(NMerchantInventory __instance) =>
+		PatchworkShop.FindSlot(__instance)?.Initialize(__instance);
+}
+
+public sealed class PatchworkShopEntriesPatch : IPatchMethod
+{
+	public static string PatchId => "laffey_patchwork_shop_entries";
+	public static string Description => "Include chips in native merchant updates and purchase events";
+	public static bool IsCritical => true;
+	public static ModPatchTarget[] GetTargets() => [new(typeof(MerchantInventory), "get_AllEntries")];
+	[HarmonyPostfix]
+	public static void Postfix(MerchantInventory __instance, ref IEnumerable<MerchantEntry> __result)
+	{
+		if (PatchworkShop.GetEntry(__instance) is { } entry) __result = __result.Append(entry);
 	}
 }
 
-public sealed partial class PatchworkShopButton : Button
+public sealed class PatchworkShopSlotsPatch : IPatchMethod
 {
-	private Player _player = null!;
-
-	public void Initialize(Player player)
+	public static string PatchId => "laffey_patchwork_shop_slots";
+	public static string Description => "Include chips in native merchant focus and purchase feedback";
+	public static bool IsCritical => true;
+	public static ModPatchTarget[] GetTargets() => [new(typeof(NMerchantInventory), nameof(NMerchantInventory.GetAllSlots))];
+	[HarmonyPostfix]
+	public static void Postfix(NMerchantInventory __instance, ref IEnumerable<NMerchantSlot> __result)
 	{
-		_player = player;
-		Pressed += Purchase;
+		if (PatchworkShop.FindSlot(__instance) is { } slot) __result = __result.Append(slot);
 	}
+}
 
-	public override void _Process(double delta)
+public sealed class PatchworkShopNavigationPatch : IPatchMethod
+{
+	public static string PatchId => "laffey_patchwork_shop_navigation";
+	public static string Description => "Connect the extra chip slot to merchant controller navigation";
+	public static bool IsCritical => true;
+	public static ModPatchTarget[] GetTargets() => [new(typeof(NMerchantInventory), "UpdateNavigation")];
+	[HarmonyPostfix]
+	public static void Postfix(NMerchantInventory __instance)
 	{
-		PatchworkSaveData state = PatchworkBoard.Get(_player);
-		bool sold = state.PurchasedShops.Contains(PatchworkActions.ShopKey(_player)) ||
-			!PatchworkBoard.HasSpecialStock(state);
-		Disabled = sold || _player.Gold < 50;
-		Text = sold ? "1×1 拼图：已售罄" : "1×1 拼图  50 金币";
+		if (PatchworkShop.FindSlot(__instance) is not { Visible: true } slot) return;
+		var others = __instance.GetAllSlots().Where(s => s != slot && s.Visible && s.Entry.IsStocked).ToList();
+		foreach (var (direction, opposite) in new[] { (Vector2.Left, Vector2.Right), (Vector2.Right, Vector2.Left),
+			(Vector2.Up, Vector2.Down), (Vector2.Down, Vector2.Up) })
+		{
+			NMerchantSlot? nearest = others.Where(s => (s.GlobalPosition - slot.GlobalPosition).Dot(direction) > 1)
+				.MinBy(s => (s.GlobalPosition - slot.GlobalPosition).LengthSquared());
+			SetNeighbor(slot, direction, nearest ?? slot);
+			if (nearest == null) continue;
+			NodePath oldPath = GetNeighbor(nearest, opposite);
+			Control? old = oldPath.IsEmpty ? null : nearest.GetNodeOrNull<Control>(oldPath);
+			if (old == null || old == nearest || !old.Visible ||
+				(slot.GlobalPosition - nearest.GlobalPosition).LengthSquared() < (old.GlobalPosition - nearest.GlobalPosition).LengthSquared())
+				SetNeighbor(nearest, opposite, slot);
+		}
 	}
-
-	private void Purchase()
+	private static NodePath GetNeighbor(Control node, Vector2 direction) => direction == Vector2.Left ? node.FocusNeighborLeft :
+		direction == Vector2.Right ? node.FocusNeighborRight : direction == Vector2.Up ? node.FocusNeighborTop : node.FocusNeighborBottom;
+	private static void SetNeighbor(Control node, Vector2 direction, Control target)
 	{
-		if (!Disabled && PatchworkActions.RequestShopPurchase(_player))
-			Disabled = true;
+		if (direction == Vector2.Left) node.FocusNeighborLeft = target.GetPath();
+		else if (direction == Vector2.Right) node.FocusNeighborRight = target.GetPath();
+		else if (direction == Vector2.Up) node.FocusNeighborTop = target.GetPath();
+		else node.FocusNeighborBottom = target.GetPath();
 	}
 }
