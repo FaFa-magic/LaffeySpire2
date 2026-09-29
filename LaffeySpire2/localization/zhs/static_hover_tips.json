@@ -1,4 +1,6 @@
 {
+  "LAFFEY_QUALITY_INCREASE.title": "提升品质",
+  "LAFFEY_QUALITY_INCREASE.description": "将拉菲卡牌的品质提升一档：白卡→蓝卡→金卡。仅适用于这三种品质，金卡不能继续提升。品质与普通升级独立。战斗中提升只在本场战斗生效，火堆改造永久生效。",
   "LAFFEY_SPIRE2_TOPBARBUTTON_PATCHWORK.title": "拉菲的芯片装配台",
-  "LAFFEY_SPIRE2_TOPBARBUTTON_PATCHWORK.description": "将电子元件装入芯片底板。完成 3×3 至 10×10 实心方阵可解锁奖励；装配确认后无法更改。"
+  "LAFFEY_SPIRE2_TOPBARBUTTON_PATCHWORK.description": "将电子元件装入芯片底板，完成实心方阵以解锁奖励。确认后保存位置，可重新调整。"
 }

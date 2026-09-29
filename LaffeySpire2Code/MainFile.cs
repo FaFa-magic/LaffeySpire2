@@ -41,6 +41,10 @@ public static class MainFile
 		patcher.RegisterPatch<LaffeySkinSelectEmbarkPatch>();
 		patcher.RegisterPatch<LaffeySkinSelectUnreadyPatch>();
 		patcher.RegisterPatch<LaffeyCombatSpineIdleBootstrapPatch>();
+		patcher.RegisterPatch<LaffeyQualityUpgradePatch>();
+		patcher.RegisterPatch<LaffeyQualityInspectorContextPatch>();
+		patcher.RegisterPatch<LaffeyQualityLibraryPatch>();
+		patcher.RegisterPatch<LaffeyQualityInspectorPatch>();
 		patcher.RegisterPatch<PatchworkCombatStartPatch>();
 		patcher.RegisterPatch<PatchworkRewardPatch>();
 		patcher.RegisterPatch<PatchworkDrawPatch>();

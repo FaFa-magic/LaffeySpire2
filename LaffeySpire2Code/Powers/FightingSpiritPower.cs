@@ -12,6 +12,7 @@ namespace LaffeySpire2.LaffeySpire2Code.Powers;
 
 public sealed class FightingSpiritPower : LaffeyPowerModel
 {
+	public const decimal GrowthPerStack = 10M;
 	public override PowerType Type => PowerType.Buff;
 	public override PowerStackType StackType => PowerStackType.Counter;
 	public override int DisplayAmount => DynamicVars["Bonus"].IntValue;
@@ -24,7 +25,7 @@ public sealed class FightingSpiritPower : LaffeyPowerModel
 	protected override IEnumerable<DynamicVar> CanonicalVars =>
 	[
 		new DynamicVar("Bonus", 0M),
-		new DynamicVar("Growth", 10M)
+		new DynamicVar("Growth", GrowthPerStack)
 	];
 
 	public void GainDamageBonus(decimal amount)
@@ -41,7 +42,7 @@ public sealed class FightingSpiritPower : LaffeyPowerModel
 		CardModel? cardSource)
 	{
 		if (power == this)
-			DynamicVars["Growth"].BaseValue = Amount * 10M;
+			DynamicVars["Growth"].BaseValue = Amount * GrowthPerStack;
 		return Task.CompletedTask;
 	}
 

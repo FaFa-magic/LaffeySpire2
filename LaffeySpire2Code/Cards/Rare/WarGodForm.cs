@@ -9,6 +9,8 @@ namespace LaffeySpire2.LaffeySpire2Code.Cards.Rare;
 
 public sealed class WarGodForm() : LaffeyCardModel(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
+	public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
 		[HoverTipFactory.FromKeyword(LaffeyKeywords.Opening)];
 
@@ -23,5 +25,5 @@ public sealed class WarGodForm() : LaffeyCardModel(3, CardType.Power, CardRarity
 			this);
 	}
 
-	protected override void OnUpgrade() => EnergyCost.UpgradeBy(-1);
+	protected override void OnUpgrade() => RemoveKeyword(CardKeyword.Ethereal);
 }

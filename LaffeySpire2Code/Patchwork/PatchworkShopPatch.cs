@@ -28,9 +28,11 @@ public sealed class PatchworkShopPatch : IPatchMethod
 		PatchworkMerchantSlot slot = ResourceLoader.Load<PackedScene>(PatchworkMerchantSlot.ScenePath)
 			.Instantiate<PatchworkMerchantSlot>();
 		slot.SetEntry(entry);
-		// Fourth item in the relic row, above card removal; moves with the official rug.
+		// Card removal's hitbox extends left/up from its origin, including when hovered.
+		// Keep the chip in the free column to its right; both move with the official rug.
 		Control relics = __instance.GetNode<Control>("%Relics");
-		slot.Position = relics.Position + new Vector2(450, -25);
+		Control removal = __instance.GetNode<Control>("%MerchantCardRemoval");
+		slot.Position = new Vector2(removal.Position.X + 210, relics.Position.Y);
 		slots.AddChild(slot);
 	}
 	[HarmonyPostfix]

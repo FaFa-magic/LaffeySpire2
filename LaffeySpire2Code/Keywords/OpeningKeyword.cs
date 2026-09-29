@@ -1,3 +1,4 @@
+using LaffeySpire2.LaffeySpire2Code.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -26,6 +27,12 @@ public sealed class OpeningKeyword : HookedSingletonModel
             entry.CardPlay.IsFirstInSeries &&
             entry.HappenedThisTurn(card.CombatState));
 
-        return hasPlayedCardThisTurn ? playCount : playCount + 1;
+        if (hasPlayedCardThisTurn)
+        {
+            return playCount;
+        }
+
+        int additionalPlays = card.Owner.Creature.GetPower<WarGodFormPower>()?.Amount ?? 0;
+        return playCount + 1 + additionalPlays;
     }
 }

@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkMerchantSlot.cs" id="1_slot"]
 [ext_resource type="Texture2D" path="res://images/atlases/ui_atlas.sprites/top_bar/top_bar_gold.tres" id="2_gold"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBox_chip_border"]
+bg_color = Color(0.10, 0.12, 0.14, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.52, 0.55, 0.58, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_left = 7
+corner_radius_bottom_right = 7
+
 [node name="PatchworkChip" type="Control"]
-custom_minimum_size = Vector2(122, 122)
-offset_right = 122.0
-offset_bottom = 122.0
+custom_minimum_size = Vector2(92, 92)
+offset_right = 92.0
+offset_bottom = 92.0
 scale = Vector2(0.65, 0.65)
 focus_mode = 2
 mouse_filter = 2
@@ -15,34 +27,42 @@ script = ExtResource("1_slot")
 [node name="ChipHolder" type="Control" parent="."]
 mouse_filter = 2
 
+[node name="Border" type="Panel" parent="ChipHolder"]
+offset_left = -72.0
+offset_top = -82.0
+offset_right = 72.0
+offset_bottom = 62.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBox_chip_border")
+
 [node name="Icon" type="TextureRect" parent="ChipHolder"]
-offset_left = -88.0
-offset_top = -106.0
-offset_right = 88.0
-offset_bottom = 70.0
+offset_left = -64.0
+offset_top = -74.0
+offset_right = 64.0
+offset_bottom = 54.0
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 texture_filter = 2
 
 [node name="Dimensions" type="Label" parent="ChipHolder"]
-offset_left = -80.0
-offset_top = 42.0
-offset_right = 80.0
-offset_bottom = 70.0
+offset_left = -60.0
+offset_top = 30.0
+offset_right = 60.0
+offset_bottom = 54.0
 mouse_filter = 2
 theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
 theme_override_colors/font_outline_color = Color(0.03, 0.05, 0.09, 1)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 18
 text = "1×1"
 horizontal_alignment = 1
 
 [node name="Cost" type="HBoxContainer" parent="."]
 offset_left = -148.0
-offset_top = 76.0
+offset_top = 66.0
 offset_right = 148.0
-offset_bottom = 130.0
+offset_bottom = 120.0
 mouse_filter = 2
 theme_override_constants/separation = 6
 alignment = 1

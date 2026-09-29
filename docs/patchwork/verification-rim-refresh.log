@@ -1,0 +1,12 @@
+PASS_SCOPE: exactly 17 requested PNGs changed; other 17 PNGs match baseline SHA256
+PASS_BUILD: full project, 0 warnings, 0 errors
+PASS_ART: 34 exact canvas ratios; square source cells; alpha footprints; 272 rotation/flip placements; malformed input stays uniformly scaled
+PASS_RENDER: D:/GitClone/LaffeySpire2/.verification/chip-proportions/transforms-24.png
+PASS_PIXELS: 272 transforms + 272 board-clipped transforms match independent whole-image reference, including metal rims and cutouts
+PASS_RIM_GALLERY: 17 requested chips use actual gameplay renderer
+PASS_RUNTIME: real RitsuLib per-player storage, two serialized replicas, stale move rejection, independent inventory/rewards/shop progress, JSON save/rejoin roundtrip
+CAPTURE_RESULT 0 (1920, 1080) patchwork_zhs_installed.png
+PASS_UI: inventory drag, board drag, outside cancellation, overlap, rotation, flip, center grid and installed-chip relocation with retained reward
+PASS_RUNTIME: real RitsuLib per-player storage, two serialized replicas, stale move rejection, independent inventory/rewards/shop progress, JSON save/rejoin roundtrip
+CAPTURE_RESULT 0 (1920, 1080) patchwork_eng_installed.png
+PASS_UI: inventory drag, board drag, outside cancellation, overlap, rotation, flip, center grid and installed-chip relocation with retained reward

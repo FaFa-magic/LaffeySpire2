@@ -48,7 +48,8 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	{
 		if (!PreviewMode) return PatchworkVisuals.Text(key, values);
 		string text = _previewText.GetValueOrDefault("LAFFEY_PATCHWORK_" + key, key);
-		foreach (var value in values) text = text.Replace("{" + value.Name + "}", value.Value.ToString());
+		foreach (var value in values.Concat(PatchworkBalance.TextValues(key)))
+			text = text.Replace("{" + value.Name + "}", Convert.ToString(value.Value, System.Globalization.CultureInfo.InvariantCulture));
 		return text;
 	}
 	private string PieceName(int id) => Text(id == 0 ? "SHOP_MODULE" : "MODULE",

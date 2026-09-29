@@ -9,9 +9,9 @@ namespace LaffeySpire2.LaffeySpire2Code.Cards.Rare;
 
 public sealed class FinalShowdown() : LaffeyCardModel(0, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
-	protected override bool IsPlayable => Owner.PlayerCombatState?.TurnNumber >= 7;
+	protected override bool IsPlayable => Owner.PlayerCombatState?.TurnNumber >= DynamicVars["EarliestTurn"].IntValue;
 	protected override bool ShouldGlowGoldInternal => IsPlayable;
-	protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(42M, ValueProp.Move)];
+	protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(42M, ValueProp.Move), new DynamicVar("EarliestTurn", 7M)];
 	public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType) => card != this || IsPlayable;
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

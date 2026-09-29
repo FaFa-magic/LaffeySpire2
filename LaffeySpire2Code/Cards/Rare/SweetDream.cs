@@ -15,7 +15,7 @@ public sealed class SweetDream() : LaffeyCardModel(2, CardType.Skill, CardRarity
 
 	public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-	protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(25M, ValueProp.Move)];
+	protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(25M, ValueProp.Move), new DynamicVar("DebuffCap", 1M)];
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
@@ -32,7 +32,8 @@ public sealed class SweetDream() : LaffeyCardModel(2, CardType.Skill, CardRarity
 				continue;
 			}
 
-			int targetAmount = Math.Clamp(power.Amount, -1, 1);
+			int cap = DynamicVars["DebuffCap"].IntValue;
+			int targetAmount = Math.Clamp(power.Amount, -cap, cap);
 			if (targetAmount == power.Amount)
 			{
 				continue;

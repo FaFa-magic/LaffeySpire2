@@ -1,0 +1,11 @@
+2026-09-27 — Localization values separated from translated text
+
+Full production build: 0 errors, 0 warnings; output staged under .verification/full-build, not deployed to game mods.
+Native localization check: actual LocManager/SmartFormat formats zhs and eng reward descriptions, board size/rules and merchant tooltip with shared balance values.
+Changed-value check: reward Amount and card DynamicVars changed to 17 in isolated fixtures; both languages render the changed values without unresolved placeholders. Fighting Spirit nested upgraded text and upgrade preview both render Growth correctly.
+Card checks: FightingSpirit, SleepwalkingTactics, AwakenedFirepower, FinalShowdown, SweetDream (existing zhs translation), DrowsyStrike, LightSleep. Normal/upgraded/upgrade-preview formatting checked. Power Amount descriptions checked with non-default stacks.
+Godot UI checks: Chinese/English, installed board and all 34 chip models pass. Drag, move, cancel, rotate, flip and center grid checks pass. Both language screenshots visually inspected.
+Merchant regression checks: native stock/slot navigation and real viewport clicks, purchase price/discount, per-player stock and RitsuLib save/import pass. Native pillow relic serialization also passes.
+Save keys, reward square thresholds and default balance values remain unchanged. No complete in-game combat or physical two-device network session was run.
+
+Local fixtures (ignored tests/ directory): tests/PatchworkUi/LocalizationValueChecks.cs and ShopVerification.targets; UI verification via tests/PatchworkUi/Verify.ps1.

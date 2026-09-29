@@ -10,7 +10,7 @@ namespace LaffeySpire2.LaffeySpire2Code.Cards.Uncommon;
 public sealed class FightingSpirit() : LaffeyCardModel(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
 	protected override IEnumerable<DynamicVar> CanonicalVars =>
-		[new PowerVar<FightingSpiritPower>(1M)];
+		[new PowerVar<FightingSpiritPower>(1M), new DynamicVar("Growth", FightingSpiritPower.GrowthPerStack)];
 
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
 		[HoverTipFactory.FromPower<FightingSpiritPower>()];
@@ -25,6 +25,6 @@ public sealed class FightingSpirit() : LaffeyCardModel(1, CardType.Power, CardRa
 			Owner.Creature,
 			this);
 		if (IsUpgraded)
-			power?.GainDamageBonus(10M);
+			power?.GainDamageBonus(DynamicVars["Growth"].BaseValue);
 	}
 }

@@ -1,0 +1,6 @@
+{
+  "OPTION_LAFFEY_REFIT.name": "改造",
+  "OPTION_LAFFEY_REFIT.description": "永久提升一张拉菲卡牌的品质：白卡→蓝卡→金卡。",
+  "OPTION_LAFFEY_REFIT.descriptionDisabled": "没有可以提升品质的拉菲卡牌。",
+  "OPTION_LAFFEY_REFIT.prompt": "选择一张拉菲卡牌永久提升品质。"
+}

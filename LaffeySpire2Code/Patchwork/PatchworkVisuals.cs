@@ -11,50 +11,34 @@ public static class PatchworkVisuals
 	public static readonly Color Red = new("ff667b");
 	private static readonly Color[] ColorsByType = [Cyan, Amber, Red, new("73efb5"), new("c49aff"), new("398dd4")];
 	private static readonly Texture2D?[] Chips = new Texture2D?[34];
-	private static readonly Texture2D?[] Icons = new Texture2D?[34];
-	private static readonly Rect2[] ArtworkBounds = new Rect2[34];
 	public static int ComponentType(int pieceId) => Math.Abs(pieceId) % 6;
 	public static Color PieceColor(int pieceId) => ColorsByType[ComponentType(pieceId)];
 	public static string Text(string key, params (string Name, object Value)[] values)
+		=> LocalizedText(key, values).GetFormattedText();
+	public static LocString LocalizedText(string key, params (string Name, object Value)[] values)
 	{
 		LocString text = new("gameplay_ui", "LAFFEY_PATCHWORK_" + key);
-		foreach (var value in values)
+		foreach (var value in PatchworkBalance.TextValues(key).Concat(values))
 		{
 			if (value.Value is string stringValue) text.Add(value.Name, stringValue);
 			else text.Add(value.Name, Convert.ToDecimal(value.Value));
 		}
-		return text.GetFormattedText();
+		return text;
 	}
 	public static string PieceName(int id) => Text(id == 0 ? "SHOP_MODULE" : "MODULE",
 		("Type", Text("CHIP_" + id.ToString("D2"))), ("Id", id), ("Cells", PatchworkBoard.Cells(id, 0, false).Count));
 	private static Texture2D Chip(int id)
 	{
 		if (Chips[id] != null) return Chips[id]!;
-		Texture2D texture = ResourceLoader.Load<Texture2D>(AssetRoot + $"chips/chip_{id:D2}.png");
-		using Image pixels = texture.GetImage();
-		// Ignore almost-transparent fringe pixels so the complete package fills its logical footprint.
-		// Source PNGs and their alpha are preserved; only the sampling rectangle changes.
-		pixels.Convert(Image.Format.Rgba8);
-		byte[] rgba = pixels.GetData();
-		int imageWidth = pixels.GetWidth(), imageHeight = pixels.GetHeight();
-		int left = imageWidth, top = imageHeight, right = -1, bottom = -1;
-		for (int y = 0; y < imageHeight; y++)
-		for (int x = 0; x < imageWidth; x++)
-		{
-			if (rgba[(y * imageWidth + x) * 4 + 3] < 26) continue;
-			left = Math.Min(left, x); top = Math.Min(top, y); right = Math.Max(right, x); bottom = Math.Max(bottom, y);
-		}
-		Rect2I used = right >= left ? new Rect2I(left, top, right - left + 1, bottom - top + 1) : pixels.GetUsedRect();
-		ArtworkBounds[id] = new Rect2(used.Position, used.Size);
-		return Chips[id] = texture;
+		return Chips[id] = ResourceLoader.Load<Texture2D>(AssetRoot + $"chips/chip_{id:D2}.png");
 	}
-	public static Texture2D Component(int id)
-	{
-		if (Icons[id] != null) return Icons[id]!;
-		return Icons[id] = new AtlasTexture { Atlas = Chip(id), Region = ArtworkBounds[id], FilterClip = true };
-	}
+	public static Texture2D Component(int id) => Chip(id);
 
-	/// <summary>One image per polyomino. Each cell samples its own part of that image, never a repeated tile.</summary>
+	/// <summary>One square source unit, even if a future asset has an incorrect aspect ratio.</summary>
+	public static float SourceCellSize(Vector2 textureSize, int columns, int rows) =>
+		Math.Max(textureSize.X / columns, textureSize.Y / rows);
+
+	/// <summary>Draw the complete polyomino once so its metal rim and rounded cutouts remain intact.</summary>
 	public static void DrawChip(Control canvas, int id, int rotation, bool flipped, Vector2 origin,
 		float step, Color modulation, Color? outline = null, Rect2? clip = null)
 	{
@@ -62,32 +46,58 @@ public static class PatchworkVisuals
 		var placedCells = PatchworkBoard.Cells(id, rotation, flipped);
 		if (sourceCells.Count == 0) return;
 		Texture2D texture = Chip(id);
-		Rect2 bounds = ArtworkBounds[id];
 		int width = sourceCells.Max(c => c.X) + 1, height = sourceCells.Max(c => c.Y) + 1;
-		Vector2 sourceStep = bounds.Size / new Vector2(width, height);
-		for (int index = 0; index < sourceCells.Count; index++)
+		// PNG canvas dimensions match the logical grid, including transparent missing cells.
+		// Never crop alpha bounds and independently resize X/Y to compensate for malformed art.
+		float sourceUnit = SourceCellSize(texture.GetSize(), width, height);
+		Vector2 sourceOrigin = (texture.GetSize() - new Vector2(width, height) * sourceUnit) / 2;
+		float scale = step / sourceUnit;
+		// Explicit R * mirror basis matches Cells(): mirror first, then rotate.
+		float angle = rotation * MathF.PI / 2;
+		Vector2 basisX = new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * (flipped ? -scale : scale);
+		Vector2 basisY = new Vector2(-MathF.Sin(angle), MathF.Cos(angle)) * scale;
+		Vector2[] corners = [Vector2.Zero, basisX * width * sourceUnit, basisY * height * sourceUnit,
+			basisX * width * sourceUnit + basisY * height * sourceUnit];
+		Vector2 minimum = new(corners.Min(c => c.X), corners.Min(c => c.Y));
+		Transform2D transform = new(basisX, basisY,
+			origin - minimum - basisX * sourceOrigin.X - basisY * sourceOrigin.Y);
+		Rect2 sourceRect = new(Vector2.Zero, texture.GetSize());
+		if (clip is { } limit)
 		{
-			var target = placedCells[index];
-			Vector2 position = origin + new Vector2(target.X, target.Y) * step;
-			if (clip is { } limit && !limit.HasPoint(position + Vector2.One * step / 2)) continue;
-			// The solid substrate joins seamlessly across logical cells; only the outside has a rim.
-			canvas.DrawRect(new Rect2(position, Vector2.One * step), new Color(PieceColor(id).Darkened(0.6f), modulation.A));
-			var source = sourceCells[index];
-			Rect2 sourceRect = new(bounds.Position + new Vector2(source.X, source.Y) * sourceStep, sourceStep);
-			canvas.DrawSetTransform(position + Vector2.One * step / 2, rotation * MathF.PI / 2, new Vector2(flipped ? -1 : 1, 1));
-			canvas.DrawTextureRectRegion(texture, new Rect2(-Vector2.One * step / 2, Vector2.One * step), sourceRect, modulation);
+			// Quarter turns keep the board clip axis aligned in source space.
+			Transform2D inverse = transform.AffineInverse();
+			Vector2[] clipCorners = [inverse * limit.Position, inverse * limit.End,
+				inverse * (limit.Position + new Vector2(limit.Size.X, 0)),
+				inverse * (limit.Position + new Vector2(0, limit.Size.Y))];
+			Vector2 start = new(clipCorners.Min(c => c.X), clipCorners.Min(c => c.Y));
+			Vector2 end = new(clipCorners.Max(c => c.X), clipCorners.Max(c => c.Y));
+			sourceRect = sourceRect.Intersection(new Rect2(start, end - start));
+		}
+		if (sourceRect.Size.X > 0 && sourceRect.Size.Y > 0)
+		{
+			canvas.DrawSetTransformMatrix(transform);
+			// Equal source/destination rectangles; the single scalar transform is the only scaling.
+			canvas.DrawTextureRectRegion(texture, sourceRect, sourceRect, modulation);
 			canvas.DrawSetTransform(Vector2.Zero);
 		}
+		// Ordinary chips use their painted metal perimeter. Only placement previews need an overlay.
+		if (outline is not { } rim) return;
 		var filled = placedCells.ToHashSet();
-		Color rim = outline ?? new Color("d8e6ed");
+		float corner = step * 0.08f;
 		foreach (var cell in placedCells)
 		{
 			Vector2 pos = origin + new Vector2(cell.X, cell.Y) * step;
-			if (clip is { } limit && !limit.HasPoint(pos + Vector2.One * step / 2)) continue;
-			if (!filled.Contains((cell.X - 1, cell.Y))) canvas.DrawLine(pos, pos + new Vector2(0, step), rim, 1.2f);
-			if (!filled.Contains((cell.X + 1, cell.Y))) canvas.DrawLine(pos + new Vector2(step, 0), pos + Vector2.One * step, rim, 1.2f);
-			if (!filled.Contains((cell.X, cell.Y - 1))) canvas.DrawLine(pos, pos + new Vector2(step, 0), rim, 1.2f);
-			if (!filled.Contains((cell.X, cell.Y + 1))) canvas.DrawLine(pos + new Vector2(0, step), pos + Vector2.One * step, rim, 1.2f);
+			if (clip is { } outlineLimit && !outlineLimit.HasPoint(pos + Vector2.One * step / 2)) continue;
+			bool left = !filled.Contains((cell.X - 1, cell.Y)), right = !filled.Contains((cell.X + 1, cell.Y));
+			bool top = !filled.Contains((cell.X, cell.Y - 1)), bottom = !filled.Contains((cell.X, cell.Y + 1));
+			if (left) canvas.DrawLine(pos + new Vector2(0, top ? corner : 0), pos + new Vector2(0, step - (bottom ? corner : 0)), rim, 1.2f, true);
+			if (right) canvas.DrawLine(pos + new Vector2(step, top ? corner : 0), pos + new Vector2(step, step - (bottom ? corner : 0)), rim, 1.2f, true);
+			if (top) canvas.DrawLine(pos + new Vector2(left ? corner : 0, 0), pos + new Vector2(step - (right ? corner : 0), 0), rim, 1.2f, true);
+			if (bottom) canvas.DrawLine(pos + new Vector2(left ? corner : 0, step), pos + new Vector2(step - (right ? corner : 0), step), rim, 1.2f, true);
+			if (left && top) canvas.DrawLine(pos + new Vector2(0, corner), pos + new Vector2(corner, 0), rim, 1.2f, true);
+			if (right && top) canvas.DrawLine(pos + new Vector2(step - corner, 0), pos + new Vector2(step, corner), rim, 1.2f, true);
+			if (left && bottom) canvas.DrawLine(pos + new Vector2(0, step - corner), pos + new Vector2(corner, step), rim, 1.2f, true);
+			if (right && bottom) canvas.DrawLine(pos + new Vector2(step - corner, step), pos + new Vector2(step, step - corner), rim, 1.2f, true);
 		}
 	}
 	public static StyleBoxFlat Panel(Color background, Color border, int radius = 8, int glow = 0)

@@ -1,0 +1,869 @@
+[
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			]
+		],
+		"columns": 2.0,
+		"id": 2.0,
+		"meaningful_bounds": [
+			355,
+			99,
+			828,
+			841
+		],
+		"origin": [
+			342,
+			92
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-2590e766-9aba-4911-9e88-47ff7638ad24.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Essex chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x348 y92 width840 height840. Logical row pattern dots=empty: .X / XX; each cell 420x420 square, 3 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Essex chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			" X",
+			"XX"
+		],
+		"size": [
+			854,
+			854
+		],
+		"unit": 427
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			]
+		],
+		"columns": 2.0,
+		"id": 3.0,
+		"meaningful_bounds": [
+			343,
+			87,
+			849,
+			850
+		],
+		"origin": [
+			336,
+			81
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-53d8cd04-e2fb-4c06-9d60-ba93552b9e2b.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Helena chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x348 y92 width840 height840. Logical row pattern dots=empty: .X / XX; each cell 420x420 square, 3 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Helena chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			" X",
+			"XX"
+		],
+		"size": [
+			862,
+			862
+		],
+		"unit": 431
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			]
+		],
+		"columns": 2.0,
+		"id": 4.0,
+		"meaningful_bounds": [
+			358,
+			95,
+			820,
+			844
+		],
+		"origin": [
+			340,
+			89
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-165366fd-d2c4-426d-8651-df5e4ec5fc98.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing San Diego chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x348 y92 width840 height840. Logical row pattern dots=empty: .X / XX; each cell 420x420 square, 3 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest San Diego chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			" X",
+			"XX"
+		],
+		"size": [
+			856,
+			856
+		],
+		"unit": 428
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				2.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			]
+		],
+		"columns": 3.0,
+		"id": 8.0,
+		"meaningful_bounds": [
+			134,
+			93,
+			1267,
+			832
+		],
+		"origin": [
+			124,
+			80
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-c52c24c9-12ea-4f39-8201-d2e6c6f741e5.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Yorktown chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x138 y92 width1260 height840. Logical row pattern dots=empty: ..X / XXX; each cell 420x420 square, 4 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Yorktown chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			"  X",
+			"XXX"
+		],
+		"size": [
+			1287,
+			858
+		],
+		"unit": 429
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				2.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			]
+		],
+		"columns": 3.0,
+		"id": 12.0,
+		"meaningful_bounds": [
+			108,
+			89,
+			1325,
+			861
+		],
+		"origin": [
+			98,
+			71
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-e3ffa5f4-edcc-45dd-bba8-ee0113c049e3.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Javelin chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x138 y92 width1260 height840. Logical row pattern dots=empty: .XX / XXX; each cell 420x420 square, 5 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Javelin chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			" XX",
+			"XXX"
+		],
+		"size": [
+			1344,
+			896
+		],
+		"unit": 448
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				2.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				3.0,
+				1.0
+			]
+		],
+		"columns": 4.0,
+		"id": 14.0,
+		"meaningful_bounds": [
+			68,
+			166,
+			1401,
+			704
+		],
+		"origin": [
+			52,
+			160
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-dfb37d1f-e59a-4450-a89e-9aba80369d5b.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Ayanami chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x68 y162 width1400 height700. Logical row pattern dots=empty: ..X. / XXXX; each cell 350x350 square, 5 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Ayanami chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			"  X ",
+			"XXXX"
+		],
+		"size": [
+			1432,
+			716
+		],
+		"unit": 358
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				2.0,
+				0.0
+			],
+			[
+				3.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			]
+		],
+		"columns": 4.0,
+		"id": 16.0,
+		"meaningful_bounds": [
+			70,
+			160,
+			1398,
+			726
+		],
+		"origin": [
+			31,
+			154
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-75b7cf3b-be22-4466-9ace-00c4af25c4aa.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Bismarck chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x68 y162 width1400 height700. Logical row pattern dots=empty: .XXX / XX..; each cell 350x350 square, 5 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Bismarck chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			" XXX",
+			"XX  "
+		],
+		"size": [
+			1476,
+			738
+		],
+		"unit": 369
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				2.0,
+				0.0
+			],
+			[
+				3.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				3.0,
+				1.0
+			]
+		],
+		"columns": 4.0,
+		"id": 18.0,
+		"meaningful_bounds": [
+			62,
+			160,
+			1413,
+			704
+		],
+		"origin": [
+			48,
+			152
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-726f9018-c5fc-4f33-95c2-55d9c2ee2672.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Nagato chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x68 y162 width1400 height700. Logical row pattern dots=empty: ..XX / XXXX; each cell 350x350 square, 6 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Nagato chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge. OVERRIDE FOR NAGATO: image3 is the REQUIRED current default Nagato portrait from Azur Lane wiki, superseding old portrait in image2. Redraw ONE chibi head faithfully from image3: sleek straight jet-black long hair, blunt level fringe, VERY TALL narrow black fox ears with peach and white inner fur, symmetric elaborate gold naval chrysanthemum/leaf hair ornaments beside each temple, long slim gold tassels, amber-gold eyes, serene shy expression. No round cat ears, no flower bun, no old design. Replace ALL Eagle Union eagles/anchors/stars/aircraft motifs with SAKURA EMPIRE JAPANESE NAVAL theme: vermilion-red lacquer PCB, ivory and gold circuitry, etched small sakura blossoms, chrysanthemum crest, elegant torii silhouette, ceremonial red-white braided rope motifs integrated as printed circuit tracery. Keep tiny real ICs and brushed silver perimeter same style family. Head natural proportions including ears and whole chin, center at x1118 y512, max440wide by500high within occupied right-hand 2x2 area; never truncate or squash. No text, no change of logical footprint 4x2 cells.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			"  XX",
+			"XXXX"
+		],
+		"size": [
+			1440,
+			720
+		],
+		"unit": 360
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				2.0,
+				0.0
+			],
+			[
+				3.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			]
+		],
+		"columns": 4.0,
+		"id": 19.0,
+		"meaningful_bounds": [
+			75,
+			168,
+			1387,
+			698
+		],
+		"origin": [
+			58,
+			162
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-46b3be2f-7c9f-458e-ae89-265c477ce2d7.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Akashi chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x68 y162 width1400 height700. Logical row pattern dots=empty: .XXX / XXX.; each cell 350x350 square, 6 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Akashi chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			" XXX",
+			"XXX "
+		],
+		"size": [
+			1420,
+			710
+		],
+		"unit": 355
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				1.0,
+				2.0
+			]
+		],
+		"columns": 3.0,
+		"id": 21.0,
+		"meaningful_bounds": [
+			329,
+			66,
+			879,
+			862
+		],
+		"origin": [
+			320,
+			48
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-cad92de1-b653-416f-8ce2-89f9d3a2337b.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Taihou chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x348 y92 width840 height840. Logical row pattern dots=empty: .X. / XXX / .X.; each cell 280x280 square, 5 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Taihou chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 3.0,
+		"shape": [
+			" X ",
+			"XXX",
+			" X "
+		],
+		"size": [
+			897,
+			897
+		],
+		"unit": 299
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				1.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				0.0,
+				2.0
+			],
+			[
+				2.0,
+				2.0
+			]
+		],
+		"columns": 3.0,
+		"id": 24.0,
+		"meaningful_bounds": [
+			295,
+			36,
+			946,
+			933
+		],
+		"origin": [
+			285,
+			19
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-51d82b29-8146-420d-a1e4-6ae13fd60da3.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Janus chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x348 y92 width840 height840. Logical row pattern dots=empty: .X. / XXX / X.X; each cell 280x280 square, 6 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Janus chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 3.0,
+		"shape": [
+			" X ",
+			"XXX",
+			"X X"
+		],
+		"size": [
+			966,
+			966
+		],
+		"unit": 322
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				0.0,
+				0.0
+			],
+			[
+				2.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				0.0,
+				2.0
+			],
+			[
+				2.0,
+				2.0
+			]
+		],
+		"columns": 3.0,
+		"cutout_prompt": "Make a CLEAN TRANSPARENT PNG CUTOUT of IMAGE1's exact chip. Modify ONLY its background alpha: remove ALL black background, gray glow, drop shadow, and background pixels outside the physical metal chip, including the upper and lower open notches in the H. Outside the metal silhouette must have alpha EXACTLY ZERO, not semi-transparent black or gray. The input incorrectly has 50% opaque black across the canvas, and that MUST be removed completely. Keep ONLY the physical gold PCB, silver continuous rim, pins, electronics and Tashkent head. Preserve all object colors, size, location, canvas1536x1024, square cell proportions, avatar and detailed painting exactly. Image2 defines clean silhouette placement, but do NOT redraw or resize the object or apply a rectangular cell mask. Trace the actual complete metal perimeter and keep full chamfered corners intact. NO background or shadow, no halo, no checkerboard painted into image. Genuine transparent output alpha0 outside chip.",
+		"id": 25.0,
+		"meaningful_bounds": [
+			351,
+			91,
+			835,
+			841
+		],
+		"origin": [
+			338,
+			81
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-5bf42806-e482-4df9-b8fc-2650afa68a3d.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Tashkent chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x348 y92 width840 height840. Logical row pattern dots=empty: X.X / XXX / X.X; each cell 280x280 square, 7 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Tashkent chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge. SPECIAL REQUIRED TASHKENT AVATAR FIX: IMAGE3 current Wiki default Tashkent is the character appearance reference. Do not reuse image2's flattened/cut-off face. Redraw from scratch a round, naturally-proportioned chibi head, lilac-purple straight hair and blunt fringe, icy-blue eyes, blue-white angular cat-ear headband, fluffy round white earmuffs on both sides, mild aloof smile. Entire portrait INCLUDING hair, headband, earmuffs and chin must fit INSIDE the MIDDLE SINGLE CELL: x628..908, y372..652, safe portrait bbox x656..880,y408..612 (224wide,204high), face itself near-square, no horizontal squashing. Leave >=25px clear circuitry and border visible both above AND below head. Bottom notch rim must run UNBROKEN beneath portrait, no face or hair covering it. Keep original gold yellow PCB, seven-cell H shape, same handpainted detailed chip family. Do not move/resize outline from image1.",
+		"refine_prompt": "Edit ONLY the Tashkent portrait in the middle of this exact H-shaped gold chip. KEEP ALL PCB GEOMETRY, SILVER PERIMETER, CIRCUITS, EMBLEMS, CANVAS1536x1024 AND POSITIONS UNCHANGED. Replace the wide cropped bust with a MUCH SMALLER ROUND COMPLETE CHIBI HEAD DECAL. Portrait must be contained entirely inside x660..875,y424..620: 215px wide,196px high maximum. Draw HEAD ONLY, no shoulders/collar/bust, round chin fully visible, hairstyle finished naturally at the sides and bottom rather than straight cut. Lilac-purple bangs/hair, ice-blue eyes, blue-white cat-ear headband and fluffy white earmuffs. Use normal rounded face proportions (face width/height roughly1.05), bigger eye-to-chin spacing and round cheeks; don't squash/stretch. More PCB visible around head; minimum40px clearance between bottom of portrait and bottom-notch silver rim. Portrait size MUST be about TWO THIRDS current portrait size, and head should be rounder. Wiki image2 is character identity reference. Match image1's existing handpainted game item/chibi style. Everything except avatar unchanged. True transparent outside chip, preserve alpha, no new shadow/halo.",
+		"resampled": false,
+		"rows": 3.0,
+		"shape": [
+			"X X",
+			"XXX",
+			"X X"
+		],
+		"size": [
+			861,
+			861
+		],
+		"unit": 287
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				2.0,
+				0.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				0.0,
+				2.0
+			],
+			[
+				1.0,
+				2.0
+			]
+		],
+		"columns": 3.0,
+		"id": 26.0,
+		"meaningful_bounds": [
+			344,
+			89,
+			845,
+			846
+		],
+		"origin": [
+			334,
+			80
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-fb4f021f-de1e-4302-8db6-6ddc26946d2a.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Indomitable chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x348 y92 width840 height840. Logical row pattern dots=empty: ..X / .XX / XX.; each cell 280x280 square, 5 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Indomitable chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 3.0,
+		"shape": [
+			"  X",
+			" XX",
+			"XX "
+		],
+		"size": [
+			864,
+			864
+		],
+		"unit": 288
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				2.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				3.0,
+				1.0
+			],
+			[
+				1.0,
+				2.0
+			]
+		],
+		"columns": 4.0,
+		"id": 29.0,
+		"meaningful_bounds": [
+			185,
+			65,
+			1166,
+			866
+		],
+		"origin": [
+			172,
+			51
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-c43796da-1878-463a-829d-5c3ff5fa8784.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Saratoga chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x208 y92 width1120 height840. Logical row pattern dots=empty: ..X. / XXXX / .X..; each cell 280x280 square, 6 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Saratoga chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 3.0,
+		"shape": [
+			"  X ",
+			"XXXX",
+			" X  "
+		],
+		"size": [
+			1192,
+			894
+		],
+		"unit": 298
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				0.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				3.0,
+				1.0
+			],
+			[
+				0.0,
+				2.0
+			]
+		],
+		"columns": 4.0,
+		"id": 30.0,
+		"meaningful_bounds": [
+			200,
+			68,
+			1190,
+			864
+		],
+		"origin": [
+			187,
+			44
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-1374c091-a653-4c9f-92e9-e36c80691d5c.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Long Island chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x208 y92 width1120 height840. Logical row pattern dots=empty: X... / XXXX / X...; each cell 280x280 square, 6 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Long Island chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 3.0,
+		"shape": [
+			"X   ",
+			"XXXX",
+			"X   "
+		],
+		"size": [
+			1216,
+			912
+		],
+		"unit": 304
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				0.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				3.0,
+				1.0
+			],
+			[
+				3.0,
+				2.0
+			]
+		],
+		"columns": 4.0,
+		"id": 31.0,
+		"meaningful_bounds": [
+			207,
+			93,
+			1123,
+			837
+		],
+		"origin": [
+			194,
+			81
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-c87deae2-0c37-48ae-91f5-41411eaa4bc4.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Bremerton chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x208 y92 width1120 height840. Logical row pattern dots=empty: X... / XXXX / ...X; each cell 280x280 square, 6 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Bremerton chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 3.0,
+		"shape": [
+			"X   ",
+			"XXXX",
+			"   X"
+		],
+		"size": [
+			1148,
+			861
+		],
+		"unit": 287
+	},
+	{
+		"cell_mask": false,
+		"cells": [
+			[
+				0.0,
+				0.0
+			],
+			[
+				3.0,
+				0.0
+			],
+			[
+				0.0,
+				1.0
+			],
+			[
+				1.0,
+				1.0
+			],
+			[
+				2.0,
+				1.0
+			],
+			[
+				3.0,
+				1.0
+			]
+		],
+		"columns": 4.0,
+		"id": 32.0,
+		"meaningful_bounds": [
+			69,
+			162,
+			1399,
+			707
+		],
+		"origin": [
+			48,
+			155
+		],
+		"path": "C:\\Users\\15832\\.codex\\generated_images\\01a0dc13-0120-74c0-b537-9da2d5cade77\\exec-519b2d9a-33c2-44e6-a88f-64c9a04140a0.png",
+		"prompt": "EDIT TARGET IMAGE 1: precision polyomino PCB sprite geometry template. IMAGE 2: existing Kearsarge chip, portrait identity, color and painterly game item style reference. Redraw ONLY this chip with a COMPLETE, UNBROKEN, broad brushed-silver metallic perimeter following image1, including EVERY concave notch, horizontal and vertical edge. Image2 has mistakenly cropped rim segments: do NOT copy those defects. Preserve image1 canvas1536x1024, occupied shape, exact placement and scale: bbox x68 y162 width1400 height700. Logical row pattern dots=empty: X..X / XXXX; each cell 350x350 square, 6 occupied cells, no internal grid seams. Keep every metallic edge and gold contact INSIDE image1 silhouette. Silver rim should be 10% cell width and continuously present even under contacts: contacts sit ON the rim, never replace/cut it. Outer corners generously chamfered with softened/rounded transitions, no acute spikes. Inner corners smoothly filleted inside occupied space. Do not stretch, squash, crop, enlarge or recenter the shape to fit the canvas; retain blank margins. Same substrate color, illustrated rich slightly-weathered PCB material, crisp gold circuitry, dark ICs/silver capacitors, original emblems and ONE modest Kearsarge chibi head matching image2. Keep head natural rounded proportions, complete hair/accessories visible, portrait clear of perimeter/cutouts, fit within an occupied cell. No cell-sized panel divisions; one continuous physical chip. Orthographic top view, genuinely transparent outside the polyomino, no shadows/halo, no text, no background. Geometry guide image1 is mandatory. Portrait/material image2 is stylistic reference ONLY. Replace flat guide material with the reference's handpainted brushed silver bevels and same finished asset style. Do not relocate ANY outline edge.",
+		"resampled": false,
+		"rows": 2.0,
+		"shape": [
+			"X  X",
+			"XXXX"
+		],
+		"size": [
+			1440,
+			720
+		],
+		"unit": 360
+	}
+]

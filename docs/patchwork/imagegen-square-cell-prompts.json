@@ -1,0 +1,489 @@
+{
+  "method": "Built-in image_gen",
+  "date": "2026-09-27",
+  "export": "Crop canvas and mask missing cells only. No RGB resizing, stretching or warping.",
+  "chips": [
+    {
+      "id": 0,
+      "shape": [
+        "X"
+      ],
+      "source_cell_pixels": 840,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Laffey from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly1 columns x1 rows, 1 occupied square cells EACH840x840. Row pattern dots=EMPTY: X. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one840px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied840px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead. IMAGE3 is the mandatory overall CHIP ART STYLE: thick chamfered brushed silver metal PERIMETER, charcoal outside edge, gold contact pins, painterly richly textured PCB. Match this same asset family. Do not copy image3 geometry or character. SINGLE SOLID CONTINUOUS board, never depict separate tile panels or inner square outlines. Metal rim only around OUTER silhouette. Portrait modest size inside ONE grid square, not giant. Keep whole silhouette exact image1 flatshape within its given bbox. All pins inset; no halo/background.",
+      "color_prompt": "Edit only the PCB SUBSTRATE COLOR in this exact game sprite. Replace every turquoise/green PCB surface with LIGHT ICY SKY BLUE / pale powder blue (#86c5e4), the original Laffey / Nagato chip palette. Keep ALL geometry, silhouette, canvas1536x1024, character portrait, tracing, silver rim, gold pins, electronic components, shadows, edges, weathered paint, and pixels positions unchanged. Do not add elements or modify size. Single color correction only. Background genuinely transparent. Preserve this illustrated game-item family. No nonuniform resizing."
+    },
+    {
+      "id": 1,
+      "shape": [
+        "XX"
+      ],
+      "source_cell_pixels": 700,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Enterprise from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly2 columns x1 rows, 2 occupied square cells EACH700x700. Row pattern dots=EMPTY: XX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one700px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied700px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 2,
+      "shape": [
+        " X",
+        "XX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Essex from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly2 columns x2 rows, 3 occupied square cells EACH420x420. Row pattern dots=EMPTY: .X / XX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 3,
+      "shape": [
+        " X",
+        "XX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Helena from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly2 columns x2 rows, 3 occupied square cells EACH420x420. Row pattern dots=EMPTY: .X / XX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 4,
+      "shape": [
+        " X",
+        "XX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: San Diego from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly2 columns x2 rows, 3 occupied square cells EACH420x420. Row pattern dots=EMPTY: .X / XX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 5,
+      "shape": [
+        "XXX"
+      ],
+      "source_cell_pixels": 490,
+      "source_origin": [
+        33,
+        258
+      ],
+      "prompt": "Paint the flat silhouette in IMAGE 1. It is a THREE-SQUARE STRAIGHT RECTANGULAR circuit chip. Keep exact image1 silhouette and its wide blank margins on1536x1024 canvas. Outer rectangle EXACTLY1380x460 at x78,y282: three460x460 square cells side by side. Horizontal width MUST be THREE TIMES its full height, not four or five. This is a deliberately thick block. Do not shrink its height or expand width. Silver rim+contacts inset INSIDE this1380x460 rectangle. Image2 is ONLY the Baltimore chibi head and BLUE PCB MATERIAL style reference, do not copy its shape. Redraw original softly shaded dark-brown chibi head with amber eyes and silver headclip centrally, normal round face; thin gold traces, deep royal blue PCB brushed texture, broad etched silver Eagle Union/eagle/compass motifs on side squares, layered substantial beveled silver metal perimeter with charcoal edge, dark ICs and silver capacitors. Exactly original illustrated game-icon material quality. No grid seams between the3squares. Alpha0 outside rectangle, NO SHADOW/GLOW/BACKDROP. No perspective. Do not auto crop or change margins. IMAGE1 outline is mandatory; only paint inside it.",
+      "color_prompt": null
+    },
+    {
+      "id": 6,
+      "shape": [
+        " XX",
+        "XX "
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        138,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: New Jersey from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x138,y92,1260wide by840high. Exactly3 columns x2 rows, 4 occupied square cells EACH420x420. Row pattern dots=EMPTY: .XX / XX.. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 7,
+      "shape": [
+        " XX",
+        "XX "
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        138,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Anchorage from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x138,y92,1260wide by840high. Exactly3 columns x2 rows, 4 occupied square cells EACH420x420. Row pattern dots=EMPTY: .XX / XX.. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 8,
+      "shape": [
+        "  X",
+        "XXX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        138,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Yorktown from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x138,y92,1260wide by840high. Exactly3 columns x2 rows, 4 occupied square cells EACH420x420. Row pattern dots=EMPTY: ..X / XXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 9,
+      "shape": [
+        "  X",
+        "XXX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        138,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Hornet from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x138,y92,1260wide by840high. Exactly3 columns x2 rows, 4 occupied square cells EACH420x420. Row pattern dots=EMPTY: ..X / XXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 10,
+      "shape": [
+        " X ",
+        "XXX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        138,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Belfast from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x138,y92,1260wide by840high. Exactly3 columns x2 rows, 4 occupied square cells EACH420x420. Row pattern dots=EMPTY: .X. / XXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 11,
+      "shape": [
+        "X X",
+        "XXX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        138,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Unicorn from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x138,y92,1260wide by840high. Exactly3 columns x2 rows, 5 occupied square cells EACH420x420. Row pattern dots=EMPTY: X.X / XXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 12,
+      "shape": [
+        " XX",
+        "XXX"
+      ],
+      "source_cell_pixels": 420,
+      "source_origin": [
+        138,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Javelin from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x138,y92,1260wide by840high. Exactly3 columns x2 rows, 5 occupied square cells EACH420x420. Row pattern dots=EMPTY: .XX / XXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one420px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied420px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 13,
+      "shape": [
+        "XXXX"
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        337
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Z23 from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y337,1400wide by350high. Exactly4 columns x1 rows, 4 occupied square cells EACH350x350. Row pattern dots=EMPTY: XXXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 14,
+      "shape": [
+        "  X ",
+        "XXXX"
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Ayanami from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly4 columns x2 rows, 5 occupied square cells EACH350x350. Row pattern dots=EMPTY: ..X. / XXXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 15,
+      "shape": [
+        " XX ",
+        "XXXX"
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Prinz Eugen from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly4 columns x2 rows, 6 occupied square cells EACH350x350. Row pattern dots=EMPTY: .XX. / XXXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 16,
+      "shape": [
+        " XXX",
+        "XX  "
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Bismarck from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly4 columns x2 rows, 5 occupied square cells EACH350x350. Row pattern dots=EMPTY: .XXX / XX... Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 17,
+      "shape": [
+        "   X",
+        "XXXX"
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Hood from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly4 columns x2 rows, 5 occupied square cells EACH350x350. Row pattern dots=EMPTY: ...X / XXXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 18,
+      "shape": [
+        "  XX",
+        "XXXX"
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Nagato from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly4 columns x2 rows, 6 occupied square cells EACH350x350. Row pattern dots=EMPTY: ..XX / XXXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead. IMAGE3 is the mandatory overall CHIP ART STYLE: thick chamfered brushed silver metal PERIMETER, charcoal outside edge, gold contact pins, painterly richly textured PCB. Match this same asset family. Do not copy image3 geometry or character. SINGLE SOLID CONTINUOUS board, never depict separate tile panels or inner square outlines. Metal rim only around OUTER silhouette. Portrait modest size inside ONE grid square, not giant. Keep whole silhouette exact image1 flatshape within its given bbox. All pins inset; no halo/background.",
+      "color_prompt": "Edit only the PCB SUBSTRATE COLOR in this exact game sprite. Replace every turquoise/green PCB surface with LIGHT ICY SKY BLUE / pale powder blue (#86c5e4), the original Laffey / Nagato chip palette. Keep ALL geometry, silhouette, canvas1536x1024, character portrait, tracing, silver rim, gold pins, electronic components, shadows, edges, weathered paint, and pixels positions unchanged. Do not add elements or modify size. Single color correction only. Background genuinely transparent. Preserve this illustrated game-item family. No nonuniform resizing."
+    },
+    {
+      "id": 19,
+      "shape": [
+        " XXX",
+        "XXX "
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Akashi from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly4 columns x2 rows, 6 occupied square cells EACH350x350. Row pattern dots=EMPTY: .XXX / XXX.. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead. Identity invariant: Akashi has MINT GREEN hair, mint green furry cat ears, gold bell with black ribbon on one side and gold paw hairclip on other, curled green ahoge. Eyes closed smiling open little mouth exactly as IMAGE2. Never pink or red hair. Keep gold PCB.",
+      "color_prompt": null
+    },
+    {
+      "id": 20,
+      "shape": [
+        "XXXXX"
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        68,
+        372
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Cheshire from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y372,1400wide by280high. Exactly5 columns x1 rows, 5 occupied square cells EACH280x280. Row pattern dots=EMPTY: XXXXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 21,
+      "shape": [
+        " X ",
+        "XXX",
+        " X "
+      ],
+      "source_cell_pixels": 292,
+      "source_origin": [
+        330,
+        73
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Taihou from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly3 columns x3 rows, 5 occupied square cells EACH280x280. Row pattern dots=EMPTY: .X. / XXX / .X.. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 22,
+      "shape": [
+        "X  ",
+        "XXX",
+        "X  "
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Formidable from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly3 columns x3 rows, 5 occupied square cells EACH280x280. Row pattern dots=EMPTY: X.. / XXX / X... Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 23,
+      "shape": [
+        " XX",
+        "XXX",
+        "X  "
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Illustrious from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly3 columns x3 rows, 6 occupied square cells EACH280x280. Row pattern dots=EMPTY: .XX / XXX / X... Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 24,
+      "shape": [
+        " X ",
+        "XXX",
+        "X X"
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Janus from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly3 columns x3 rows, 6 occupied square cells EACH280x280. Row pattern dots=EMPTY: .X. / XXX / X.X. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 25,
+      "shape": [
+        "X X",
+        "XXX",
+        "X X"
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        348,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Tashkent from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly3 columns x3 rows, 7 occupied square cells EACH280x280. Row pattern dots=EMPTY: X.X / XXX / X.X. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 26,
+      "shape": [
+        "  X",
+        " XX",
+        "XX "
+      ],
+      "source_cell_pixels": 294,
+      "source_origin": [
+        307,
+        40
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Indomitable from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x348,y92,840wide by840high. Exactly3 columns x3 rows, 5 occupied square cells EACH280x280. Row pattern dots=EMPTY: ..X / .XX / XX.. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 27,
+      "shape": [
+        " X  ",
+        "XXXX",
+        " X  "
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        208,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Cleveland from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x208,y92,1120wide by840high. Exactly4 columns x3 rows, 6 occupied square cells EACH280x280. Row pattern dots=EMPTY: .X.. / XXXX / .X... Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 28,
+      "shape": [
+        " XX ",
+        "XXXX",
+        " XX "
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        208,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Montpelier from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x208,y92,1120wide by840high. Exactly4 columns x3 rows, 8 occupied square cells EACH280x280. Row pattern dots=EMPTY: .XX. / XXXX / .XX.. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 29,
+      "shape": [
+        "  X ",
+        "XXXX",
+        " X  "
+      ],
+      "source_cell_pixels": 290,
+      "source_origin": [
+        188,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Saratoga from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x208,y92,1120wide by840high. Exactly4 columns x3 rows, 6 occupied square cells EACH280x280. Row pattern dots=EMPTY: ..X. / XXXX / .X... Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 30,
+      "shape": [
+        "X   ",
+        "XXXX",
+        "X   "
+      ],
+      "source_cell_pixels": 305,
+      "source_origin": [
+        174,
+        70
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Long Island from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x208,y92,1120wide by840high. Exactly4 columns x3 rows, 6 occupied square cells EACH280x280. Row pattern dots=EMPTY: X... / XXXX / X.... Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 31,
+      "shape": [
+        "X   ",
+        "XXXX",
+        "   X"
+      ],
+      "source_cell_pixels": 280,
+      "source_origin": [
+        208,
+        92
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Bremerton from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x208,y92,1120wide by840high. Exactly4 columns x3 rows, 6 occupied square cells EACH280x280. Row pattern dots=EMPTY: X... / XXXX / ...X. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one280px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied280px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 32,
+      "shape": [
+        "X  X",
+        "XXXX"
+      ],
+      "source_cell_pixels": 350,
+      "source_origin": [
+        68,
+        162
+      ],
+      "prompt": "Paint ONLY inside IMAGE 1's exact silhouette. Sprite: Kearsarge from Azur Lane. IMAGE1 is the GEOMETRY TARGET; IMAGE2 is a cropped portrait + PCB MATERIAL reference only. Do NOT copy image2 framing or outline. Output1536x1024 and keep image1's large blank margins, do not auto-crop. Shape bounding box: x68,y162,1400wide by700high. Exactly4 columns x2 rows, 6 occupied square cells EACH350x350. Row pattern dots=EMPTY: X..X / XXXX. Match image1 stepped silhouette exactly; paint surface materials inside existing flat shape. Width of every stem equals thickness of every bar (one350px unit). Single continuous chip, no interior grid borders, no disconnected squares. Silver rim and gold contacts INSET inside silhouette, no pins beyond outer bounds. Layered broad brushed silver metallic bevel, thin charcoal edge, moderately sparse thin raised gold circuitry, tiny dark ICs, a few silver capacitors, angular etched Eagle Union naval motifs. MATCH image2 PCB COLOR and lightly weathered illustrated/painterly texture, not flat vector or neon, not changing palette. Add ONE compact chibi head as in image2, same exact facial identity, hair color, eye color, expression and accessories; complete head, normal round face, no squashing. Head fits inside an occupied350px square with traces around it. Keep original modest portrait scale, no huge head. Flat orthographic top/front view, zero perspective. NO background; alpha0 outside image1 filled shape. No glow, halo or shadow. No labels, text, watermark or cell seams. GEOMETRY first, identical shape to image1; do not compress or stretch anything to fit. Redraw instead.",
+      "color_prompt": null
+    },
+    {
+      "id": 33,
+      "shape": [
+        "  X  ",
+        "XXXXX",
+        "  X  "
+      ],
+      "source_cell_pixels": 288,
+      "source_origin": [
+        48,
+        80
+      ],
+      "prompt": ""
+    }
+  ]
+}

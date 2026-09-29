@@ -3,7 +3,6 @@ using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.HoverTips;
@@ -26,7 +25,7 @@ public sealed partial class PatchworkMerchantSlot : NMerchantSlot
 		_chip = GetNode<Control>("ChipHolder");
 		GetNode<TextureRect>("ChipHolder/Icon").Texture = PatchworkVisuals.Component(0);
 		// Same native click target, price font, outline and gold icon as merchant relics.
-		var hitbox = new NClickableControl { Name = "Hitbox", Position = new(-96, -110), Size = new(192, 230) };
+		var hitbox = new NClickableControl { Name = "Hitbox", Position = new(-78, -86), Size = new(156, 210) };
 		AddChild(hitbox);
 		hitbox.Owner = this;
 		hitbox.UniqueNameInOwner = true;
@@ -94,8 +93,8 @@ public sealed partial class PatchworkMerchantSlot : NMerchantSlot
 	protected override void CreateHoverTip()
 	{
 		if (_pending || !_entry.IsStocked || NGame.Instance == null) return;
-		var tip = new HoverTip(new LocString("gameplay_ui", "LAFFEY_PATCHWORK_SHOP_TITLE"),
-			new LocString("gameplay_ui", "LAFFEY_PATCHWORK_SHOP_DESCRIPTION"));
+		var tip = new HoverTip(PatchworkVisuals.LocalizedText("SHOP_TITLE"),
+			PatchworkVisuals.LocalizedText("SHOP_DESCRIPTION"));
 		NHoverTipSet.CreateAndShow(this, tip, HoverTipAlignment.Left);
 	}
 	protected override void OnPreview()

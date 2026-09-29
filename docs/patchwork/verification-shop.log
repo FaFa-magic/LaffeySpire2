@@ -1,2 +1,8 @@
+Full build: 0 warnings, 0 errors.
+Regression reproduced before fix: RelicModel.FromSerializable -> SavedProperties.FillInternal -> Property set method not found.
+PASS_PURCHASE_SAVE: actual RitsuLib export/JSON/import preserves purchased chip and sold shop, other player remains in stock
 PASS_SHOP: native entry/slot registration, controller navigation, mouse purchase, pending guard, 50 gold, red affordability, purchase events, sold slot, duplicate rejection, per-player stock, synchronized discount, next shop, five-chip cap
-SHOP_CAPTURE 0
+PASS_POINTER: real viewport mouse clicks reach removal and chip independently
+PASS_RELIC_SAVE: actual RelicModel.ToSerializable / JSON / FromSerializable for both pillow relics, zero/active/threshold counts, status, floor, independent events and legacy saves
+UI geometry: normal/hover scales 0.65 and 0.8 checked for both chip and removal; no hitbox intersection.
+Validation uses installed game and RitsuLib assemblies in an isolated Godot scene; full in-game main-menu continue and two-machine networking were not exercised.

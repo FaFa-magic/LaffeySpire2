@@ -84,7 +84,10 @@ public static class PatchworkActions
 		foreach (int size in squares)
 		{
 			if (size == 7)
-				await RelicCmd.Obtain(RelicFactory.PullNextRelicFromFront(player, RelicRarity.Rare).ToMutable(), player);
+			{
+				for (int index = 0; index < PatchworkBalance.RareRelicCount; index++)
+					await RelicCmd.Obtain(RelicFactory.PullNextRelicFromFront(player, RelicRarity.Rare).ToMutable(), player);
+			}
 			else if (size == 8)
 				await GrantAncient(player, context.Message.AncientChoice);
 		}

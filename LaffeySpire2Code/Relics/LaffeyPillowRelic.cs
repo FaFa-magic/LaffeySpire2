@@ -33,7 +33,8 @@ public abstract class LaffeyPillowRelic : LaffeyRelicModel
     public int CardsPlayedThisTurn
     {
         get => _cardsPlayedThisTurn;
-        private set
+        // Native save loading reflects on the concrete relic type, so this setter must be inherited.
+        protected set
         {
             AssertMutable();
             _cardsPlayedThisTurn = value;

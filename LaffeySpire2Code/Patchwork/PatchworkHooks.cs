@@ -36,15 +36,15 @@ public sealed class PatchworkCombatStartPatch : IPatchMethod
 				continue;
 			PatchworkSaveData state = PatchworkBoard.Get(player);
 			if (state.ClaimedSquares.Contains(3))
-				await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), player.Creature, 3,
+				await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), player.Creature, PatchworkBalance.CombatStartVigor,
 					player.Creature, null);
 			if (state.ClaimedSquares.Contains(4))
-				await CreatureCmd.GainBlock(player.Creature, 6, ValueProp.Unpowered, null);
+				await CreatureCmd.GainBlock(player.Creature, PatchworkBalance.CombatStartBlock, ValueProp.Unpowered, null);
 			if (state.ClaimedSquares.Contains(5))
-				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), player.Creature, 1,
+				await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), player.Creature, PatchworkBalance.CombatStartStrength,
 					player.Creature, null);
 			if (state.ClaimedSquares.Contains(6))
-				await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), player.Creature, 1,
+				await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), player.Creature, PatchworkBalance.CombatStartDexterity,
 					player.Creature, null);
 		}
 	}
@@ -77,7 +77,7 @@ public sealed class PatchworkRewardPatch : IPatchMethod
 public sealed class PatchworkDrawPatch : IPatchMethod
 {
 	public static string PatchId => "laffey_patchwork_draw";
-	public static string Description => "Draw two extra cards each turn after completing a 9x9 square";
+	public static string Description => "Grant extra draw each turn after completing a 9x9 square";
 	public static bool IsCritical => true;
 	public static ModPatchTarget[] GetTargets() =>
 	[
@@ -89,14 +89,14 @@ public sealed class PatchworkDrawPatch : IPatchMethod
 	public static void Postfix(Player player, ref decimal __result)
 	{
 		if (player.Character is LaffeyCharacter && PatchworkBoard.Get(player).ClaimedSquares.Contains(9))
-			__result += 2;
+			__result += PatchworkBalance.ExtraCardsPerTurn;
 	}
 }
 
 public sealed class PatchworkEnergyPatch : IPatchMethod
 {
 	public static string PatchId => "laffey_patchwork_energy";
-	public static string Description => "Gain one energy each turn after completing a 10x10 square";
+	public static string Description => "Grant extra energy each turn after completing a 10x10 square";
 	public static bool IsCritical => true;
 	public static ModPatchTarget[] GetTargets() =>
 	[
@@ -110,6 +110,6 @@ public sealed class PatchworkEnergyPatch : IPatchMethod
 	{
 		await original;
 		if (player.Character is LaffeyCharacter && PatchworkBoard.Get(player).ClaimedSquares.Contains(10))
-			await PlayerCmd.GainEnergy(1, player);
+			await PlayerCmd.GainEnergy(PatchworkBalance.ExtraEnergyPerTurn, player);
 	}
 }

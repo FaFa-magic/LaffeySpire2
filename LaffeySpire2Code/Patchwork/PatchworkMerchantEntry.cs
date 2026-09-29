@@ -8,7 +8,7 @@ namespace LaffeySpire2.LaffeySpire2Code.Patchwork;
 
 public sealed class PatchworkMerchantEntry : MerchantEntry
 {
-	public const int BasePrice = 50;
+	public const int BasePrice = PatchworkBalance.ShopBasePrice;
 	public string ShopKey { get; }
 	private int? _synchronizedCost;
 	public override bool IsStocked => _player.RunState.CurrentRoom is MerchantRoom &&

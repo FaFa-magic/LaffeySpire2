@@ -10,7 +10,7 @@ public sealed class WarGodFormPower : LaffeyPowerModel
 {
 	public override PowerType Type => PowerType.Buff;
 
-	public override PowerStackType StackType => PowerStackType.Single;
+	public override PowerStackType StackType => PowerStackType.Counter;
 
 	public override PowerAssetProfile AssetProfile => new(
 		IconPath: "res://JanusSpire2/images/powers/big/AngelPrayerPower.png",
