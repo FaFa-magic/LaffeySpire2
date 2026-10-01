@@ -1,4 +1,5 @@
 using LaffeySpire2.LaffeySpire2Code.Characters;
+using LaffeySpire2.LaffeySpire2Code.Tags;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -9,12 +10,14 @@ using STS2RitsuLib.Interop.AutoRegistration;
 namespace LaffeySpire2.LaffeySpire2Code.Cards.Basic;
 
 [RegisterCharacterStarterCard(typeof(LaffeyCharacter), 1, Order = 2)]
-public sealed class Barrage() : LaffeyCardModel(1, CardType.Attack, CardRarity.Basic, TargetType.RandomEnemy)
+public sealed class Barrage() : LaffeyCardModel(0, CardType.Attack, CardRarity.Basic, TargetType.RandomEnemy)
 {
+	public override int MaxUpgradeLevel => int.MaxValue;
+	protected override HashSet<CardTag> CanonicalTags => [LaffeyTags.Barrage];
 	protected override IEnumerable<DynamicVar> CanonicalVars =>
 	[
 		new DamageVar(2M, ValueProp.Move),
-		new RepeatVar(4)
+		new RepeatVar(3)
 	];
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

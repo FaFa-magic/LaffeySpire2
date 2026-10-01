@@ -34,6 +34,7 @@ public class LaffeyCharacter : ModCharacterTemplate<LaffeyCardPool, LaffeyRelicP
 		new(
 			Scenes: new(
 				VisualsPath: "res://LaffeySpire2/scenes/characters/Laffey.tscn",
+				EnergyCounterPath: "res://LaffeySpire2/scenes/vfx/laffey_energy_counter.tscn",
 				MerchantAnimPath: CurrentSkinDefinition.MerchantAnimPath,
 				RestSiteAnimPath: CurrentSkinDefinition.RestSiteAnimPath
 			),

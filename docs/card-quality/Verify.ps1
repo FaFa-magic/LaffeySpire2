@@ -83,6 +83,10 @@ Write-Output 'PASS: Native-rarity and alphabetical card localization order.'
 $source = [IO.File]::ReadAllText((Join-Path $projectRoot 'LaffeySpire2Code/Cards/LaffeyCardModel.cs'))
 if ($source -notmatch '\[SavedProperty\]\s+public int QualityRank') { throw 'Quality must use an official saved property.' }
 if ($source -match 'override IEnumerable<IHoverTip> ExtraHoverTips') { throw 'Use AdditionalHoverTips.' }
+$refitSource = [IO.File]::ReadAllText((Join-Path $projectRoot 'LaffeySpire2Code/Cards/Common/RiggingRefit.cs'))
+if ($refitSource -notmatch 'new BlockVar\(5M' -or $refitSource -notmatch 'CreatureCmd\.GainBlock') { throw 'Rigging Refit must gain five Block.' }
+$previewSource = [IO.File]::ReadAllText((Join-Path $projectRoot 'LaffeySpire2Code/CardQuality/QualityRestSiteOption.cs'))
+if ($previewSource -notmatch 'card\.MutableClone\(' -or $previewSource -notmatch 'preview\.QualityRank' -or $previewSource -notmatch 'new CardTransformation\(card, preview\)' -or $previewSource -notmatch 'NDeckTransformSelectScreen\.ShowScreen' -or $previewSource -notmatch 'SyncLocalChoice') { throw 'Rest preview must use the native transform preview and synchronize selection.' }
 $qualitySources = Get-ChildItem (Join-Path $projectRoot 'LaffeySpire2Code/CardQuality') -Filter '*.cs'
 $qualitySources += Get-Item (Join-Path $projectRoot 'LaffeySpire2Code/Patches/LaffeyQualityPatches.cs')
 $inspectorPatchSource = [IO.File]::ReadAllText((Join-Path $projectRoot 'LaffeySpire2Code/Patches/LaffeyQualityPatches.cs'))

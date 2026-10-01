@@ -13,7 +13,7 @@ Common、Uncommon、Rare 原生拉菲牌拥有三档品质。Basic 等其他牌�
 - `LaffeyCardModel.NativeRarity`：该牌的原生品质。
 - `LaffeyCardModel.QualityRank`：官方 `[SavedProperty]` 字段，0 表示原生品质，1/2/3 表示 Common/Uncommon/Rare。设置时必须是可变实例。
 
-战斗选牌采用官方 `CardSelectCmd.FromHand`，火堆选牌采用官方 `FromDeckGeneric`，均使用官方选择同步。品质随官方 `SerializableCard.Props` 保存和传输，由 RitsuLib 注册继承的存档字段。多人游戏需要所有玩家使用相同版本的模组和 RitsuLib。
+战斗选牌采用官方 `CardSelectCmd.FromHand`。火堆选牌复用官方 `NDeckTransformSelectScreen` 与 `CardTransformation` 的左右预览，按官方 `CardSelectCmd.FromDeckForTransformation` 的选牌同步流程选择拉菲牌，不 patch 预览界面。品质随官方 `SerializableCard.Props` 保存和传输，由 RitsuLib 注册继承的存档字段。多人游戏需要所有玩家使用相同版本的模组和 RitsuLib。
 
 ## 逐张配置费用与数值
 
@@ -43,7 +43,7 @@ protected override LaffeyQualityConfiguration GetQualityConfiguration(CardRarity
 
 ## 示例及验证
 
-舰装改造（Rigging Refit）：1 费白卡技能，提升一张拉菲手牌的品质；升级后提升所有可提升手牌。火堆的“改造”只对拉菲及其皮肤角色开放，选择并确认后消耗本次火堆行动，取消不消耗。品质为金卡的牌不出现在改造候选中。
+舰装改造（Rigging Refit）：1 费白卡技能，获得 5 点格挡并提升一张拉菲手牌的品质；升级后提升所有可提升手牌，格挡不变。火堆的“改造”只对拉菲及其皮肤角色开放，选择后使用官方变换选牌界面的确认页展示左侧原牌、右侧品质提升后的副本；确认后才永久改造，取消不消耗火堆行动。品质为金卡、任务牌及不可变换的牌不出现在改造候选中。
 
 `./docs/card-quality/Verify.ps1` 对生产代码做 Roslyn 静态编译和安装版游戏 API 检查，并验证本地化、存档字段及无 Transpiler。不会生成 DLL 或 PCK。
 

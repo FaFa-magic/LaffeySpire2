@@ -1,9 +1,12 @@
 using HarmonyLib;
 using LaffeySpire2.LaffeySpire2Code.Characters;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Screens.CardLibrary;
 using MegaCrit.Sts2.Core.Nodes.Screens.GameOverScreen;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
 using STS2RitsuLib;
 using STS2RitsuLib.Patching.Models;
@@ -30,6 +33,39 @@ public sealed class LaffeySkinEnumerationPatch : IPatchMethod
 	{
 		__result = __result.Where(character =>
 			character is not LaffeyCharacter laffey || laffey.CurrentSkin == LaffeySkin.Default);
+	}
+}
+
+public sealed class LaffeySkinCardLibrarySelectionPatch : IPatchMethod
+{
+	public static string PatchId => "laffey_skin_card_library_selection";
+	public static string Description => "Use the Laffey card-pool filter for the active skin variant";
+	public static bool IsCritical => true;
+	public static ModPatchTarget[] GetTargets() =>
+	[
+		new(typeof(NCardLibrary), nameof(NCardLibrary.OnSubmenuOpened))
+	];
+
+	[HarmonyPrefix]
+	public static void Prefix(
+		IRunState? ____runState,
+		Dictionary<CharacterModel, NCardPoolFilter> ____cardPoolFilters,
+		NCardPoolFilter ____ironcladFilter)
+	{
+		CharacterModel? character = LocalContext.GetMe(____runState)?.Character;
+		if (character is not LaffeySkinVariant || ____cardPoolFilters.ContainsKey(character))
+			return;
+
+		ModelId baseId = ModelDb.GetId<LaffeyCharacter>();
+		NCardPoolFilter? filter = ____cardPoolFilters
+			.FirstOrDefault(entry => entry.Key.Id == baseId).Value;
+		if (filter == null)
+		{
+			MainFile.Logger.Warn("[CardLibrary] Laffey pool filter is unavailable; selecting the vanilla fallback for this skin.");
+			filter = ____ironcladFilter;
+		}
+
+		____cardPoolFilters[character] = filter;
 	}
 }
 

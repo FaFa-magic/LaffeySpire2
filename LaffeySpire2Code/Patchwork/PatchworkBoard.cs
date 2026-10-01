@@ -48,7 +48,10 @@ public static class PatchworkBoard
 
 	public static void Register()
 	{
-		_slot = RunSavedDataStore.For(MainFile.ModId).RegisterPerPlayer<PatchworkSaveData>("patchwork_board");
+		_slot = RunSavedDataStore.For(MainFile.ModId).RegisterPerPlayer("patchwork_board", () => new PatchworkSaveData
+		{
+			AvailablePieces = [0]
+		});
 	}
 
 	public static PatchworkSaveData Get(Player player) => _slot!.Get(player);
