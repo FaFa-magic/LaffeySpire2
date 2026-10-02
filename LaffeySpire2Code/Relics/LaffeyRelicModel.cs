@@ -8,9 +8,20 @@ namespace LaffeySpire2.LaffeySpire2Code.Relics;
 public abstract class LaffeyRelicModel : ModRelicTemplate
 {
 	public override RelicAssetProfile AssetProfile => new(
-		IconPath: $"res://JanusSpire2/images/relics/packed/{GetType().Name}.png",
-		IconOutlinePath: $"res://JanusSpire2/images/relics/outline/{GetType().Name}.png",
-		BigIconPath: $"res://JanusSpire2/images/relics/big/{GetType().Name}.png"
+		IconPath: ResolveIconPath("packed"),
+		IconOutlinePath: ResolveIconPath("outline"),
+		BigIconPath: ResolveIconPath("big")
 	);
+
+	private string ResolveIconPath(string size)
+	{
+		string path = $"res://LaffeySpire2/images/relics/{size}/{GetType().Name}.png";
+		string fallbackName = GetType().Name == nameof(HuggyPillowOfBravery)
+			? "ShiningCrown"
+			: "Coronet";
+		return Godot.ResourceLoader.Exists(path)
+			? path
+			: $"res://JanusSpire2/images/relics/{size}/{fallbackName}.png";
+	}
 }
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkScreen.cs" id="1_screen"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/workbench-v2.png" id="2_bg"]
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkBoardView.cs" id="3_board"]
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkPieceView.cs" id="4_piece"]
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkWiringView.cs" id="5_wiring"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/rules_manual_page.png" id="6_manual"]
 
 [node name="PatchworkScreen" type="Control"]
 layout_mode = 3
@@ -93,35 +94,47 @@ offset_left = 50.0
 offset_top = 198.0
 offset_right = 430.0
 offset_bottom = 978.0
+mouse_filter = 2
+
+[node name="RulesManualPage" type="TextureRect" parent="Workspace/RewardsPanel"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = -30.0
+offset_right = 425.0
+offset_bottom = 223.0
+mouse_filter = 2
+texture = ExtResource("6_manual")
+expand_mode = 1
 
 
 [node name="RulesHeading" type="Label" parent="Workspace/RewardsPanel"]
 layout_mode = 0
-offset_left = 18.0
+offset_left = 22.0
 offset_top = 14.0
-offset_right = 362.0
+offset_right = 358.0
 offset_bottom = 46.0
 theme_override_font_sizes/font_size = 22
 metadata/loc = "RULES_TITLE"
+theme_override_colors/font_color = Color(0.105, 0.18, 0.255, 1)
 
 
 [node name="RulesText" type="Label" parent="Workspace/RewardsPanel"]
 layout_mode = 0
-offset_left = 18.0
+offset_left = 22.0
 offset_top = 52.0
-offset_right = 362.0
+offset_right = 358.0
 offset_bottom = 190.0
 theme_override_font_sizes/font_size = 15
 metadata/loc = "RULES_TEXT"
 autowrap_mode = 3
-theme_override_colors/font_color = Color(0.72, 0.8, 0.84, 1)
+theme_override_colors/font_color = Color(0.15, 0.225, 0.31, 1)
 
 [node name="Heading" type="Label" parent="Workspace/RewardsPanel"]
 layout_mode = 0
 offset_left = 18.0
-offset_top = 196.0
+offset_top = 220.0
 offset_right = 362.0
-offset_bottom = 226.0
+offset_bottom = 250.0
 theme_override_font_sizes/font_size = 20
 metadata/loc = "REWARDS"
 
@@ -129,9 +142,9 @@ metadata/loc = "REWARDS"
 [node name="Legend" type="Label" parent="Workspace/RewardsPanel"]
 layout_mode = 0
 offset_left = 18.0
-offset_top = 230.0
+offset_top = 254.0
 offset_right = 362.0
-offset_bottom = 262.0
+offset_bottom = 286.0
 theme_override_font_sizes/font_size = 13
 metadata/loc = "LEGEND"
 autowrap_mode = 3
@@ -140,9 +153,9 @@ theme_override_colors/font_color = Color(0.58, 0.76, 0.8, 1)
 [node name="Rows" type="VBoxContainer" parent="Workspace/RewardsPanel"]
 layout_mode = 0
 offset_left = 18.0
-offset_top = 272.0
+offset_top = 296.0
 offset_right = 362.0
-offset_bottom = 762.0
+offset_bottom = 786.0
 theme_override_constants/separation = 4
 
 [node name="InventoryPanel" type="Panel" parent="Workspace"]

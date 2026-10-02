@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b21v5gei1eo8m"
-path="res://.godot/imported/map_marker_janus.png-7d85e7c9a41769c912166d9d0bcc1bc3.ctex"
+uid="uid://swcxfqcxsx2b"
+path="res://.godot/imported/char_select_laffey_locked.png-173b53a1c5d8ac95f7fa5fa8426587e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/map_marker_janus.png"
-dest_files=["res://.godot/imported/map_marker_janus.png-7d85e7c9a41769c912166d9d0bcc1bc3.ctex"]
+source_file="res://LaffeySpire2/images/characters/char_select_laffey_locked.png"
+dest_files=["res://.godot/imported/char_select_laffey_locked.png-173b53a1c5d8ac95f7fa5fa8426587e2.ctex"]
 
 [params]
 

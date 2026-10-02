@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca6itkjkh5tmo"
-path="res://.godot/imported/char_select_janus_locked.png-52147b4543ec2406ff44c9f9971c03e5.ctex"
+uid="uid://hmmjeinxanhl"
+path="res://.godot/imported/rules_manual_page.png-b1f1c5fa35ffe313cdad4fd5a72a27f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/char_select_janus_locked.png"
-dest_files=["res://.godot/imported/char_select_janus_locked.png-52147b4543ec2406ff44c9f9971c03e5.ctex"]
+source_file="res://LaffeySpire2/images/patchwork/rules_manual_page.png"
+dest_files=["res://.godot/imported/rules_manual_page.png-b1f1c5fa35ffe313cdad4fd5a72a27f3.ctex"]
 
 [params]
 

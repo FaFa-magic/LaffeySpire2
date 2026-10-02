@@ -8,8 +8,8 @@ namespace LaffeySpire2.LaffeySpire2Code.Potions;
 public abstract class LaffeyPotionModel : ModPotionTemplate
 {
 	public override PotionAssetProfile AssetProfile => new(
-		ImagePath: $"res://JanusSpire2/images/potions/big/{GetType().Name}.png",
-		OutlinePath: $"res://JanusSpire2/images/potions/outline/{GetType().Name}.png"
+		ImagePath: $"res://LaffeySpire2/images/potions/big/{GetType().Name}.png",
+		OutlinePath: $"res://LaffeySpire2/images/potions/outline/{GetType().Name}.png"
 	);
 }
 

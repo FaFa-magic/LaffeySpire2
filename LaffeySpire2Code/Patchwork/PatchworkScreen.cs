@@ -125,9 +125,10 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 		_close = _workspace.GetNode<Button>("Close");
 		_ancientChoice = _workspace.GetNode<OptionButton>("InventoryPanel/AncientChoice");
 		Localize(_workspace);
-		foreach (string path in new[] { "InventoryPanel", "RewardsPanel", "ReadoutPanel" })
+		foreach (string path in new[] { "InventoryPanel", "ReadoutPanel" })
 			_workspace.GetNode<Panel>(path).AddThemeStyleboxOverride("panel",
 				PatchworkVisuals.Panel(new Color(0.026f, 0.053f, 0.081f, 0.92f), new Color("536777"), 5));
+		_workspace.GetNode<Panel>("RewardsPanel").AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
 		foreach (string path in new[] { "Confirm", "Close", "InventoryPanel/Rotate", "InventoryPanel/Flip" })
 			PatchworkVisuals.StyleButton(_workspace.GetNode<Button>(path));
 		PatchworkVisuals.StyleButton(_ancientChoice);

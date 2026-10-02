@@ -17,5 +17,8 @@
   "LAFFEY_SPIRE2_RELIC_LAFFEY_PILLOW.flavor": "短暂的休息也是为了更好地战斗。",
   "LAFFEY_SPIRE2_RELIC_HUGGY_PILLOW_OF_BRAVERY.title": "勇敢的美梦之枕",
   "LAFFEY_SPIRE2_RELIC_HUGGY_PILLOW_OF_BRAVERY.description": "每回合打出第[blue]{Cards}[/blue]张牌后，获得[blue]1[/blue]层[gold]所罗门的战神[/gold]。",
-  "LAFFEY_SPIRE2_RELIC_HUGGY_PILLOW_OF_BRAVERY.flavor": "即使沉入梦乡，勇气也不会消失。"
+  "LAFFEY_SPIRE2_RELIC_HUGGY_PILLOW_OF_BRAVERY.flavor": "即使沉入梦乡，勇气也不会消失。",
+  "LAFFEY_SPIRE2_RELIC_NINTH_NIGHT_ALARM.title": "第九夜的闹钟",
+  "LAFFEY_SPIRE2_RELIC_NINTH_NIGHT_ALARM.description": "每经过你的[blue]{Turns}[/blue]个回合，获得[blue]1[/blue]层[gold]唤醒时刻[/gold]。",
+  "LAFFEY_SPIRE2_RELIC_NINTH_NIGHT_ALARM.flavor": "再困也不能错过约定的时间。"
 }

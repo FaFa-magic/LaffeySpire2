@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7qvhgiffp1j"
-path="res://.godot/imported/character_icon_janus.png-dc05aaefa4ab543ac4dd3da1b48f43a8.ctex"
+uid="uid://rk3qitq32idk"
+path="res://.godot/imported/yummy_cookie_laffey.png-ca2dbdfd49e10fb3ca28a0cacc3dd703.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/character_icon_janus.png"
-dest_files=["res://.godot/imported/character_icon_janus.png-dc05aaefa4ab543ac4dd3da1b48f43a8.ctex"]
+source_file="res://LaffeySpire2/images/relics/big/yummy_cookie_laffey.png"
+dest_files=["res://.godot/imported/yummy_cookie_laffey.png-ca2dbdfd49e10fb3ca28a0cacc3dd703.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=256
 detect_3d/compress_to=1

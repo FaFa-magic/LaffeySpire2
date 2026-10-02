@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2mn45as35jqj"
-path="res://.godot/imported/char_select_janus.png-c69fc26f2cbb8e338be91b505cfe9494.ctex"
+uid="uid://c0cks0su3v6cc"
+path="res://.godot/imported/char_select_bg_laffey.jpg-3d2eff6e735400573be857b2178aa430.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/char_select_janus.png"
-dest_files=["res://.godot/imported/char_select_janus.png-c69fc26f2cbb8e338be91b505cfe9494.ctex"]
+source_file="res://LaffeySpire2/images/characters/char_select_bg_laffey.jpg"
+dest_files=["res://.godot/imported/char_select_bg_laffey.jpg-3d2eff6e735400573be857b2178aa430.ctex"]
 
 [params]
 

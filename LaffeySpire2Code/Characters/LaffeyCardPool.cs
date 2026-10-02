@@ -11,9 +11,9 @@ public sealed class LaffeyCardPool : TypeListCardPoolModel, IModColorfulPhilosop
 	public override string EnergyColorName => LaffeyCharacter.CharacterId;
 
 	public override string BigEnergyIconPath =>
-		"res://JanusSpire2/images/packed/sprite_fonts/Janus_energy_icon_original.png";
+		"res://LaffeySpire2/images/packed/sprite_fonts/Laffey_energy_icon_original.png";
 	public override string TextEnergyIconPath =>
-		"res://JanusSpire2/images/packed/sprite_fonts/Janus_energy_icon.png";
+		"res://LaffeySpire2/images/packed/sprite_fonts/Laffey_energy_icon.png";
 
 	public override Color DeckEntryCardColor => new("7BABC2");
 	public override Color EnergyOutlineColor => new("7BABC2");

@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using STS2RitsuLib.Scaffolding.Content;
 
 namespace LaffeySpire2.LaffeySpire2Code.Powers;
 
@@ -16,11 +15,6 @@ public sealed class FightingSpiritPower : LaffeyPowerModel
 	public override PowerType Type => PowerType.Buff;
 	public override PowerStackType StackType => PowerStackType.Counter;
 	public override int DisplayAmount => DynamicVars["Bonus"].IntValue;
-
-	public override PowerAssetProfile AssetProfile => new(
-		IconPath: "res://JanusSpire2/images/powers/big/AngelPrayerPower.png",
-		BigIconPath: "res://JanusSpire2/images/powers/big/AngelPrayerPower.png"
-	);
 
 	protected override IEnumerable<DynamicVar> CanonicalVars =>
 	[
