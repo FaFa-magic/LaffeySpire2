@@ -1,4 +1,5 @@
 using Godot;
+using LaffeySpire2.LaffeySpire2Code.Configs;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Entities.Characters;
@@ -38,8 +39,25 @@ public class LaffeyCharacter : ModCharacterTemplate<LaffeyCardPool, LaffeyRelicP
 				MerchantAnimPath: CurrentSkinDefinition.MerchantAnimPath,
 				RestSiteAnimPath: CurrentSkinDefinition.RestSiteAnimPath
 			),
+			Vfx: new(
+				TrailPath: "res://LaffeySpire2/scenes/vfx/card_trail_laffey.tscn"
+			),
 			Spine: new(
 				CombatSkeletonDataPath: CurrentSkinDefinition.SpineSkeletonDataPath
+			),
+			Multiplayer: new(
+				ArmPointingTexturePath: LaffeyConfigPage.ModelModeBinding.Read() == LaffeyMultiplayerModelMode.手部模型
+					? "res://LaffeySpire2/images/characters/hands/multiplayer_hand_laffey_point.png"
+					: "res://LaffeySpire2/images/characters/feet/multiplayer_foot_laffey_point.png",
+				ArmRockTexturePath: LaffeyConfigPage.ModelModeBinding.Read() == LaffeyMultiplayerModelMode.手部模型
+					? "res://LaffeySpire2/images/characters/hands/multiplayer_hand_laffey_rock.png"
+					: "res://LaffeySpire2/images/characters/feet/multiplayer_foot_laffey_rock.png",
+				ArmPaperTexturePath: LaffeyConfigPage.ModelModeBinding.Read() == LaffeyMultiplayerModelMode.手部模型
+					? "res://LaffeySpire2/images/characters/hands/multiplayer_hand_laffey_paper.png"
+					: "res://LaffeySpire2/images/characters/feet/multiplayer_foot_laffey_paper.png",
+				ArmScissorsTexturePath: LaffeyConfigPage.ModelModeBinding.Read() == LaffeyMultiplayerModelMode.手部模型
+					? "res://LaffeySpire2/images/characters/hands/multiplayer_hand_laffey_scissors.png"
+					: "res://LaffeySpire2/images/characters/feet/multiplayer_foot_laffey_scissors.png"
 			)
 		));
 

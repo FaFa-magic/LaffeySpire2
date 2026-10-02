@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xj7dabb54icf"
-path="res://.godot/imported/multiplayer_hand_janus_paper.png-df79ffb558a9bff9c616b36e18e49f54.ctex"
+uid="uid://ddnx1jlykkcd3"
+path="res://.godot/imported/Carrot.png-cc0425bda93f84d228ec429611afcd96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/hands/multiplayer_hand_janus_paper.png"
-dest_files=["res://.godot/imported/multiplayer_hand_janus_paper.png-df79ffb558a9bff9c616b36e18e49f54.ctex"]
+source_file="res://LaffeySpire2/images/vfx/Carrot.png"
+dest_files=["res://.godot/imported/Carrot.png-cc0425bda93f84d228ec429611afcd96.ctex"]
 
 [params]
 

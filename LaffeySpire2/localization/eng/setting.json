@@ -1,0 +1,8 @@
+{
+  "config.page.title": "Laffey Settings",
+  "config.modDisplayName": "Laffey",
+  "config.section.general": "General",
+  "config.modelMode.label": "Multiplayer model",
+  "config.modelMode.hand": "Hand model",
+  "config.modelMode.legs": "Leg model"
+}

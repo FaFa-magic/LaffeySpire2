@@ -94,9 +94,9 @@ public abstract class LaffeyCardModel : ModCardTemplate
 		AncientBorderMaterialPath: "res://JanusSpire2/materials/cards/janus_ancient_border_opaque.tres",
 		FramePath: Type switch
 		{
-			CardType.Attack => "res://JanusSpire2/images/card_frames/janus_attack_1.png",
-			CardType.Skill => "res://JanusSpire2/images/card_frames/janus_skill_1.png",
-			CardType.Power => "res://JanusSpire2/images/card_frames/janus_power_1.png",
+			CardType.Attack => "res://LaffeySpire2/images/card_frames/laffey_attack.png",
+			CardType.Skill => "res://LaffeySpire2/images/card_frames/laffey_skill.png",
+			CardType.Power => "res://LaffeySpire2/images/card_frames/laffey_power.png",
 			_ => ""
 		}
 	);

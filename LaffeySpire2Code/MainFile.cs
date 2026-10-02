@@ -1,4 +1,5 @@
 using System.Reflection;
+using LaffeySpire2.LaffeySpire2Code.Configs;
 using LaffeySpire2.LaffeySpire2Code.Patches;
 using LaffeySpire2.LaffeySpire2Code.Patchwork;
 using LaffeySpire2.LaffeySpire2Code.Relics;
@@ -24,6 +25,7 @@ public static class MainFile
 		Logger = RitsuLibFramework.CreateLogger(ModId);
 		ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
 		RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
+		LaffeyConfigPage.Register();
 		RitsuLibFramework.RegisterTouchOfOrobasRefinementMapping<LaffeyPillow, HuggyPillowOfBravery>();
 		RitsuLibFramework.RegisterArchaicToothTranscendenceMapping<
 			Cards.Basic.Strike,

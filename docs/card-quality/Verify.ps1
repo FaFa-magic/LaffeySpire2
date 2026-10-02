@@ -9,7 +9,7 @@ Add-Type -Path (Join-Path $sdkDir 'Roslyn/bincore/Microsoft.CodeAnalysis.dll')
 Add-Type -Path (Join-Path $sdkDir 'Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll')
 $parseOptions = [Microsoft.CodeAnalysis.CSharp.CSharpParseOptions]::Default.WithLanguageVersion([Microsoft.CodeAnalysis.CSharp.LanguageVersion]::Preview)
 $trees = [System.Collections.Generic.List[Microsoft.CodeAnalysis.SyntaxTree]]::new()
-$trees.Add([Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree]::ParseText('global using System; global using System.Collections.Generic; global using System.Linq; global using System.Threading.Tasks;', $parseOptions))
+$trees.Add([Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree]::ParseText('global using System; global using System.Collections.Generic; global using System.IO; global using System.Linq; global using System.Threading.Tasks;', $parseOptions))
 foreach ($file in Get-ChildItem (Join-Path $projectRoot 'LaffeySpire2Code') -Recurse -Filter '*.cs') {
     $trees.Add([Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree]::ParseText([IO.File]::ReadAllText($file.FullName), $parseOptions, $file.FullName))
 }

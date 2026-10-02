@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8qeew5sm6tl5"
-path="res://.godot/imported/multiplayer_hand_janus_scissors.png-4aea8c4a8e692b64fecb9a99c74a0a40.ctex"
+uid="uid://xj7dabb54icf"
+path="res://.godot/imported/multiplayer_hand_laffey_paper.png-e52e39ef4acc0c4aecdd6796d7b1f0d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/hands/multiplayer_hand_janus_scissors.png"
-dest_files=["res://.godot/imported/multiplayer_hand_janus_scissors.png-4aea8c4a8e692b64fecb9a99c74a0a40.ctex"]
+source_file="res://LaffeySpire2/images/characters/hands/multiplayer_hand_laffey_paper.png"
+dest_files=["res://.godot/imported/multiplayer_hand_laffey_paper.png-e52e39ef4acc0c4aecdd6796d7b1f0d4.ctex"]
 
 [params]
 

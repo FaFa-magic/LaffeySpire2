@@ -23,10 +23,13 @@ public sealed class BarrageRecallPower : LaffeyPowerModel
 	{
 		if (!participants.Contains(Owner))
 			return;
+		var player = Owner.Player;
+		if (player is null)
+			return;
 		CardModel[] cards =
 		[
 			.. new[] { PileType.Draw, PileType.Discard, PileType.Exhaust }
-				.SelectMany(pile => pile.GetPile(Owner.Player).Cards)
+				.SelectMany(pile => pile.GetPile(player).Cards)
 				.Where(card => card.Tags.Contains(LaffeyTags.Barrage))
 		];
 		Flash();

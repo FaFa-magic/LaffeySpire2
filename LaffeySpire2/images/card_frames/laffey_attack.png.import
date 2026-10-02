@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyjab6781moqx"
-path="res://.godot/imported/multiplayer_hand_janus_point.png-21d4e901ecc861586d9459f9d2c2e211.ctex"
+uid="uid://c7bcdncs5rlyl"
+path="res://.godot/imported/laffey_attack.png-ef56d06e7c13604b170a46d7eed77d3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/hands/multiplayer_hand_janus_point.png"
-dest_files=["res://.godot/imported/multiplayer_hand_janus_point.png-21d4e901ecc861586d9459f9d2c2e211.ctex"]
+source_file="res://LaffeySpire2/images/card_frames/laffey_attack.png"
+dest_files=["res://.godot/imported/laffey_attack.png-ef56d06e7c13604b170a46d7eed77d3d.ctex"]
 
 [params]
 

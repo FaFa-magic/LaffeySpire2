@@ -13,6 +13,7 @@ public sealed class FullSalvo() : LaffeyCardModel(1, CardType.Skill, CardRarity.
 {
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
+		ArgumentNullException.ThrowIfNull(CombatState);
 		CardModel[] cards =
 		[
 			.. new[] { PileType.Hand, PileType.Draw, PileType.Discard, PileType.Exhaust }
