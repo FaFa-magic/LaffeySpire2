@@ -15,8 +15,8 @@ public sealed class LaffeyCardPool : TypeListCardPoolModel, IModColorfulPhilosop
 	public override string TextEnergyIconPath =>
 		"res://LaffeySpire2/images/packed/sprite_fonts/Laffey_energy_icon.png";
 
-	public override Color DeckEntryCardColor => new("7BABC2");
-	public override Color EnergyOutlineColor => new("7BABC2");
+	public override Color DeckEntryCardColor => new("806018");
+	public override Color EnergyOutlineColor => new("806018");
 
 	private static readonly Material? _poolFrameMaterial = MaterialUtils.CreateUnmodulatedHsvShaderMaterial();
 	public override Material? PoolFrameMaterial => _poolFrameMaterial;

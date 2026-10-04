@@ -1,0 +1,11 @@
+Tool: built-in image_gen (transparent_background=true)
+References: workbench-v2.png and chip-socket-v2.png, used only for the existing workbench material, lighting and palette.
+Output: LaffeySpire2/images/patchwork/reward_circuit_board.png
+
+Prompt specification:
+Create one continuous physical reward-indicator PCB background for the Eagle Union tactical chip assembly workbench. Orthographic top-down view, portrait composition, navy and teal substrate, rounded corners, four screw holes, copper/gold traces, vias, black ICs and cream resistors around the perimeter. Match the clean overhead lighting and detailed materials of the reference workbench and chip socket. Leave the central-left area calm and unobstructed for eight localized reward stickers. Reserve a narrow right-side band for eight independent circuit routes and solder contacts. No bright lamps, baked text, numbers, icons, labels, or UI cards; the application overlays localized stickers and live diode lights. The entire board silhouette must fit inside a genuinely transparent canvas with padding. One cohesive board lying on the workbench, not eight separate cards. No test pen, additional tools, hands, watermark, or text.
+
+Integration:
+The 1060 x 1484 RGBA source is displayed at 400 x 560 with uniform scaling.
+Reward text and values are runtime labels using the existing localization and balance values.
+Glass diode lights align with the artwork's eight solder contacts; persistent rewards are cyan and pending rewards are amber.

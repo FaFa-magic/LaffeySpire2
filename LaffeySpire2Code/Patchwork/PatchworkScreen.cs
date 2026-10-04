@@ -60,11 +60,11 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	private PatchworkPieceView _dragGhost = null!;
 	private PatchworkWiringView _wiring = null!;
 	private VBoxContainer _pieces = null!;
-	private VBoxContainer _rewards = null!;
-	private Label _status = null!, _summary = null!, _selected = null!, _inventory = null!;
+	private Control _rewards = null!;
+	private Label _status = null!, _selected = null!, _inventory = null!;
 	private Button _confirm = null!, _close = null!;
 	private OptionButton _ancientChoice = null!;
-	private readonly Dictionary<int, (PanelContainer Row, Panel Led, Label State)> _rewardRows = [];
+	private readonly Dictionary<int, (PanelContainer Row, PatchworkRewardLed Led, Label State)> _rewardRows = [];
 	private int _selectedPiece = -1, _rotation, _x, _y;
 	private bool _flipped, _pending;
 	private int _movingIndex = -1;
@@ -116,18 +116,16 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 					PatchworkBoard.Cells(_selectedPiece, _rotation, _flipped)[0].Y));
 		};
 		_pieces = _workspace.GetNode<VBoxContainer>("InventoryPanel/Scroll/Pieces");
-		_rewards = _workspace.GetNode<VBoxContainer>("RewardsPanel/Rows");
+		_rewards = _workspace.GetNode<Control>("RewardsPanel/Rows");
 		_status = _workspace.GetNode<Label>("Status");
-		_summary = _workspace.GetNode<Label>("BoardSummary");
 		_selected = _workspace.GetNode<Label>("InventoryPanel/Selected");
 		_inventory = _workspace.GetNode<Label>("InventoryPanel/Heading");
 		_confirm = _workspace.GetNode<Button>("Confirm");
 		_close = _workspace.GetNode<Button>("Close");
 		_ancientChoice = _workspace.GetNode<OptionButton>("InventoryPanel/AncientChoice");
 		Localize(_workspace);
-		foreach (string path in new[] { "InventoryPanel", "ReadoutPanel" })
-			_workspace.GetNode<Panel>(path).AddThemeStyleboxOverride("panel",
-				PatchworkVisuals.Panel(new Color(0.026f, 0.053f, 0.081f, 0.92f), new Color("536777"), 5));
+		_workspace.GetNode<Panel>("InventoryPanel").AddThemeStyleboxOverride("panel",
+			PatchworkVisuals.Panel(new Color(0.026f, 0.053f, 0.081f, 0.92f), new Color("536777"), 5));
 		_workspace.GetNode<Panel>("RewardsPanel").AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
 		foreach (string path in new[] { "Confirm", "Close", "InventoryPanel/Rotate", "InventoryPanel/Flip" })
 			PatchworkVisuals.StyleButton(_workspace.GetNode<Button>(path));
@@ -166,20 +164,39 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	}
 	private void CreateRewardRows()
 	{
+		TextureRect circuitBoard = _workspace.GetNode<TextureRect>("RewardsPanel/CircuitBoard");
+		float[] lampCenters = [257, 392, 531, 666, 803, 941, 1079, 1216];
+		Color ink = new("253849");
 		for (int size = PatchworkBoard.FirstRewardSize; size <= PatchworkBoard.BoardSize; size++)
 		{
-			PanelContainer row = new() { CustomMinimumSize = new Vector2(0, 56), MouseFilter = MouseFilterEnum.Ignore };
+			float lampY = lampCenters[size - PatchworkBoard.FirstRewardSize] * (400f / 1060);
+			PanelContainer row = new() { Name = "Reward" + size, Size = new Vector2(250, 44),
+				Position = new Vector2(0, circuitBoard.Position.Y + lampY - _rewards.Position.Y - 22), MouseFilter = MouseFilterEnum.Ignore };
 			_rewards.AddChild(row);
-			HBoxContainer content = new(); content.AddThemeConstantOverride("separation", 10); row.AddChild(content);
-			Panel led = new() { CustomMinimumSize = new Vector2(10, 10), SizeFlagsVertical = SizeFlags.ShrinkCenter, MouseFilter = MouseFilterEnum.Ignore };
-			Label dimensions = new() { Text = $"{size}×{size}", CustomMinimumSize = new Vector2(44, 0), VerticalAlignment = VerticalAlignment.Center };
-			dimensions.AddThemeFontSizeOverride("font_size", 16); content.AddChild(dimensions);
-			VBoxContainer description = new() { SizeFlagsHorizontal = SizeFlags.ExpandFill }; content.AddChild(description);
-			description.AddThemeConstantOverride("separation", 2);
-			Label effect = new() { Text = Text("REWARD_" + size), AutowrapMode = TextServer.AutowrapMode.WordSmart, SizeFlagsHorizontal = SizeFlags.ExpandFill };
-			effect.AddThemeFontSizeOverride("font_size", 14); description.AddChild(effect);
-			Label state = new(); state.AddThemeFontSizeOverride("font_size", 11); description.AddChild(state);
-			content.AddChild(led);
+			StyleBoxFlat sticker = PatchworkVisuals.Panel(new Color("e4e5d5"), new Color("a7b5b5"), 2);
+			sticker.ContentMarginLeft = 7; sticker.ContentMarginRight = 7;
+			sticker.ContentMarginTop = 2; sticker.ContentMarginBottom = 2;
+			sticker.ShadowColor = new Color(0, 0, 0, 0.35f); sticker.ShadowSize = 2; sticker.ShadowOffset = new Vector2(1, 2);
+			row.AddThemeStyleboxOverride("panel", sticker);
+			HBoxContainer content = new() { MouseFilter = MouseFilterEnum.Ignore }; content.AddThemeConstantOverride("separation", 8); row.AddChild(content);
+			PatchworkRewardLed led = new() { Name = "Led" + size, Size = new Vector2(28, 28), MouseFilter = MouseFilterEnum.Ignore,
+				Position = new Vector2(948, lampCenters[size - PatchworkBoard.FirstRewardSize]) * (400f / 1060) - new Vector2(14, 14) };
+			circuitBoard.AddChild(led);
+			Label dimensions = new() { Text = $"{size}×{size}", CustomMinimumSize = new Vector2(40, 0), VerticalAlignment = VerticalAlignment.Center,
+				MouseFilter = MouseFilterEnum.Ignore };
+			dimensions.AddThemeFontSizeOverride("font_size", 15); dimensions.AddThemeColorOverride("font_color", ink); content.AddChild(dimensions);
+			VBoxContainer description = new() { SizeFlagsHorizontal = SizeFlags.ExpandFill, SizeFlagsVertical = SizeFlags.ShrinkCenter,
+				MouseFilter = MouseFilterEnum.Ignore }; content.AddChild(description);
+			description.AddThemeConstantOverride("separation", 0);
+			Label effect = new() { Name = "Effect", Text = Text("REWARD_" + size), AutowrapMode = TextServer.AutowrapMode.WordSmart,
+				SizeFlagsHorizontal = SizeFlags.ExpandFill, MouseFilter = MouseFilterEnum.Ignore };
+			int fontSize = 12;
+			Font font = effect.GetThemeFont("font");
+			while (fontSize > 9 && font.GetMultilineStringSize(effect.Text, width: 188, fontSize: fontSize).Y > 26) fontSize--;
+			effect.AddThemeFontSizeOverride("font_size", fontSize); effect.AddThemeConstantOverride("line_spacing", -2);
+			effect.AddThemeColorOverride("font_color", ink); description.AddChild(effect);
+			Label state = new() { Name = "State", MouseFilter = MouseFilterEnum.Ignore };
+			state.AddThemeFontSizeOverride("font_size", 10); description.AddChild(state);
 			_rewardRows[size] = (row, led, state);
 		}
 	}
@@ -349,18 +366,12 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 		_status.Text = _pending ? Text("SUBMITTED") : _selectedPiece < 0 ? Text("HELP") :
 			valid ? Text("VALID", ("X", _x + 1), ("Y", _y + 1)) : Text("INVALID");
 		_status.Modulate = _selectedPiece >= 0 && !valid ? PatchworkVisuals.Red : PatchworkVisuals.Cyan;
-		PatchworkSquare? largest = PatchworkBoard.LargestCompletedSquare(state);
-		_summary.Text = largest is { } square ? Text("LARGEST", ("Size", square.Size)) : Text("NO_SQUARE");
 		foreach (var (size, row) in _rewardRows)
 		{
 			bool claimed = state.ClaimedSquares.Contains(size), preview = squares.Contains(size);
-			Color color = claimed ? PatchworkVisuals.Cyan : preview ? PatchworkVisuals.Amber : new Color("486177");
-			StyleBoxFlat box = PatchworkVisuals.Panel(new Color(claimed ? "102c38" : "10212b"), color, 4);
-			box.ContentMarginTop = 4; box.ContentMarginBottom = 4;
-			row.Row.AddThemeStyleboxOverride("panel", box);
-			row.Led.AddThemeStyleboxOverride("panel", PatchworkVisuals.Panel(color, color, 5, claimed ? 8 : preview ? 5 : 0));
+			row.Led.Present(claimed, preview);
 			row.State.Text = Text(claimed ? "UNLOCKED" : preview ? "PREVIEW_REWARD" : "LOCKED");
-			row.State.Modulate = color;
+			row.State.AddThemeColorOverride("font_color", new Color(claimed ? "17606b" : preview ? "835819" : "63717a"));
 		}
 	}
 	private PatchworkPlacement CurrentPlacement() => new() { PieceId = _selectedPiece, X = _x, Y = _y, Rotation = _rotation, Flipped = _flipped };

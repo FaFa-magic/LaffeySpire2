@@ -23,7 +23,7 @@ public static class PatchworkBalance
 		"REWARD_9" => [("Amount", ExtraCardsPerTurn)],
 		"REWARD_10" => [("Amount", ExtraEnergyPerTurn)],
 		"BOARD" => [("Size", PatchworkBoard.BoardSize)],
-		"NO_SQUARE" or "RULES_TEXT" => [("MinimumSize", PatchworkBoard.FirstRewardSize)],
+		"RULES_TEXT" => [("MinimumSize", PatchworkBoard.FirstRewardSize)],
 		"SHOP_DESCRIPTION" => [("MaxChips", ShopMaxChips), ("BasePrice", ShopBasePrice)],
 		_ => []
 	};

@@ -39,6 +39,11 @@ public class LaffeyCharacter : ModCharacterTemplate<LaffeyCardPool, LaffeyRelicP
 				MerchantAnimPath: CurrentSkinDefinition.MerchantAnimPath,
 				RestSiteAnimPath: CurrentSkinDefinition.RestSiteAnimPath
 			),
+			Ui: new(
+				IconTexturePath: "res://LaffeySpire2/images/characters/character_icon_laffey.png",
+				IconOutlineTexturePath: "res://LaffeySpire2/images/characters/character_icon_laffey_outline.png",
+				IconPath: "res://LaffeySpire2/scenes/characters/Laffey_icon.tscn"
+			),
 			Vfx: new(
 				TrailPath: "res://LaffeySpire2/scenes/vfx/card_trail_laffey.tscn"
 			),

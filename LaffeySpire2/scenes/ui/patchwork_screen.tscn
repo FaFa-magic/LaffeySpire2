@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkScreen.cs" id="1_screen"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/workbench-v2.png" id="2_bg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkPieceView.cs" id="4_piece"]
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkWiringView.cs" id="5_wiring"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/rules_manual_page.png" id="6_manual"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/reward_circuit_board.png" id="7_rewards"]
 
 [node name="PatchworkScreen" type="Control"]
 layout_mode = 3
@@ -71,23 +72,6 @@ offset_right = 1190.0
 offset_bottom = 910.0
 script = ExtResource("3_board")
 
-[node name="ReadoutPanel" type="Panel" parent="Workspace"]
-layout_mode = 0
-offset_left = 490.0
-offset_top = 922.0
-offset_right = 1190.0
-offset_bottom = 978.0
-mouse_filter = 2
-
-[node name="BoardSummary" type="Label" parent="Workspace"]
-layout_mode = 0
-offset_left = 504.0
-offset_top = 934.0
-offset_right = 1176.0
-offset_bottom = 966.0
-theme_override_font_sizes/font_size = 17
-horizontal_alignment = 1
-
 [node name="RewardsPanel" type="Panel" parent="Workspace"]
 layout_mode = 0
 offset_left = 50.0
@@ -129,34 +113,24 @@ metadata/loc = "RULES_TEXT"
 autowrap_mode = 3
 theme_override_colors/font_color = Color(0.15, 0.225, 0.31, 1)
 
-[node name="Heading" type="Label" parent="Workspace/RewardsPanel"]
+[node name="CircuitBoard" type="TextureRect" parent="Workspace/RewardsPanel"]
 layout_mode = 0
-offset_left = 18.0
+offset_left = -10.0
 offset_top = 220.0
-offset_right = 362.0
-offset_bottom = 250.0
-theme_override_font_sizes/font_size = 20
-metadata/loc = "REWARDS"
+offset_right = 390.0
+offset_bottom = 780.0
+mouse_filter = 2
+texture = ExtResource("7_rewards")
+expand_mode = 1
+stretch_mode = 5
 
-
-[node name="Legend" type="Label" parent="Workspace/RewardsPanel"]
+[node name="Rows" type="Control" parent="Workspace/RewardsPanel"]
 layout_mode = 0
-offset_left = 18.0
-offset_top = 254.0
-offset_right = 362.0
-offset_bottom = 286.0
-theme_override_font_sizes/font_size = 13
-metadata/loc = "LEGEND"
-autowrap_mode = 3
-theme_override_colors/font_color = Color(0.58, 0.76, 0.8, 1)
-
-[node name="Rows" type="VBoxContainer" parent="Workspace/RewardsPanel"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 296.0
-offset_right = 362.0
-offset_bottom = 786.0
-theme_override_constants/separation = 4
+offset_left = 20.0
+offset_top = 295.0
+offset_right = 270.0
+offset_bottom = 703.0
+mouse_filter = 2
 
 [node name="InventoryPanel" type="Panel" parent="Workspace"]
 layout_mode = 0
