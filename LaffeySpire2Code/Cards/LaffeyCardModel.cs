@@ -88,8 +88,9 @@ public abstract class LaffeyCardModel : ModCardTemplate
 
 	public override CardAssetProfile AssetProfile => new(
 		PortraitPath: $"res://LaffeySpire2/images/cards/{GetType().Name}.png",
-		BannerTexturePath: "res://LaffeySpire2/images/card_frames/janus_Banner.png",
-		AncientBannerPath: "res://LaffeySpire2/images/card_frames/janus_Banner.png",
+		OverlayScenePath: "res://LaffeySpire2/scenes/ui/laffey_card_banner_layout.tscn",
+		BannerTexturePath: "res://LaffeySpire2/images/card_frames/laffey_Banner.png",
+		AncientBannerPath: "res://LaffeySpire2/images/card_frames/laffey_Banner.png",
 		AncientBorderPath: "res://LaffeySpire2/images/card_frames/janus_ancient.png",
 		AncientBorderMaterialPath: "res://LaffeySpire2/materials/cards/janus_ancient_border_opaque.tres",
 		FramePath: Type switch

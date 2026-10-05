@@ -1,0 +1,6 @@
+Mode: built-in image_gen edit
+Input / output: LaffeySpire2/images/patchwork/cursor_wrench.png
+Export: proportional downsample to 256x256 transparent PNG
+Runtime: original 48 px multiplied by 1.7, rounded to 82 px; hotspot scaled by the same factor
+
+Use case: precise-object-edit. Edit the provided wrench cursor asset. Change only the long handle's large dark-blue grip panel to predominantly bright brushed silver-white metal, matching the wrench head, with at least 85 percent of the handle face silver-white. Retain a very small slim navy inset stripe and a restrained icy cyan edge detail for the workbench theme. Preserve the identical overall silhouette, head and open jaw shape, exact diagonal upper-left-to-lower-right angle, size and location within the square canvas, ring at the handle end, original lighting and material rendering, and genuine outside transparency. No other tools, text, icons or background. Deliver a compact 256x256 transparent PNG if possible, crisp enough for an 82-pixel mouse cursor.

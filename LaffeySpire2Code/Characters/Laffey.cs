@@ -41,8 +41,12 @@ public class LaffeyCharacter : ModCharacterTemplate<LaffeyCardPool, LaffeyRelicP
 			),
 			Ui: new(
 				IconTexturePath: "res://LaffeySpire2/images/characters/character_icon_laffey.png",
-				IconOutlineTexturePath: "res://LaffeySpire2/images/characters/character_icon_laffey_outline.png",
-				IconPath: "res://LaffeySpire2/scenes/characters/Laffey_icon.tscn"
+				IconPath: "res://LaffeySpire2/scenes/characters/Laffey_icon.tscn",
+				CharacterSelectBgPath: "res://LaffeySpire2/scenes/characters/char_select_bg_Laffey.tscn",
+				CharacterSelectIconPath: "res://LaffeySpire2/images/characters/char_select_laffey.png",
+				CharacterSelectLockedIconPath: "res://LaffeySpire2/images/characters/char_select_laffey_locked.png",
+				CharacterSelectTransitionPath: "res://materials/transitions/laffey_spire2_character_laffey_character_transition_mat.tres",
+				MapMarkerPath: "res://LaffeySpire2/images/characters/map_marker_laffey.png"
 			),
 			Vfx: new(
 				TrailPath: "res://LaffeySpire2/scenes/vfx/card_trail_laffey.tscn"
@@ -63,7 +67,14 @@ public class LaffeyCharacter : ModCharacterTemplate<LaffeyCardPool, LaffeyRelicP
 				ArmScissorsTexturePath: LaffeyConfigPage.ModelModeBinding.Read() == LaffeyMultiplayerModelMode.手部模型
 					? "res://LaffeySpire2/images/characters/hands/multiplayer_hand_laffey_scissors.png"
 					: "res://LaffeySpire2/images/characters/feet/multiplayer_foot_laffey_scissors.png"
-			)
+			),
+			VanillaRelicVisualOverrides: [
+				new (CharacterOwnedVanillaRelicModelId.YummyCookie, new(
+					"res://LaffeySpire2/images/relics/packed/YummyCookie_Laffey.png",
+					"res://LaffeySpire2/images/relics/outline/YummyCookie_Laffey.png",
+					"res://LaffeySpire2/images/relics/big/YummyCookie_Laffey.png"
+				))
+			]
 		));
 
 	public override float AttackAnimDelay => 0f;

@@ -1,4 +1,5 @@
 using Godot;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 
 namespace LaffeySpire2.LaffeySpire2Code.Patchwork;
@@ -25,8 +26,11 @@ public static class PatchworkVisuals
 		}
 		return text;
 	}
-	public static string PieceName(int id) => Text(id == 0 ? "SHOP_MODULE" : "MODULE",
+	public static LocString LocalizedPieceName(int id) => LocalizedText(id == 0 ? "SHOP_MODULE" : "MODULE",
 		("Type", Text("CHIP_" + id.ToString("D2"))), ("Id", id), ("Cells", PatchworkBoard.Cells(id, 0, false).Count));
+	public static string PieceName(int id) => LocalizedPieceName(id).GetFormattedText();
+	public static HoverTip PieceHoverTip(int id) => new(LocalizedPieceName(id), LocalizedText("PIECE_DESCRIPTION"))
+		{ Id = $"LAFFEY_PATCHWORK_PIECE_{id:D2}" };
 	private static Texture2D Chip(int id)
 	{
 		if (Chips[id] != null) return Chips[id]!;

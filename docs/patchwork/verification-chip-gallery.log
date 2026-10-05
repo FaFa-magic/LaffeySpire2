@@ -1,0 +1,15 @@
+Godot Engine v4.5.1.stable.mono.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 577.05 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+SentryGodotInitializer: Sentry GDExtension not loaded in this process; skipping. If you see this in a running game (not during project export or IDE script analysis), check Godot's log for extension load failures.
+ENTRY_CAPTURE 0
+CAPTURE_RESULT 0
+PASS_GALLERY: book hover/click, 34 chips, modal mouse isolation, cursor restoration, close/reopen/Escape, unchanged board state
+  LaffeySpire2 -> D:\GitClone\LaffeySpire2\.godot\mono\temp\bin\Debug\LaffeySpire2.dll
+  Copying .dll and manifest to mods folder.
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.78

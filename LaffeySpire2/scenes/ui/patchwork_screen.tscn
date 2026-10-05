@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkScreen.cs" id="1_screen"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/workbench-v2.png" id="2_bg"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/button_flip.png" id="10_flip"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/button_confirm.png" id="11_confirm"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/button_close.png" id="12_close"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/chip_catalog_book.png" id="13_catalog"]
+[ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkCatalogButton.cs" id="14_catalog_button"]
 
 [sub_resource type="AtlasTexture" id="Atlas_rotate"]
 atlas = ExtResource("9_rotate")
@@ -97,6 +99,33 @@ offset_top = 210.0
 offset_right = 1190.0
 offset_bottom = 910.0
 script = ExtResource("3_board")
+
+[node name="ChipCatalog" type="Control" parent="Workspace"]
+layout_mode = 0
+offset_left = 1100.0
+offset_top = 142.0
+offset_right = 1182.0
+offset_bottom = 204.0
+focus_mode = 2
+script = ExtResource("14_catalog_button")
+
+[node name="Control" type="Control" parent="Workspace/ChipCatalog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="Workspace/ChipCatalog/Control"]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("13_catalog")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="RewardsPanel" type="Panel" parent="Workspace"]
 layout_mode = 0

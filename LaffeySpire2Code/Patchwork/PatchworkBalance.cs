@@ -10,8 +10,8 @@ public static class PatchworkBalance
 	public const int RareRelicCount = 1;
 	public const int ExtraCardsPerTurn = 2;
 	public const int ExtraEnergyPerTurn = 1;
-	public const int ShopBasePrice = 50;
-	public const int ShopMaxChips = 5;
+	public const int ShopBasePrice = 40;
+	public const int ShopMaxChips = 10;
 
 	public static (string Name, object Value)[] TextValues(string key) => key switch
 	{
@@ -24,6 +24,7 @@ public static class PatchworkBalance
 		"REWARD_10" => [("Amount", ExtraEnergyPerTurn)],
 		"BOARD" => [("Size", PatchworkBoard.BoardSize)],
 		"RULES_TEXT" => [("MinimumSize", PatchworkBoard.FirstRewardSize)],
+		"PIECE_DESCRIPTION" => [("MinimumSize", PatchworkBoard.FirstRewardSize)],
 		"SHOP_DESCRIPTION" => [("MaxChips", ShopMaxChips), ("BasePrice", ShopBasePrice)],
 		_ => []
 	};

@@ -1,0 +1,20 @@
+BANNER_PREPARED: source=2170x725; alpha bounds={X=103,Y=87,Width=1965,Height=551}; uniform scale=0.2994555353902; target=657x173; visible={X=34,Y=4,Width=588,Height=165}
+BANNER_ALPHA_PASS: transparent corners; opaque title field; original proportions preserved.
+attack: old opaque pixels=8083; insufficiently covered=0; coverage=100.0000%; samples=[]
+skill: old opaque pixels=7810; insufficiently covered=0; coverage=100.0000%; samples=[]
+power: old opaque pixels=8799; insufficiently covered=0; coverage=100.0000%; samples=[]
+PASS_EAR_COVERAGE: all three original opaque rabbit ear silhouettes fully covered at official geometry and -14px banner offset
+Godot Engine v4.5.1.stable.mono.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 577.05 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+SentryGodotInitializer: Sentry GDExtension not loaded in this process; skipping. If you see this in a running game (not during project export or IDE script analysis), check Godot's log for extension load failures.
+CAPTURE_RESULT 0
+PASS_BANNER: Janus-sized RGBA texture, official title label placement, RitsuLib overlay layout up 14px, pooled geometry restoration and reload stability, common/uncommon/rare shaders, attack/skill/power frame compatibility
+  LaffeySpire2 -> D:\GitClone\LaffeySpire2\.godot\mono\temp\bin\Debug\LaffeySpire2.dll
+  Copying .dll and manifest to mods folder.
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:02.57

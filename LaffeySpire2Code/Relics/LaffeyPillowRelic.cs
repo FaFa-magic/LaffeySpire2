@@ -15,6 +15,7 @@ namespace LaffeySpire2.LaffeySpire2Code.Relics;
 public abstract class LaffeyPillowRelic : LaffeyRelicModel
 {
     private int _cardsPlayedThisTurn;
+    private CardPlay? _triggeringCardPlay;
 
     protected abstract int CardThreshold { get; }
 
@@ -43,6 +44,16 @@ public abstract class LaffeyPillowRelic : LaffeyRelicModel
         }
     }
 
+    private CardPlay? TriggeringCardPlay
+    {
+        get => _triggeringCardPlay;
+        set
+        {
+            AssertMutable();
+            _triggeringCardPlay = value;
+        }
+    }
+
     public override Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
         CombatSide side,
@@ -52,6 +63,25 @@ public abstract class LaffeyPillowRelic : LaffeyRelicModel
         if (participants.Contains(Owner.Creature))
         {
             CardsPlayedThisTurn = 0;
+            TriggeringCardPlay = null;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    {
+        if (!CombatManager.Instance.IsInProgress ||
+            cardPlay.Player != Owner ||
+            CardsPlayedThisTurn >= CardThreshold)
+        {
+            return Task.CompletedTask;
+        }
+
+        CardsPlayedThisTurn++;
+        if (CardsPlayedThisTurn == CardThreshold)
+        {
+            TriggeringCardPlay = cardPlay;
         }
 
         return Task.CompletedTask;
@@ -59,16 +89,13 @@ public abstract class LaffeyPillowRelic : LaffeyRelicModel
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (!CombatManager.Instance.IsInProgress ||
-            cardPlay.IsAutoPlay ||
-            cardPlay.Card.Owner != Owner ||
-            CardsPlayedThisTurn >= CardThreshold)
+        if (cardPlay != TriggeringCardPlay || cardPlay.Player != Owner)
         {
             return;
         }
 
-        CardsPlayedThisTurn++;
-        if (CardsPlayedThisTurn != CardThreshold)
+        TriggeringCardPlay = null;
+        if (!CombatManager.Instance.IsInProgress)
         {
             return;
         }
@@ -85,6 +112,7 @@ public abstract class LaffeyPillowRelic : LaffeyRelicModel
     public override Task AfterCombatEnd(CombatRoom room)
     {
         CardsPlayedThisTurn = 0;
+        TriggeringCardPlay = null;
         return Task.CompletedTask;
     }
 }

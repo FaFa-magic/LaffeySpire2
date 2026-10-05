@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.TestSupport;
@@ -13,6 +14,9 @@ public sealed class PatchworkPieceReward(Player player, int pieceId) : ModCustom
 	private static RewardType? _rewardType;
 
 	public int PieceId { get; } = pieceId;
+	public override IEnumerable<IHoverTip> HoverTips => PieceId is >= 1 and <= 33
+		? base.HoverTips.Prepend(PatchworkVisuals.PieceHoverTip(PieceId))
+		: base.HoverTips;
 
 	public override RewardType ModRewardType => _rewardType
 		?? throw new InvalidOperationException("Patchwork reward has not been registered.");

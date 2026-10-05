@@ -2,6 +2,8 @@ using Godot;
 using LaffeySpire2.LaffeySpire2Code.Characters;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Nodes.Screens.Capstones;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Screens;
@@ -62,6 +64,8 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	private Control _rewards = null!;
 	private Label _status = null!, _selected = null!, _inventory = null!;
 	private Button _confirm = null!, _close = null!;
+	private PatchworkCatalogButton _catalog = null!;
+	private PatchworkChipGallery? _gallery;
 	private readonly Dictionary<int, (PanelContainer Row, PatchworkRewardLed Led, Label State)> _rewardRows = [];
 	private int _selectedPiece = -1, _rotation, _x, _y;
 	private bool _flipped, _pending;
@@ -82,7 +86,7 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	}
 	public NetScreenType ScreenType => NetScreenType.CardPile;
 	public bool UseSharedBackstop => true;
-	public Control? DefaultFocusedControl => _close;
+	public Control? DefaultFocusedControl => _gallery?.CloseButton ?? _close;
 
 	public override void _Ready()
 	{
@@ -108,6 +112,7 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 		_dragGhost = new PatchworkPieceView { MouseFilter = MouseFilterEnum.Ignore, Visible = false, ZIndex = 20 };
 		_workspace.AddChild(_dragGhost);
 		_shape.MouseFilter = MouseFilterEnum.Stop;
+		BindPieceHoverTip(_shape, () => _selectedPiece);
 		_shape.GuiInput += input =>
 		{
 			if (input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } mouse && _selectedPiece >= 0 && !_pending)
@@ -121,6 +126,12 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 		_inventory = _workspace.GetNode<Label>("InventoryPanel/Heading");
 		_confirm = _workspace.GetNode<Button>("Confirm");
 		_close = _workspace.GetNode<Button>("Close");
+		_catalog = _workspace.GetNode<PatchworkCatalogButton>("ChipCatalog");
+		_catalog.PreviewMode = PreviewMode;
+		_catalog.GalleryIsOpen = () => _gallery != null;
+		_catalog.HoverTipProvider = () => new HoverTip(PatchworkVisuals.LocalizedText("CHIP_GALLERY"),
+			PatchworkVisuals.LocalizedText("GALLERY_DESCRIPTION"));
+		_catalog.Released += _ => OpenGallery();
 		Localize(_workspace);
 		_workspace.GetNode<Panel>("InventoryPanel").AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
 		_workspace.GetNode<Panel>("RewardsPanel").AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
@@ -137,6 +148,28 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 		Resized += FitWorkspace;
 		FitWorkspace();
 		Refresh();
+	}
+	private void OpenGallery()
+	{
+		if (_gallery != null) return;
+		if (_dragging) EndDrag(false);
+		_cancelledPointerPress = false;
+		_gallery = new PatchworkChipGallery { Name = "ChipGallery", PreviewMode = PreviewMode,
+			PreviewLanguage = PreviewLanguage, StateProvider = () => BoardState, ZIndex = 100 };
+		_gallery.CloseRequested += CloseGallery;
+		_catalog.RefreshScreenState();
+		AddChild(_gallery);
+		_gallery.SetAnchorsAndOffsetsPreset(LayoutPreset.FullRect);
+	}
+	private void CloseGallery()
+	{
+		if (_gallery == null) return;
+		RemoveChild(_gallery);
+		_gallery.QueueFree();
+		_gallery = null;
+		_catalog.RefreshScreenState();
+		if (NControllerManager.Instance?.IsUsingDirectionalNavigation == true)
+			_catalog.GrabFocus();
 	}
 	private void Localize(Node node)
 	{
@@ -202,6 +235,11 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 		_selectedPiece = id; _movingIndex = -1; _originalPlacement = null; _rotation = 0; _flipped = false;
 		Refresh();
 	}
+	private void BindPieceHoverTip(Control owner, Func<int> pieceId) => owner.AddChild(new PatchworkPieceHoverTip
+	{
+		Name = "PieceHoverTip", PreviewMode = PreviewMode, PieceIdProvider = pieceId,
+		CanShow = () => !_dragging && !_pending && _gallery == null
+	});
 	private void BoardPointerPressed(int x, int y)
 	{
 		if (_pending) return;
@@ -231,6 +269,7 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	}
 	public override void _Input(InputEvent input)
 	{
+		if (_gallery != null) return;
 		if (_cancelledPointerPress && input is InputEventMouseButton { ButtonIndex: MouseButton.Left } left)
 		{
 			if (left.Pressed) _cancelledPointerPress = false;
@@ -329,7 +368,8 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 			{
 				int pieceId = id;
 				Button button = new() { CustomMinimumSize = new Vector2(352, 90), Text = PieceName(id),
-					Alignment = HorizontalAlignment.Left, ClipText = true, TooltipText = PieceName(id) };
+					Alignment = HorizontalAlignment.Left, ClipText = true };
+				BindPieceHoverTip(button, () => pieceId);
 				button.AddThemeConstantOverride("h_separation", 10);
 				PatchworkPieceView thumbnail = new() { Position = new Vector2(10, 7), Size = new Vector2(86, 76), MouseFilter = MouseFilterEnum.Ignore };
 				thumbnail.ShowPiece(id); button.AddChild(thumbnail);

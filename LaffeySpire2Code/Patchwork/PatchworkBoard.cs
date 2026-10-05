@@ -58,6 +58,10 @@ public static class PatchworkBoard
 
 	public static PatchworkSaveData Modify(Player player, Action<PatchworkSaveData> action) => _slot!.Modify(player, action);
 
+	public static HashSet<int> ObtainedPieces(PatchworkSaveData state) => state.AvailablePieces
+		.Concat(state.Placements.Select(placement => placement.PieceId))
+		.Where(id => id >= 0 && id < Shapes.Length).ToHashSet();
+
 	public static bool HasSpecialStock(PatchworkSaveData state) =>
 		state.AvailablePieces.Count(id => id == 0) + state.Placements.Count(p => p.PieceId == 0) < PatchworkBalance.ShopMaxChips;
 

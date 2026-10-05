@@ -18,7 +18,8 @@ public partial class PatchworkBoardView : Control
 	private float _pulse;
 	private Texture2D _socket = null!;
 	private Image _wrenchCursor = null!;
-	private static readonly Vector2 WrenchHotspot = new(8, 3);
+	private const float WrenchCursorSize = 48f * 1.7f;
+	private static readonly Vector2 WrenchHotspot = new Vector2(8, 3) * 1.7f;
 	private NCursorManager? _cursorManager;
 	private bool _cursorOverridden;
 	private Vector2? _cursorPointer;
@@ -56,7 +57,7 @@ public partial class PatchworkBoardView : Control
 		FocusMode = FocusModeEnum.All;
 		MouseDefaultCursorShape = CursorShape.Arrow;
 		_wrenchCursor = ResourceLoader.Load<Texture2D>(PatchworkVisuals.AssetRoot + "cursor_wrench.png").GetImage();
-		float cursorScale = 48f / Math.Max(_wrenchCursor.GetWidth(), _wrenchCursor.GetHeight());
+		float cursorScale = WrenchCursorSize / Math.Max(_wrenchCursor.GetWidth(), _wrenchCursor.GetHeight());
 		_wrenchCursor.Resize(Math.Max(1, (int)Math.Round(_wrenchCursor.GetWidth() * cursorScale)),
 			Math.Max(1, (int)Math.Round(_wrenchCursor.GetHeight() * cursorScale)), Image.Interpolation.Lanczos);
 		TextureFilter = TextureFilterEnum.Linear;

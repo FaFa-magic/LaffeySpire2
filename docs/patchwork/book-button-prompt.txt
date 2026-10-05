@@ -1,0 +1,6 @@
+Mode: built-in image_gen; transparent_background=true
+Asset: LaffeySpire2/images/patchwork/chip_catalog_book.png
+
+Use case: stylized-concept
+Asset type: transparent game UI book button for an Eagle Union electronic-chip assembly workbench.
+Primary request: one closed chip catalogue book, viewed almost directly from above, slightly turned clockwise 8 degrees, compact landscape proportions, centered and fully visible. Dark navy blue hard cover with brushed silver corner protectors, thin gold printed circuit paths, a small silver stylized eagle-and-chip emblem in the centre, off-white page edges and readable book spine. A professional engineering handbook prop, charming but crisp detailed painted game art matching a navy technical workbench with realistic silver hardware. Clear silhouette readable at 70 pixels wide. No lettering, no numbers, no characters, no other props, no backdrop, no watermark. Transparent alpha outside the book; subtle compact shadow only. Requested canvas 512x512. Book occupies about 85 percent of the canvas width; no excessive empty margins.
