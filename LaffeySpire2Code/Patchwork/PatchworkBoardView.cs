@@ -1,4 +1,6 @@
 using Godot;
+using MegaCrit.Sts2.Core.Nodes;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
 namespace LaffeySpire2.LaffeySpire2Code.Patchwork;
 
@@ -15,6 +17,11 @@ public partial class PatchworkBoardView : Control
 	private HashSet<int> _newRewards = [];
 	private float _pulse;
 	private Texture2D _socket = null!;
+	private Image _wrenchCursor = null!;
+	private static readonly Vector2 WrenchHotspot = new(8, 3);
+	private NCursorManager? _cursorManager;
+	private bool _cursorOverridden;
+	private Vector2? _cursorPointer;
 	public float GridPadding => Math.Min(Size.X, Size.Y) * 0.10f;
 	public float CellStep => (Math.Min(Size.X, Size.Y) - GridPadding * 2) / PatchworkBoard.BoardSize;
 	private Rect2 GridRect => new(Vector2.One * GridPadding, Vector2.One * (CellStep * PatchworkBoard.BoardSize));
@@ -41,19 +48,54 @@ public partial class PatchworkBoardView : Control
 			_prospective = PatchworkGeometry.LargestSquare(occupied);
 		}
 		QueueRedraw();
+		UpdateCursor();
 	}
 	public override void _Ready()
 	{
 		_socket = ResourceLoader.Load<Texture2D>(PatchworkVisuals.AssetRoot + "chip-socket-v2.png");
 		FocusMode = FocusModeEnum.All;
-		MouseDefaultCursorShape = CursorShape.Cross;
+		MouseDefaultCursorShape = CursorShape.Arrow;
+		_wrenchCursor = ResourceLoader.Load<Texture2D>(PatchworkVisuals.AssetRoot + "cursor_wrench.png").GetImage();
+		float cursorScale = 48f / Math.Max(_wrenchCursor.GetWidth(), _wrenchCursor.GetHeight());
+		_wrenchCursor.Resize(Math.Max(1, (int)Math.Round(_wrenchCursor.GetWidth() * cursorScale)),
+			Math.Max(1, (int)Math.Round(_wrenchCursor.GetHeight() * cursorScale)), Image.Interpolation.Lanczos);
 		TextureFilter = TextureFilterEnum.Linear;
 		Resized += QueueRedraw;
 	}
 	public override void _Process(double delta)
 	{
 		_pulse += (float)delta;
+		UpdateCursor();
 		if (_square != null || _newRewards.Count > 0) QueueRedraw();
+	}
+	private void UpdateCursor()
+	{
+		if (_wrenchCursor == null) return;
+		bool useWrench = _preview.PieceId >= 0 && IsVisibleInTree() &&
+			IsBoardCell(PointerCell(_cursorPointer ?? GetGlobalMousePosition())) && GetViewport().GuiGetHoveredControl() == this;
+		if (!useWrench) { RestoreCursor(); return; }
+		if (_cursorOverridden) return;
+		_cursorManager = NGame.Instance?.CursorManager;
+		if (_cursorManager != null) _cursorManager.OverrideCursor(_wrenchCursor, _wrenchCursor, WrenchHotspot);
+		else Input.SetCustomMouseCursor(_wrenchCursor, Input.CursorShape.Arrow, WrenchHotspot);
+		_cursorOverridden = true;
+	}
+	private void RestoreCursor()
+	{
+		if (!_cursorOverridden) return;
+		if (_cursorManager != null && GodotObject.IsInstanceValid(_cursorManager)) _cursorManager.StopOverridingCursor();
+		else Input.SetCustomMouseCursor(null, Input.CursorShape.Arrow);
+		_cursorOverridden = false; _cursorManager = null;
+	}
+	public override void _ExitTree()
+	{
+		RestoreCursor();
+		_wrenchCursor?.Dispose();
+	}
+	public override void _Input(InputEvent input)
+	{
+		if (input is InputEventMouseMotion motion) _cursorPointer = motion.Position;
+		else if (input is InputEventMouseButton button) _cursorPointer = button.Position;
 	}
 	public override void _GuiInput(InputEvent input)
 	{

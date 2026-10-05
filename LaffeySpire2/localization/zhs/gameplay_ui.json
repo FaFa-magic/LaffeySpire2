@@ -9,7 +9,7 @@
   "LAFFEY_PATCHWORK_CONFIRM": "确认安装芯片",
   "LAFFEY_PATCHWORK_CLOSE": "关闭装配台",
   "LAFFEY_PATCHWORK_HELP": "按住左键拖入芯片，或拖动板内芯片。方向键可微调。",
-  "LAFFEY_PATCHWORK_VALID": "位置 {X}, {Y} 可用。确认后保存。",
+  "LAFFEY_PATCHWORK_VALID": "位置 {X}, {Y} 可用。确认后应用。",
   "LAFFEY_PATCHWORK_INVALID": "无法装配：元件重叠或超出底板。请选择其他位置。",
   "LAFFEY_PATCHWORK_SUBMITTED": "装配请求已提交，正在同步…",
   "LAFFEY_PATCHWORK_EMPTY": "暂无待装配元件。战斗奖励可获得新元件，商店可购买单格模块。",
@@ -29,7 +29,7 @@
   "LAFFEY_PATCHWORK_REWARD_5": "战斗开始时获得 {Amount} 力量",
   "LAFFEY_PATCHWORK_REWARD_6": "战斗开始时获得 {Amount} 敏捷",
   "LAFFEY_PATCHWORK_REWARD_7": "获得 {Amount} 件稀有遗物",
-  "LAFFEY_PATCHWORK_REWARD_8": "获得古老牙齿或欧罗巴斯之触",
+  "LAFFEY_PATCHWORK_REWARD_8": "古老牙齿 / 欧罗巴斯之触（二选一）",
   "LAFFEY_PATCHWORK_REWARD_9": "每回合多抽 {Amount} 张牌",
   "LAFFEY_PATCHWORK_REWARD_10": "每回合获得 {Amount} 点额外能量",
   "LAFFEY_PATCHWORK_SYNC_DELAY": "同步尚未完成，请检查连接或重新打开装配台。",
@@ -70,7 +70,7 @@
   "LAFFEY_PATCHWORK_CHIP_32": "奇尔沙治",
   "LAFFEY_PATCHWORK_CHIP_33": "大青花鱼",
   "LAFFEY_PATCHWORK_RULES_TITLE": "芯片装配指南",
-  "LAFFEY_PATCHWORK_RULES_TEXT": "按住左键将右侧芯片拖入主板，或在主板内拖动芯片。可旋转或翻转，确认后保存位置。\n\n拼满任意 {MinimumSize}×{MinimumSize} 及以上正方形，即可接通奖励线路。每档仅领取一次，调整位置后保留已获奖励。",
+  "LAFFEY_PATCHWORK_RULES_TEXT": "拖动芯片至主板或调整板内位置，可旋转、翻转。确认后本局生效，进度随游戏自动存档保存。\n\n填满任意 {MinimumSize}×{MinimumSize} 及以上正方形可点亮奖励。每档领取一次，移动芯片后保留已获奖励。",
   "LAFFEY_PATCHWORK_CHIP_GALLERY": "白鹰 · 芯片图鉴",
   "LAFFEY_PATCHWORK_CONFIRM_MOVE": "确认调整位置"
 }

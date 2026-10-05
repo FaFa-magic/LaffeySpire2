@@ -51,7 +51,7 @@ public static class PatchworkBoard
 		_slot = RunSavedDataStore.For(MainFile.ModId).RegisterPerPlayer("patchwork_board", () => new PatchworkSaveData
 		{
 			AvailablePieces = [0]
-		});
+		}, new RunSavedDataOptions { SchemaVersion = 1, WritePolicy = RunSavedDataWritePolicy.WhenSet });
 	}
 
 	public static PatchworkSaveData Get(Player player) => _slot!.Get(player);

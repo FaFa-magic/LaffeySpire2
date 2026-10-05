@@ -1,0 +1,11 @@
+PASS_PURCHASE_SAVE: actual RitsuLib export/JSON/import preserves purchased chip and sold shop, other player remains in stock
+PASS_COURIER: actual official discount and restock hook exercised; chip stays sold and duplicate purchase is rejected
+PASS_SHOP: native entry/slot registration, controller navigation, mouse purchase, pending guard, 50 gold, red affordability, purchase events, sold slot, duplicate rejection, per-player stock, synchronized discount, next shop, five-chip cap
+PASS_POINTER: real viewport mouse clicks reach removal and chip independently
+SHOP_CAPTURE 0
+PASS_CURSOR: actual official cursor override/restoration, grid boundary, right-click inventory/installed-chip/held-drag cancellation, unchanged state, hidden and closed cleanup
+PASS_RUNTIME: real RitsuLib per-player storage, two serialized replicas, stale move rejection, independent inventory/rewards/shop progress, JSON save/rejoin roundtrip
+PASS_CHECKPOINT: actual RitsuLib save attachments stay frozen; pre-checkpoint continue rolls back inventory/placements/rewards/shop; live rejoin retains pending state; next checkpoint retains both independent players
+PASS_RELIC_CHOICE: prepared tooth/Orobas options, owned-relic exclusion, actual RelicSelectCmd synchronized indices 0/1/cancel; actual 8x8 executor cancel preserves all state and clears the player lock
+CAPTURE_RESULT 0 (1920, 1080) patchwork_zhs_preview.png
+PASS_UI: inventory drag, board drag, outside cancellation, overlap, rotation, flip, center grid

@@ -1,0 +1,9 @@
+PASS_RUNTIME: real RitsuLib per-player storage, two serialized replicas, stale move rejection, independent inventory/rewards/shop progress, JSON save/rejoin roundtrip
+OFFICIAL_SAVE: MegaCrit.Sts2.Core.Runs.RunManager+<EnterMapPointInternal>d__192.MoveNext -> SaveManager.SaveRun
+OFFICIAL_SAVE: MegaCrit.Sts2.Core.Combat.CombatManager+<EndCombatInternal>d__122.MoveNext -> SaveManager.SaveRun
+OFFICIAL_SAVE: MegaCrit.Sts2.Core.Rooms.EventRoom.OnEventStateChanged -> SaveManager.SaveRun
+PASS_CHECKPOINT: actual RitsuLib save attachments stay frozen; pre-checkpoint continue rolls back inventory/placements/rewards/shop; live rejoin retains pending state; next checkpoint retains both independent players
+PASS_RELIC_CHOICE: prepared tooth/Orobas options, owned-relic exclusion, actual RelicSelectCmd synchronized indices 0/1/cancel; actual 8x8 executor cancel preserves all state and clears the player lock
+CAPTURE_RESULT 0 (1920, 1080) patchwork_zhs_preview.png
+PASS_UI: inventory drag, board drag, outside cancellation, overlap, rotation, flip, center grid
+PASS_BUTTONS: loaded artwork, click targets, uniform corners, hover, held press, disabled and keyboard focus

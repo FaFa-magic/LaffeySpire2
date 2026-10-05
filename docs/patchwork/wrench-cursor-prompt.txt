@@ -1,0 +1,5 @@
+Mode: built-in image_gen
+Reference: LaffeySpire2/images/patchwork/component_tray.png
+Output: LaffeySpire2/images/patchwork/cursor_wrench.png
+
+Use case: stylized-concept. Asset type: a small wrench mouse cursor icon for a navy-blue electronic chip assembly workbench game UI. Use the attached reference only for brushed silver titanium, dark navy and pale cyan material palette and crisp painted game-prop style. ONE simple open-ended spanner, viewed directly overhead, diagonal from upper-left open jaw to lower-right rounded handle. Open jaw centered near 25% width, 22% height and pointing northwest, making a precise mouse pointer at its upper-left lip. Short smooth dark navy grip with a thin restrained cyan inset, bright silver wrench head and outer edges, soft chamfers, bold clean silhouette, enough contrast and clarity to read at 48 pixels, fine metal finish without tiny clutter. Entire wrench visible, fills about 85 percent of a square canvas. Isolated on truly transparent background. No board, no button, no characters, no text, no numbers, no second tool, no square frame, no oversized shadow. Square PNG.

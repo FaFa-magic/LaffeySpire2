@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkScreen.cs" id="1_screen"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/workbench-v2.png" id="2_bg"]
@@ -7,6 +7,32 @@
 [ext_resource type="Script" path="res://LaffeySpire2Code/Patchwork/PatchworkWiringView.cs" id="5_wiring"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/rules_manual_page.png" id="6_manual"]
 [ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/reward_circuit_board.png" id="7_rewards"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/component_tray.png" id="8_tray"]
+
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/button_rotate.png" id="9_rotate"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/button_flip.png" id="10_flip"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/button_confirm.png" id="11_confirm"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/patchwork/button_close.png" id="12_close"]
+
+[sub_resource type="AtlasTexture" id="Atlas_rotate"]
+atlas = ExtResource("9_rotate")
+region = Rect2(17, 108, 2139, 478)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_flip"]
+atlas = ExtResource("10_flip")
+region = Rect2(27, 103, 2118, 495)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_confirm"]
+atlas = ExtResource("11_confirm")
+region = Rect2(10, 117, 2152, 455)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="Atlas_close"]
+atlas = ExtResource("12_close")
+region = Rect2(17, 123, 2139, 439)
+filter_clip = true
 
 [node name="PatchworkScreen" type="Control"]
 layout_mode = 3
@@ -139,6 +165,17 @@ offset_top = 198.0
 offset_right = 1630.0
 offset_bottom = 978.0
 
+[node name="ComponentTray" type="TextureRect" parent="Workspace/InventoryPanel"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -60.0
+offset_right = 443.0
+offset_bottom = 669.0
+mouse_filter = 2
+texture = ExtResource("8_tray")
+expand_mode = 1
+stretch_mode = 5
+
 
 [node name="Heading" type="Label" parent="Workspace/InventoryPanel"]
 layout_mode = 0
@@ -193,41 +230,73 @@ autowrap_mode = 3
 layout_mode = 0
 offset_left = 18.0
 offset_top = 542.0
-offset_right = 232.0
+offset_right = 194.0
 offset_bottom = 586.0
 metadata/loc = "ROTATE"
 
+[node name="Art" type="NinePatchRect" parent="Workspace/InventoryPanel/Rotate"]
+show_behind_parent = true
+layout_mode = 0
+mouse_filter = 2
+texture = SubResource("Atlas_rotate")
+patch_margin_left = 400
+patch_margin_top = 88
+patch_margin_right = 400
+patch_margin_bottom = 88
+
 [node name="Flip" type="Button" parent="Workspace/InventoryPanel"]
 layout_mode = 0
-offset_left = 244.0
+offset_left = 206.0
 offset_top = 542.0
 offset_right = 382.0
 offset_bottom = 586.0
 metadata/loc = "FLIP"
 
-[node name="AncientChoice" type="OptionButton" parent="Workspace/InventoryPanel"]
+[node name="Art" type="NinePatchRect" parent="Workspace/InventoryPanel/Flip"]
+show_behind_parent = true
 layout_mode = 0
-offset_left = 18.0
-offset_top = 596.0
-offset_right = 382.0
-offset_bottom = 638.0
-visible = false
+mouse_filter = 2
+texture = SubResource("Atlas_flip")
+patch_margin_left = 400
+patch_margin_top = 90
+patch_margin_right = 400
+patch_margin_bottom = 90
 
 [node name="Confirm" type="Button" parent="Workspace"]
 layout_mode = 0
 offset_left = 1248.0
-offset_top = 848.0
+offset_top = 845.0
 offset_right = 1612.0
-offset_bottom = 900.0
+offset_bottom = 897.0
 metadata/loc = "CONFIRM"
+
+[node name="Art" type="NinePatchRect" parent="Workspace/Confirm"]
+show_behind_parent = true
+layout_mode = 0
+mouse_filter = 2
+texture = SubResource("Atlas_confirm")
+patch_margin_left = 360
+patch_margin_top = 88
+patch_margin_right = 360
+patch_margin_bottom = 88
 
 [node name="Close" type="Button" parent="Workspace"]
 layout_mode = 0
 offset_left = 1248.0
-offset_top = 912.0
+offset_top = 905.0
 offset_right = 1612.0
-offset_bottom = 958.0
+offset_bottom = 957.0
 metadata/loc = "CLOSE"
+
+[node name="Art" type="NinePatchRect" parent="Workspace/Close"]
+show_behind_parent = true
+layout_mode = 0
+mouse_filter = 2
+texture = SubResource("Atlas_close")
+patch_margin_left = 360
+patch_margin_top = 84
+patch_margin_right = 360
+patch_margin_bottom = 84
 
 [node name="Wiring" type="Control" parent="Workspace"]
 layout_mode = 0

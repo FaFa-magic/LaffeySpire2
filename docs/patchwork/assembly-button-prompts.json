@@ -1,0 +1,50 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "LaffeySpire2/images/patchwork/component_tray.png",
+  "assets": [
+    {
+      "name": "rotate",
+      "prompt": "Use case: stylized-concept. Generate ONE game UI pushbutton asset, matching the attached reference's brushed silver titanium and dark navy electronic assembly workbench materials, clean orthographic directly overhead view, soft laboratory light, restrained cyan accents. Transparent outside, opaque dark navy button face. Horizontal rounded rectangle with softly chamfered corners, thin polished silver bezel, shallow physical raised tactile button, precise refined painted game prop details. Empty central label area completely clear for translated live text; NO letters, NO numbers, NO words, NO character portrait, NO large symbols. A tiny hardware detail at each far end is enough. Fill canvas width with just 2 percent transparent margin, button remains entirely in frame. Output a wide landscape PNG, a compact control button, width-to-height 4:1, pale cyan slim indicator notch at left, dark steel-blue face, fine machined edge, simple equal endcaps. No prominent decorative motif.",
+      "output": "LaffeySpire2/images/patchwork/button_rotate.png",
+      "region": [
+        17,
+        108,
+        2139,
+        478
+      ]
+    },
+    {
+      "name": "flip",
+      "prompt": "Use case: stylized-concept. Generate ONE game UI pushbutton asset, matching the attached reference's brushed silver titanium and dark navy electronic assembly workbench materials, clean orthographic directly overhead view, soft laboratory light, restrained cyan accents. Transparent outside, opaque dark navy button face. Horizontal rounded rectangle with softly chamfered corners, thin polished silver bezel, shallow physical raised tactile button, precise refined painted game prop details. Empty central label area completely clear for translated live text; NO letters, NO numbers, NO words, NO character portrait, NO large symbols. A tiny hardware detail at each far end is enough. Fill canvas width with just 2 percent transparent margin, button remains entirely in frame. Output a wide landscape PNG, a compact control button, width-to-height 4:1, pale cyan slim indicator notch at left, dark steel-blue face, fine machined edge, subtle symmetrical pairs of rivets at far ends. No prominent decorative motif.",
+      "output": "LaffeySpire2/images/patchwork/button_flip.png",
+      "region": [
+        27,
+        103,
+        2118,
+        495
+      ]
+    },
+    {
+      "name": "confirm",
+      "prompt": "Use case: stylized-concept. Generate ONE game UI pushbutton asset, matching the attached reference's brushed silver titanium and dark navy electronic assembly workbench materials, clean orthographic directly overhead view, soft laboratory light, restrained cyan accents. Transparent outside, opaque dark navy button face. Horizontal rounded rectangle with softly chamfered corners, thin polished silver bezel, shallow physical raised tactile button, precise refined painted game prop details. Empty central label area completely clear for translated live text; NO letters, NO numbers, NO words, NO character portrait, NO large symbols. A tiny hardware detail at each far end is enough. Fill canvas width with just 2 percent transparent margin, button remains entirely in frame. Output a wide landscape PNG, a primary installation control button, width-to-height 7:1, luminous cyan narrow accent along inner bezel, dark midnight blue face, two tiny cyan status indicators inset at the far ends. Strong readable dark center, clean professional hardware control.",
+      "output": "LaffeySpire2/images/patchwork/button_confirm.png",
+      "region": [
+        10,
+        117,
+        2152,
+        455
+      ]
+    },
+    {
+      "name": "close",
+      "prompt": "Use case: stylized-concept. Generate ONE game UI pushbutton asset, matching the attached reference's brushed silver titanium and dark navy electronic assembly workbench materials, clean orthographic directly overhead view, soft laboratory light, restrained cyan accents. Transparent outside, opaque dark navy button face. Horizontal rounded rectangle with softly chamfered corners, thin polished silver bezel, shallow physical raised tactile button, precise refined painted game prop details. Empty central label area completely clear for translated live text; NO letters, NO numbers, NO words, NO character portrait, NO large symbols. A tiny hardware detail at each far end is enough. Fill canvas width with just 2 percent transparent margin, button remains entirely in frame. Output a wide landscape PNG, a secondary console close control button, width-to-height 7:1, quieter muted ice-blue silver bezel, dark slate navy face, two tiny neutral silver status notches inset at far ends. Clean professional hardware control.",
+      "output": "LaffeySpire2/images/patchwork/button_close.png",
+      "region": [
+        17,
+        123,
+        2139,
+        439
+      ]
+    }
+  ]
+}

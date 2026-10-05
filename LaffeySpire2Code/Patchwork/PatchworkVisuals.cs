@@ -123,4 +123,33 @@ public static class PatchworkVisuals
 		button.AddThemeColorOverride("font_disabled_color", new Color("627588"));
 		button.AddThemeFontSizeOverride("font_size", 18);
 	}
+	public static void StyleAssemblyButton(Button button)
+	{
+		NinePatchRect art = button.GetNode<NinePatchRect>("Art");
+		void FitArt()
+		{
+			float scale = button.Size.Y / art.Texture.GetHeight();
+			art.Scale = Vector2.One * scale;
+			art.Size = button.Size / scale;
+		}
+		button.Resized += FitArt;
+		FitArt();
+		foreach (string state in new[] { "normal", "hover", "pressed", "disabled" })
+			button.AddThemeStyleboxOverride(state, new StyleBoxEmpty
+			{
+				ContentMarginLeft = 12, ContentMarginRight = 12,
+				ContentMarginTop = 8, ContentMarginBottom = 8
+			});
+		button.AddThemeStyleboxOverride("focus", Panel(Colors.Transparent, Amber, 6));
+		button.AddThemeColorOverride("font_color", new Color("edf7ff"));
+		button.AddThemeColorOverride("font_hover_color", Colors.White);
+		button.AddThemeColorOverride("font_pressed_color", Cyan);
+		button.AddThemeColorOverride("font_disabled_color", new Color("8d9eac"));
+		button.AddThemeColorOverride("font_outline_color", new Color("07121f"));
+		button.AddThemeConstantOverride("outline_size", 2);
+		button.AddThemeFontSizeOverride("font_size", 18);
+		button.Draw += () => art.Modulate = button.Disabled ? new Color(0.48f, 0.52f, 0.58f) :
+			button.IsPressed() ? new Color(0.7f, 0.87f, 1f) :
+			button.IsHovered() || button.HasFocus() ? new Color(1.12f, 1.16f, 1.2f) : Colors.White;
+	}
 }

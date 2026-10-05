@@ -10,17 +10,21 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Multiplayer.Game;
+using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using STS2RitsuLib.Networking.ManagedActions;
+using STS2RitsuLib.Screens;
 
 namespace LaffeySpire2.LaffeySpire2Code.Patchwork;
 
-public sealed record PatchworkActionPayload(int Kind, int PieceId, int X, int Y, int Rotation, bool Flipped, int AncientChoice,
+public sealed record PatchworkActionPayload(int Kind, int PieceId, int X, int Y, int Rotation, bool Flipped,
 	int PlacementIndex = -1, PatchworkPlacement? OriginalPlacement = null, string? ShopId = null);
 
 public static class PatchworkActions
 {
+	private static readonly HashSet<Player> ChoosingAncient = [];
+	public static bool IsChoosingAncient(Player player) => ChoosingAncient.Contains(player);
 	private static readonly RitsuLibManagedNetActionDescriptor<PatchworkActionPayload> Descriptor = new(
 		MainFile.ModId,
 		"patchwork_place_or_buy",
@@ -31,19 +35,19 @@ public static class PatchworkActions
 
 	public static void Register() => RitsuLibManagedNetActions.Register(Descriptor);
 
-	public static bool RequestPlacement(Player player, PatchworkPlacement placement, int ancientChoice) =>
+	public static bool RequestPlacement(Player player, PatchworkPlacement placement) =>
 		RitsuLibManagedNetActions.Request(RunManager.Instance, Descriptor,
 			new PatchworkActionPayload(0, placement.PieceId, placement.X, placement.Y,
-				placement.Rotation, placement.Flipped, ancientChoice), player.NetId);
+				placement.Rotation, placement.Flipped), player.NetId);
 
 	public static bool RequestShopPurchase(Player player, string shopKey) =>
 		RitsuLibManagedNetActions.Request(RunManager.Instance, Descriptor,
-			new PatchworkActionPayload(1, 0, 0, 0, 0, false, 0, ShopId: shopKey), player.NetId);
+			new PatchworkActionPayload(1, 0, 0, 0, 0, false, ShopId: shopKey), player.NetId);
 
-	public static bool RequestMove(Player player, PatchworkPlacement placement, int index, PatchworkPlacement original, int ancientChoice) =>
+	public static bool RequestMove(Player player, PatchworkPlacement placement, int index, PatchworkPlacement original) =>
 		RitsuLibManagedNetActions.Request(RunManager.Instance, Descriptor,
 			new PatchworkActionPayload(2, placement.PieceId, placement.X, placement.Y, placement.Rotation,
-				placement.Flipped, ancientChoice, index, PatchworkBoard.Copy(original)), player.NetId);
+				placement.Flipped, index, PatchworkBoard.Copy(original)), player.NetId);
 
 	public static string ShopKey(Player player) =>
 		$"{player.RunState.CurrentActIndex}:{player.RunState.ActFloor}";
@@ -58,7 +62,7 @@ public static class PatchworkActions
 			await Purchase(player, context.Message.ShopId);
 			return;
 		}
-		if (context.Message.Kind is not (0 or 2) || !PatchworkAccess.CanUse)
+		if (context.Message.Kind is not (0 or 2) || !PatchworkAccess.CanUseFor(player))
 			return;
 		PatchworkPlacement placement = new()
 		{
@@ -75,48 +79,63 @@ public static class PatchworkActions
 		List<int> squares = PatchworkBoard.NewSquares(state, placement, movingIndex);
 		if (!PatchworkBoard.CanPlace(state, placement, movingIndex))
 			return;
-		if (squares.Contains(8) && !ValidAncientChoice(player, context.Message.AncientChoice))
-			return;
-		bool applied = false;
-		PatchworkBoard.Modify(player, save => applied = PatchworkBoard.TryApply(save, placement, out squares,
-			movingIndex, context.Message.OriginalPlacement));
-		if (!applied) return;
-		foreach (int size in squares)
+		bool reopen = false;
+		try
 		{
-			if (size == 7)
+			RelicModel? ancient = null;
+			if (squares.Contains(8))
 			{
-				for (int index = 0; index < PatchworkBalance.RareRelicCount; index++)
-					await RelicCmd.Obtain(RelicFactory.PullNextRelicFromFront(player, RelicRarity.Rare).ToMutable(), player);
+				List<RelicModel> options = AncientOptions(player);
+				if (options.Count > 1)
+				{
+					ChoosingAncient.Add(player);
+					if (LocalContext.IsMe(player) && RunManager.Instance.NetService.Type != NetGameType.Replay)
+					{
+						reopen = ModScreenService.CurrentCapstoneScreen is PatchworkScreen;
+						if (reopen) ModScreenService.Close();
+						NMapScreen.Instance?.Close(animateOut: false);
+					}
+					ancient = await RelicSelectCmd.FromChooseARelicScreen(player, options);
+					if (ancient == null) return;
+				}
+				else if (options.Count == 1) ancient = options[0];
 			}
-			else if (size == 8)
-				await GrantAncient(player, context.Message.AncientChoice);
+			if (!ReferenceEquals(RunManager.Instance.DebugOnlyGetState(), player.RunState) || !PatchworkAccess.CanUse) return;
+			bool applied = false;
+			PatchworkBoard.Modify(player, save => applied = PatchworkBoard.TryApply(save, placement, out squares,
+				movingIndex, context.Message.OriginalPlacement));
+			if (!applied) return;
+			foreach (int size in squares)
+			{
+				if (size == 7)
+					for (int index = 0; index < PatchworkBalance.RareRelicCount; index++)
+						await RelicCmd.Obtain(RelicFactory.PullNextRelicFromFront(player, RelicRarity.Rare).ToMutable(), player);
+				if (size == 8 && ancient != null) await RelicCmd.Obtain(ancient, player);
+			}
+		}
+		finally
+		{
+			ChoosingAncient.Remove(player);
+			if (reopen && ReferenceEquals(RunManager.Instance.DebugOnlyGetState(), player.RunState) && PatchworkAccess.CanUse &&
+				ModScreenService.CurrentCapstoneScreen == null)
+				ModScreenService.Open(PatchworkScreen.Create(player));
 		}
 	}
 
-	private static bool ValidAncientChoice(Player player, int choice)
+	private static List<RelicModel> AncientOptions(Player player)
 	{
-		bool tooth = player.GetRelic<ArchaicTooth>() != null;
-		bool touch = player.GetRelic<TouchOfOrobas>() != null;
-		return (tooth && touch && choice == 0)
-			|| (tooth && !touch && choice == 2)
-			|| (!tooth && touch && choice == 1)
-			|| (!tooth && !touch && choice is 1 or 2);
-	}
-
-	private static async Task GrantAncient(Player player, int choice)
-	{
-		if (choice == 1 && player.GetRelic<ArchaicTooth>() == null)
+		List<RelicModel> options = [];
+		if (player.GetRelic<ArchaicTooth>() == null)
 		{
 			ArchaicTooth tooth = (ArchaicTooth)ModelDb.Relic<ArchaicTooth>().ToMutable();
-			tooth.SetupForPlayer(player);
-			await RelicCmd.Obtain(tooth, player);
+			tooth.SetupForPlayer(player); options.Add(tooth);
 		}
-		if (choice == 2 && player.GetRelic<TouchOfOrobas>() == null)
+		if (player.GetRelic<TouchOfOrobas>() == null)
 		{
 			TouchOfOrobas touch = (TouchOfOrobas)ModelDb.Relic<TouchOfOrobas>().ToMutable();
-			touch.SetupForPlayer(player);
-			await RelicCmd.Obtain(touch, player);
+			touch.SetupForPlayer(player); options.Add(touch);
 		}
+		return options;
 	}
 
 	private static async Task Purchase(Player player, string? shopId)

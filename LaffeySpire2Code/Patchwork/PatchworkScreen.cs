@@ -2,7 +2,6 @@ using Godot;
 using LaffeySpire2.LaffeySpire2Code.Characters;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Screens.Capstones;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Screens;
@@ -15,7 +14,7 @@ public sealed class PatchworkTopBarButton : IModTopBarButtonHandler
 {
 	public void OnClick(ModTopBarButtonContext context)
 	{
-		if (context.Player is not { Character: LaffeyCharacter } player || !PatchworkAccess.CanUse)
+		if (context.Player is not { Character: LaffeyCharacter } player || !PatchworkAccess.CanUseFor(player))
 			return;
 		if (ModScreenService.CurrentCapstoneScreen is PatchworkScreen)
 			context.CloseCapstoneScreen();
@@ -25,7 +24,7 @@ public sealed class PatchworkTopBarButton : IModTopBarButtonHandler
 
 	public bool IsVisible(ModTopBarButtonContext context) =>
 		context.Player is { Character: LaffeyCharacter } player &&
-		PatchworkAccess.CanUse;
+		PatchworkAccess.CanUseFor(player);
 
 	public bool IsOpen(ModTopBarButtonContext context) =>
 		ModScreenService.CurrentCapstoneScreen is PatchworkScreen;
@@ -63,13 +62,13 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	private Control _rewards = null!;
 	private Label _status = null!, _selected = null!, _inventory = null!;
 	private Button _confirm = null!, _close = null!;
-	private OptionButton _ancientChoice = null!;
 	private readonly Dictionary<int, (PanelContainer Row, PatchworkRewardLed Led, Label State)> _rewardRows = [];
 	private int _selectedPiece = -1, _rotation, _x, _y;
 	private bool _flipped, _pending;
 	private int _movingIndex = -1;
 	private PatchworkPlacement? _originalPlacement;
 	private bool _dragging, _dragStarted, _pointerOnBoard;
+	private bool _cancelledPointerPress;
 	private Vector2 _dragStart;
 	private Vector2I _grabCell, _dragStartAnchor;
 	private double _pollSeconds, _pendingSeconds;
@@ -122,21 +121,15 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 		_inventory = _workspace.GetNode<Label>("InventoryPanel/Heading");
 		_confirm = _workspace.GetNode<Button>("Confirm");
 		_close = _workspace.GetNode<Button>("Close");
-		_ancientChoice = _workspace.GetNode<OptionButton>("InventoryPanel/AncientChoice");
 		Localize(_workspace);
-		_workspace.GetNode<Panel>("InventoryPanel").AddThemeStyleboxOverride("panel",
-			PatchworkVisuals.Panel(new Color(0.026f, 0.053f, 0.081f, 0.92f), new Color("536777"), 5));
+		_workspace.GetNode<Panel>("InventoryPanel").AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
 		_workspace.GetNode<Panel>("RewardsPanel").AddThemeStyleboxOverride("panel", new StyleBoxEmpty());
 		foreach (string path in new[] { "Confirm", "Close", "InventoryPanel/Rotate", "InventoryPanel/Flip" })
-			PatchworkVisuals.StyleButton(_workspace.GetNode<Button>(path));
-		PatchworkVisuals.StyleButton(_ancientChoice);
+			PatchworkVisuals.StyleAssemblyButton(_workspace.GetNode<Button>(path));
 		_board.AnchorChanged += (x, y) => { _x = x; _y = y; Refresh(); };
 		_board.PointerPressed += BoardPointerPressed;
 		_workspace.GetNode<Button>("InventoryPanel/Rotate").Pressed += () => { _rotation = (_rotation + 1) % 4; Refresh(); };
 		_workspace.GetNode<Button>("InventoryPanel/Flip").Pressed += () => { _flipped = !_flipped; Refresh(); };
-		_ancientChoice.AddItem(PreviewMode ? "Archaic Tooth" : MegaCrit.Sts2.Core.Models.ModelDb.Relic<ArchaicTooth>().Title.GetFormattedText(), 1);
-		_ancientChoice.AddItem(PreviewMode ? "Touch of Orobas" : MegaCrit.Sts2.Core.Models.ModelDb.Relic<TouchOfOrobas>().Title.GetFormattedText(), 2);
-		_ancientChoice.Select(0);
 		_confirm.Pressed += Confirm;
 		_close.Pressed += () => { if (PreviewMode) GetTree().Quit(); else ModScreenService.Close(); };
 		CreateRewardRows();
@@ -238,6 +231,19 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	}
 	public override void _Input(InputEvent input)
 	{
+		if (_cancelledPointerPress && input is InputEventMouseButton { ButtonIndex: MouseButton.Left } left)
+		{
+			if (left.Pressed) _cancelledPointerPress = false;
+			else Callable.From(() => _cancelledPointerPress = false).CallDeferred();
+		}
+		if (_selectedPiece >= 0 && input is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Right })
+		{
+			_cancelledPointerPress = _dragging;
+			_selectedPiece = -1; _movingIndex = -1; _originalPlacement = null;
+			_rotation = 0; _flipped = false; _dragging = false; _dragStarted = false; _pointerOnBoard = false;
+			_dragGhost.Visible = false;
+			Refresh(); GetViewport().SetInputAsHandled(); return;
+		}
 		if (!_dragging) return;
 		if (input is InputEventKey { Pressed: true, Keycode: Key.Escape })
 		{
@@ -279,12 +285,14 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 	}
 	public override void _Notification(int what)
 	{
-		if (what == NotificationApplicationFocusOut && _dragging) EndDrag(false);
+		if (what != NotificationApplicationFocusOut) return;
+		_cancelledPointerPress = false;
+		if (_dragging) EndDrag(false);
 	}
 	public override void _Process(double delta)
 	{
 		if (_board == null) return;
-		if (!PreviewMode && !PatchworkAccess.CanUse) { ModScreenService.Close(); return; }
+		if (!PreviewMode && !PatchworkAccess.CanUseFor(_player)) { ModScreenService.Close(); return; }
 		if (_pending)
 		{
 			_pendingSeconds += delta;
@@ -326,7 +334,7 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 				PatchworkPieceView thumbnail = new() { Position = new Vector2(10, 7), Size = new Vector2(86, 76), MouseFilter = MouseFilterEnum.Ignore };
 				thumbnail.ShowPiece(id); button.AddChild(thumbnail);
 				button.SetMeta("piece", id);
-				button.Pressed += () => { if (_pending || _dragging) return; SelectInventory(pieceId); };
+				button.Pressed += () => { if (_pending || _dragging || _cancelledPointerPress) return; SelectInventory(pieceId); };
 				button.GuiInput += input =>
 				{
 					if (input is not InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } || _pending) return;
@@ -356,8 +364,6 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 			}
 		List<int> squares = valid ? PatchworkBoard.NewSquares(state, placement, _movingIndex) : [];
 		_wiring.Present(state.ClaimedSquares, squares);
-		_ancientChoice.Visible = squares.Contains(8) && !PreviewMode && _player.GetRelic<ArchaicTooth>() == null && _player.GetRelic<TouchOfOrobas>() == null;
-		_ancientChoice.Disabled = _pending;
 		_confirm.Disabled = !valid || _pending || _dragging ||
 			(_movingIndex >= 0 && PatchworkBoard.Matches(placement, _originalPlacement!));
 		_confirm.Text = Text(_movingIndex >= 0 ? "CONFIRM_MOVE" : "CONFIRM");
@@ -388,17 +394,11 @@ public sealed partial class PatchworkScreen : Control, ICapstoneScreen
 			Refresh();
 			return;
 		}
-		int choice = 0;
-		if (PatchworkBoard.NewSquares(state, placement, _movingIndex).Contains(8))
-		{
-			bool tooth = _player.GetRelic<ArchaicTooth>() != null, touch = _player.GetRelic<TouchOfOrobas>() != null;
-			choice = tooth && touch ? 0 : tooth ? 2 : touch ? 1 : _ancientChoice.GetSelectedId();
-		}
 		string before = StateKey(state);
-		if (!PatchworkAccess.CanUse) return;
+		if (!PatchworkAccess.CanUseFor(_player)) return;
 		bool requested = _movingIndex >= 0
-			? PatchworkActions.RequestMove(_player, placement, _movingIndex, _originalPlacement!, choice)
-			: PatchworkActions.RequestPlacement(_player, placement, choice);
+			? PatchworkActions.RequestMove(_player, placement, _movingIndex, _originalPlacement!)
+			: PatchworkActions.RequestPlacement(_player, placement);
 		if (requested)
 		{
 			_pending = StateKey(BoardState) == before;

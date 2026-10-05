@@ -29,7 +29,7 @@ public sealed class PatchworkShopPatch : IPatchMethod
 			.Instantiate<PatchworkMerchantSlot>();
 		slot.SetEntry(entry);
 		Control removal = __instance.GetNode<Control>("%MerchantCardRemoval");
-		slot.Position = removal.Position + new Vector2(-35, 255);
+		slot.Position = removal.Position + new Vector2(-115, 220);
 		slots.AddChild(slot);
 	}
 	[HarmonyPostfix]
