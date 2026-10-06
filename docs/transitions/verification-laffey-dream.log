@@ -1,0 +1,32 @@
+laffey_dream_transition.png : 1920x1080; original=1672x941; uniform_scale=1.14832535885167; destination={X=0,Y=-0.28710938,Width=1920,Height=1080.5742}
+laffey_sleep_transition.png : 1920x1080; original=1672x941; uniform_scale=1.14832535885167; destination={X=0,Y=-0.28710938,Width=1920,Height=1080.5742}
+  LaffeySpire2 -> D:\GitClone\LaffeySpire2\.godot\mono\temp\bin\Debug\LaffeySpire2.dll
+  Copying .dll and manifest to mods folder.
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:02.57
+Godot Engine v4.5.1.stable.mono.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 577.05 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+PASS_TIMELINE: authored AnimationPlayer 4.5s; full-screen 1920x1080 textures; transparent opening; opaque black ending; ten phase captures
+PASS_SCREEN_UV: official -320/-60 oversized rectangle preserves image framing
+Godot Engine v4.5.1.stable.mono.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 577.05 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+PASS_ASPECT: 16:10 and ultrawide 21:9; proportional screen-space cover; official oversized rectangle; no uncovered edges
+Godot Engine v4.5.1.stable.mono.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 577.05 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+SentryGodotInitializer: Sentry GDExtension not loaded in this process; skipping. If you see this in a running game (not during project export or IDE script analysis), check Godot's log for extension load failures.
+[1m[38;2;118;255;86m[INFO][39m[22m Registered 22 migrations[38;2;96;96;96m line 0:RegisterAllMigrations() in [39m[0m
+[1m[38;2;118;255;86m[INFO][39m[22m Current save versions: PrefsSave v2; ProfileSave v2; SerializableProgress v24; RunHistory v10; SerializableRun v20; SettingsSave v8[38;2;96;96;96m line 0:DeriveAndSetLatestVersions() in [39m[0m
+PASS_RUNTIME: exact 4.5s duration for shorter/longer requests; real Harmony-patched official NTransition; normal completion; Instant; cancellation; invalid durations; foreign materials; input lock; success/failure visibility restoration; in-memory preferences only
+Godot Engine v4.5.1.stable.mono.official.f62fdbde1 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 577.05 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+PASS_RECORD: 91 renderer frames, 20fps, 4.5s
+PREVIEW: D:\GitClone\LaffeySpire2\docs\transitions\laffey-dream-preview.gif; 90 frames; 720x405; 20fps; 13096243 bytes
+PASS_PREVIEW_DURATION: 4500ms including opaque black final frame

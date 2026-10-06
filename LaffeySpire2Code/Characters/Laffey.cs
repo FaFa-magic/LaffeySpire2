@@ -45,7 +45,7 @@ public class LaffeyCharacter : ModCharacterTemplate<LaffeyCardPool, LaffeyRelicP
 				CharacterSelectBgPath: "res://LaffeySpire2/scenes/characters/char_select_bg_Laffey.tscn",
 				CharacterSelectIconPath: "res://LaffeySpire2/images/characters/char_select_laffey.png",
 				CharacterSelectLockedIconPath: "res://LaffeySpire2/images/characters/char_select_laffey_locked.png",
-				CharacterSelectTransitionPath: "res://materials/transitions/laffey_spire2_character_laffey_character_transition_mat.tres",
+				CharacterSelectTransitionPath: "res://LaffeySpire2/materials/laffey_dream_transition_mat.tres",
 				MapMarkerPath: "res://LaffeySpire2/images/characters/map_marker_laffey.png"
 			),
 			Vfx: new(

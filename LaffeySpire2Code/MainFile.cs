@@ -35,6 +35,7 @@ public static class MainFile
 		PatchworkActions.Register();
 
 		ModPatcher patcher = RitsuLibFramework.CreatePatcher(ModId, "laffey_patches");
+		patcher.RegisterPatch<LaffeyDreamTransitionPatch>();
 		patcher.RegisterPatch<LaffeySkinEnumerationPatch>();
 		patcher.RegisterPatch<LaffeySkinCardLibrarySelectionPatch>();
 		patcher.RegisterPatch<LaffeySharedProgressionLookupPatch>();
@@ -48,6 +49,15 @@ public static class MainFile
 		patcher.RegisterPatch<LaffeyQualityInspectorContextPatch>();
 		patcher.RegisterPatch<LaffeyQualityLibraryPatch>();
 		patcher.RegisterPatch<LaffeyQualityInspectorPatch>();
+		patcher.RegisterPatch<SolomonSeaRunPatch>();
+		patcher.RegisterPatch<SolomonSeaActLoadPatch>();
+		patcher.RegisterPatch<SolomonSeaActSerializePatch>();
+		patcher.RegisterPatch<SolomonSeaMapPatch>();
+		patcher.RegisterPatch<SolomonSeaMapRestorePatch>();
+		patcher.RegisterPatch<SolomonSeaFloorCountPatch>();
+		patcher.RegisterPatch<SolomonSeaTreasureRoomPatch>();
+		patcher.RegisterPatch<SolomonSeaRestSiteActIndexPatch>();
+		patcher.RegisterPatch<SolomonSeaRestSiteReadyPatch>();
 		patcher.RegisterPatch<PatchworkCombatStartPatch>();
 		patcher.RegisterPatch<PatchworkRewardPatch>();
 		patcher.RegisterPatch<PatchworkDrawPatch>();

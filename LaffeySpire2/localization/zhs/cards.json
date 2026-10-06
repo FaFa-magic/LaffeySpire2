@@ -1,6 +1,6 @@
 {
   "LAFFEY_SPIRE2_CARD_BARRAGE.title": "弹幕",
-  "LAFFEY_SPIRE2_CARD_BARRAGE.description": "随机对敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。",
+  "LAFFEY_SPIRE2_CARD_BARRAGE.description": "可重复升级。\n随机对敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。",
   "LAFFEY_SPIRE2_CARD_DEFEND.title": "防御",
   "LAFFEY_SPIRE2_CARD_DEFEND.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
   "LAFFEY_SPIRE2_CARD_STRIKE.title": "打击",

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl0htupdlr33w"]
+
+[ext_resource type="Texture2D" uid="uid://c56swdl2ch6dx" path="res://LaffeySpire2/images/characters/char_select_bg_laffey.jpg" id="1_6hb62"]
+
+[node name="CharSelectBgLaffey" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -523.0
+offset_right = 961.0
+offset_bottom = 550.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1280, 600)
+
+[node name="CharSelectBgLaffey" type="Sprite2D" parent="."]
+position = Vector2(969.99994, 528)
+rotation = 1.5707964
+scale = Vector2(1.97, 1.97)
+texture = ExtResource("1_6hb62")

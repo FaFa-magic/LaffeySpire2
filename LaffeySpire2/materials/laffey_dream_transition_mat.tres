@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3]
+
+[ext_resource type="Shader" path="res://LaffeySpire2/shaders/transitions/laffey_dream_transition.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/transitions/laffey_sleep_transition.png" id="2_sleep"]
+[ext_resource type="Texture2D" path="res://LaffeySpire2/images/transitions/laffey_dream_transition.png" id="3_dream"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_shader")
+shader_parameter/threshold = 0.0
+shader_parameter/sleep_tex = ExtResource("2_sleep")
+shader_parameter/dream_tex = ExtResource("3_dream")

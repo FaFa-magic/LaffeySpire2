@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b88q3f3tgk8xs"
-path="res://.godot/imported/nagato_transition.png-39d9f6571614b7a5585f0d0bd2381ea9.ctex"
+uid="uid://fdgxaqc8ow5a"
+path="res://.godot/imported/laffey_sleep_transition.png-1a956866e263fba8505a7d457b9d49f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/transitions/nagato_transition.png"
-dest_files=["res://.godot/imported/nagato_transition.png-39d9f6571614b7a5585f0d0bd2381ea9.ctex"]
+source_file="res://LaffeySpire2/images/transitions/laffey_sleep_transition.png"
+dest_files=["res://.godot/imported/laffey_sleep_transition.png-1a956866e263fba8505a7d457b9d49f7.ctex"]
 
 [params]
 
