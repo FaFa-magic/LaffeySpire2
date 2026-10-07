@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4swnjujcqm85"
-path="res://.godot/imported/char_select_bg_laffey.jpg-3d2eff6e735400573be857b2178aa430.ctex"
+uid="uid://7myeuumqwgn6"
+path="res://.godot/imported/HuggyPillowOfBravery.png-0fcf2d9617eaf4e55aa8436f5acd637c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/char_select_bg_laffey.jpg"
-dest_files=["res://.godot/imported/char_select_bg_laffey.jpg-3d2eff6e735400573be857b2178aa430.ctex"]
+source_file="res://LaffeySpire2/images/relics/big/HuggyPillowOfBravery.png"
+dest_files=["res://.godot/imported/HuggyPillowOfBravery.png-0fcf2d9617eaf4e55aa8436f5acd637c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4swnjujcqm85"
-path="res://.godot/imported/char_select_bg_laffey.jpg-3d2eff6e735400573be857b2178aa430.ctex"
+uid="uid://b1fth51vavejj"
+path="res://.godot/imported/LaffeyPillow.png-154b9135923ffa892c37ac320a3564b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LaffeySpire2/images/characters/char_select_bg_laffey.jpg"
-dest_files=["res://.godot/imported/char_select_bg_laffey.jpg-3d2eff6e735400573be857b2178aa430.ctex"]
+source_file="res://LaffeySpire2/images/relics/big/LaffeyPillow.png"
+dest_files=["res://.godot/imported/LaffeyPillow.png-154b9135923ffa892c37ac320a3564b2.ctex"]
 
 [params]
 
